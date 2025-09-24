@@ -1,0 +1,49 @@
+{
+  "name": "innodrive-web",
+  "version": "0.0.1",
+  "description": "innodrive.ai a driving assistant platform",
+  "productName": "Innodrive Web",
+  "author": "Rara Widya Paramartha Hapsari",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "build": "quasar build"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.17",
+    "axios": "^1.8.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "leaflet": "^1.9.4",
+    "nodemailer": "^6.10.0",
+    "quasar": "^2.17.4",
+    "vue": "^3.4.18",
+    "vue-recaptcha": "^3.0.0-alpha.6",
+    "vue-recaptcha-v3": "^2.0.1",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^1.9.0",
+    "@types/leaflet": "^1.9.16",
+    "@types/node": "^20.14.8",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "prettier": "^2.5.1",
+    "typescript": "~5.5.4",
+    "vite-plugin-checker": "^0.8.0",
+    "vue-tsc": "^2.0.29"
+  },
+  "engines": {
+    "node": "^20 || ^18 || ^16",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

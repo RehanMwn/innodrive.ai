@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+    ports:
+      - '8080:80'
+    depends_on:
+      - backend
+    restart: always
+
+  backend:
+    build:
+      context: ./backend # Hanya gunakan folder backend
+      dockerfile: Dockerfile # Pastikan Dockerfile berada di dalam backend/
+    working_dir: /app # Menentukan folder kerja di dalam container
+    volumes:
+      - ./backend:/app # Mount backend ke dalam /app
+      - /app/node_modules # Mencegah node_modules container tertimpa oleh host
+    ports:
+      - '3000:3000'
+    restart: always
