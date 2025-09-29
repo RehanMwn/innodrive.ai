@@ -1,39 +1,29 @@
 <template>
-  <div class="col-12">
-    <q-img
-      :src="
-        $q.screen.gt.md
-          ? 'assets/imageDekstop/featureImageAbout.png'
-          : 'assets/imageMobile/featureImageAbout.png'
-      "
-      style="width: 100%; height: auto"
-      background-size="cover"
+  <div class="bg-white full-width flex flex-center"
+       style="height: calc(92vh - 20px)">
+    <div
+      class="text-center myFont q-px-md"
+      style="max-width: 900px"
     >
+      <!-- Headline -->
       <div
-        class="absolute-full flex justify-start items-center"
-        style="background: rgba(0, 0, 0, 0.1)"
-      >
-        <div
-          class="text-left myFont"
-          style="max-width: 1000px; padding-left: 8vw"
-        >
-          <div
-            :class="{
-              'text-h2 text-bold q-pb-lg': $q.screen.gt.sm,
-              'text-h5 text-bold q-pb-lg': !$q.screen.gt.sm,
-            }"
-            v-html="taglineAboutText"
-          />
-          <div
-            :class="{
-              'text-h6': $q.screen.gt.sm,
-              'text-caption': !$q.screen.gt.sm,
-            }"
-            v-html="aboutShortDescriptionText"
-          />
-        </div>
-      </div>
-    </q-img>
+        :class="{
+          'text-h2 text-bold q-mb-md': $q.screen.gt.sm,
+          'text-h5 text-bold q-mb-sm': !$q.screen.gt.sm,
+        }"
+        v-html="taglineAboutText"
+      />
+
+      <!-- Sub text -->
+      <div
+        :class="{
+          'text-h6': $q.screen.gt.sm,
+          'text-subtitle2': !$q.screen.gt.sm,
+        }"
+        style="color: #1d2939"
+        v-html="aboutShortDescriptionText"
+      />
+    </div>
   </div>
 </template>
 

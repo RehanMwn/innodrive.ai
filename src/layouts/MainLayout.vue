@@ -89,7 +89,7 @@
                       </q-list>
                     </q-btn-dropdown>
                   </div>
-                  
+
                 </template>
                 <!-- Tombol Contact Us -->
                 <!-- <q-btn
@@ -152,12 +152,13 @@
     <q-page-container class="merge-content">
       <router-view />
     </q-page-container>
-
+    <PraFooterComponent style="position: relative; width: 100%" />  
     <FooterComponent style="position: relative; width: 100%" />
   </q-layout>
 </template>
 
 <script setup lang="ts">
+import PraFooterComponent from '/src/components/PraFooterComponent.vue';
 import FooterComponent from '/src/components/FooterComponent.vue';
 // import ServiceForm from '../components/ServiceForm.vue';
 import { useRouter } from 'vue-router';

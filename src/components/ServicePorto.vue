@@ -1,6 +1,7 @@
 <template>
   <div
-    class="container-custom col-12 col-md-8 bg-black text-white myFont q-pa-md"
+    class="container-custom col-12 col-md-8 text-white myFont q-pa-md"
+    style="background: linear-gradient(to top, #0C111D, #1D2939);"
     :style="{
       borderRadius: '20px',
       width: $q.screen.gt.sm ? '80%' : '90%',
@@ -13,9 +14,9 @@
         class="row full-width justify-center text-bold q-mt-md"
         :class="$q.screen.gt.md ? 'text-h5' : 'text-h6'"
       >
-        What Sets
-        <div class="q-ml-sm gradient-text">Innodrive.ai</div>
-        <div class="q-ml-sm">Apart?</div>
+        Shaping Industries with
+        <div class="q-ml-sm gradient-text">Our</div>
+        <div class="q-ml-sm">Services</div>
       </div>
     </div>
     <div class="row justify-center q-mt-md q-px-sm">
@@ -55,7 +56,7 @@
         :class="$q.screen.lt.md ? 'text-center' : 'text-left'"
       >
         <div
-          class="text-bold"
+          class="text-bold gradient-text"
           :class="$q.screen.lt.md ? 'text-h5' : 'text-h3'"
           v-html="serviceMidText1"
         ></div>
@@ -82,7 +83,7 @@
       v-for="p in servicePortoCard"
       :key="p.id"
       class="col-12 col-md-5 q-pa-md q-ma-sm"
-      style="border-radius: 20px"
+      style="border-radius: 20px; background-color: #1d2939"
       :style="{
         maxWidth: $q.screen.lt.md ? '80%' : '500px',
         margin: $q.screen.lt.md ? '20px' : '80px 20px',
@@ -97,34 +98,35 @@
       <q-card-section class="row items-center">
         <div class="text-subtitle1 col">{{ p.description }}</div>
         <q-btn
-          class="ml-auto"
           round
-          flat
-          icon="arrow_forward"
+
           size="lg"
+          color="#B58F5B"
+          icon="arrow_forward"
           @click="$router.push(p.route)"
+          style="border: 2px solid #b58f5b"
         />
       </q-card-section>
     </q-card>
   </div>
 
-  <div
+  <!-- <div
     class="col-12 q-py-md myFont"
     style="background-image: linear-gradient(#1d2939, #0c111d)"
   >
-    <div class="row full-width justify-center items-center q-px-md">
+    <div class="row full-width justify-center items-center q-px-md"> -->
       <!-- Gambar di sebelah kiri pada desktop, atas pada mobile -->
-      <div class="col-12 col-md-5 flex flex-center">
+      <!-- <div class="col-12 col-md-5 flex flex-center">
         <q-img
           src="assets/imageDekstop/serviceFooter.png"
           fit="contain"
           class="full-width q-mb-md q-mb-md-md-none"
           style="max-width: 500px"
         />
-      </div>
+      </div> -->
 
       <!-- Teks di sebelah kanan pada desktop, bawah pada mobile -->
-      <div class="col-12 col-md-7 text-left text-white q-mt-md">
+      <!-- <div class="col-12 col-md-7 text-left text-white q-mt-md">
         <div
           class="text-md-h3 text-bold"
           :class="$q.screen.lt.md ? 'text-h5' : 'text-h3'"
@@ -145,14 +147,14 @@
           />
           <ServiceForm v-model="dialogVisible" />
         </div>
-      </div>
-    </div>
-  </div>
+      </div> -->
+    <!-- </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import ServiceForm from '../components/ServiceForm.vue';
+// import { ref } from 'vue';
+// import ServiceForm from '../components/ServiceForm.vue';
 import {
   serviceMidText1,
   serviceMidText2,
@@ -161,7 +163,7 @@ import {
   servicePortoCard,
 } from '../pages/ServicePage';
 
-const dialogVisible = ref(false);
+// const dialogVisible = ref(false);
 </script>
 
 <style>

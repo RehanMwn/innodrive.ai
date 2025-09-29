@@ -1,4 +1,4 @@
-export const taglineAboutText = 'Drive Smarter, Safer, <br/> With AI!';
+export const taglineAboutText = 'Digitize, Automate, Innovate: <span class="gradient-text">Smartest</span> Manufacturing Solutions';
 export const aboutShortDescriptionText =
   'Reflects our commitment at Innodrive.ai to transforming the driving experience through intelligent technology. Our AI powered driver assistance systems enhance  safety, comfort, and efficiency, offering real time support for a smoother, more secure journey.';
 

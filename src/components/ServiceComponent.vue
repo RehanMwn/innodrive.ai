@@ -3,8 +3,8 @@
     <q-img
       :src="
         $q.screen.gt.md
-          ? 'assets/imageDekstop/ourservice_banner.png'
-          : 'assets/imageMobile/ourservice_banner.png'
+          ? 'assets/imageDekstop/4.png'
+          : 'assets/imageDekstop/4.png'
       "
       :style="{
         height: $q.screen.gt.sm ? '100vh' : '60vh',

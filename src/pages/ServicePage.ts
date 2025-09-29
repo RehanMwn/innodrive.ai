@@ -1,9 +1,8 @@
 export const serviceTagline =
-  'Innovate, Build, Drive: AI-Powered Automotive Solutions';
+  'From digitization to automation, we drive innovation for smarter industries';
 export const serviceShortDescriptionText = `
-  At Innodrive.ai, <span class="gradient-text">we develop AI-driven automotive products</span>
-  from concept to completion, focusing on pioneering solutions that redefine mobility and
-  enhance driving experiences.
+  Our services empower industries to <span class="gradient-text">optimize performance, reduce complexity, and embrace</span>
+  the future of digital transformation.
 `;
 export const servicePortoTagline = 'Our Project with Another Company';
 export const descriptionProductCardText =
@@ -12,9 +11,9 @@ export const descriptionProductCardText2 =
   'InnoDash is designed to be your ultimate driving companion, providing comfort and peace of mind on every journey.';
 export const serviceMidText1 = 'Our Core Services';
 export const serviceMidText2 =
-  'Innovate, Build, Drive: AI-Powered Automotive Solutions';
+  'Digitize, Automate, Innovate: Smarter Industrial Solutions';
 export const serviceMidText3 =
-  'At Innodrive.ai, we develop AI-driven automotive products from concept to completion, focusing on pioneering solutions that redefine mobility and enhance driving experiences.';
+  'At Innodrive.ai, we deliver IoT-powered industrial automation systems that enhance efficiency, accuracy, and reliability, transforming complex processes into smarter, data-driven operations.';
 export const embeddedTagline =
   '<span class="gradient-text">Embedded</span> Automotive Products';
 export const embeddedSubTagline =
@@ -84,23 +83,23 @@ interface servicePortoItem {
 export const servicePortoCard: servicePortoItem[] = [
   {
     id: '1',
-    title: 'Embedded Automotive Products',
+    title: 'Industrial Automation Systems',
     description:
-      'We create intelligent systems that enhance vehicle performance, safety, and efficiency.',
+      'We build smart automation solutions that improve efficiency, accuracy, and reliability in industrial operations.',
     route: '/service-embedded',
   },
   {
     id: '2',
-    title: 'Autonomous Vehicle AI Solutions',
+    title: 'Automotive Technology',
     description:
-      'We design self-driving technologies that improve automation and road safety.',
+      'We develop digital automotive solutions that enhance diagnostics, monitoring, and overall driving performance.',
     route: '/service-autonomus',
   },
   {
     id: '3',
-    title: 'Advanced Telematics & IoT Integration',
+    title: 'IoT & Smart Systems',
     description:
-      'We develop real-time monitoring and connectivity solutions for smarter vehicle management.',
+      'We create IoT-enabled platforms that connect devices, streamline control, and enable smarter decision-making.',
     route: '/service-telematics',
   },
 ];
@@ -194,17 +193,17 @@ export const setsApartFeature: setsApart[] = [
   {
     id: '1',
     image: 'assets/imageDekstop/serviceIcon1.png',
-    description: 'End-to-End Development',
+    description: 'Industrial Automation Systems',
   },
   {
     id: '2',
     image: 'assets/imageDekstop/serviceIcon2.png',
-    description: 'Cutting-Edge AI Integration',
+    description: 'Automotive Technology',
   },
   {
     id: '3',
     image: 'assets/imageDekstop/serviceIcon3.png',
-    description: 'Customization & Scalability',
+    description: 'IoT & Smart Systems',
   },
 ];
 

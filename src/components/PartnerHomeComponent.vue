@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="row items-center justify-center q-col-gutter-xl">
+    <div class="row items-start justify-center q-col-gutter-xl">
       <div class="col-12 col-md-6">
         <div class="text-body1 text-grey-9 q-px-lg" style="max-width: 1000px; margin: auto;">
           <span class="text-orange text-weight-bold">
@@ -45,6 +45,4 @@ import { defineComponent } from 'vue';
 export default defineComponent({});
 </script>
 
-<style scoped>
 
-</style>

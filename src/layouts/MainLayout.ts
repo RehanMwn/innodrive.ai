@@ -1,6 +1,6 @@
 export const footerDescriptionText =
   'Innodrive.ai is an automotive startup focused on AI based driver assistance systems that enhance safety, comfort, and efficiency. Their solutions include adaptive cruise control, lane keeping assistance, and collision avoidance, catering to both consumers and manufacturers.';
-export const footerCopyRightText = 'Copyright@2024 Innodrive.ai';
+export const footerCopyRightText = 'Copyright@2025 Innodrive.ai';
 
 // export interface MenuItem {
 //   title: string;

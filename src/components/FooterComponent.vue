@@ -113,7 +113,7 @@
     </div>
   </div>
   <div
-    class="row q-py-sm text-white gradient-color text-subtitle2 flex justify-center items-center myFont"
+    class="row q-py-sm text-black gradient-color text-subtitle2 flex justify-center items-center myFont"
     v-html="footerCopyRightText"
   ></div>
 </template>
