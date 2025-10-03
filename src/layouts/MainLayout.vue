@@ -39,6 +39,131 @@
 
                   <!-- Dropdown untuk Products dengan hover -->
                   <div
+                    v-else-if="item.title === 'Products'"
+                    class="relative dropdown-container"
+                    @mouseover="openMenu[item.title] = true"
+                    @mouseleave="openMenu[item.title] = false"
+                  >
+                    <q-btn-dropdown
+                      flat
+                      dense
+                      class="text-white q-tab q-tab--full"
+                      dropdown-icon="keyboard_arrow_down"
+                      :label="item.title"
+                      v-model="openMenu[item.title]"
+                    >
+                      <q-list
+                        @mouseover="openMenu[item.title] = true"
+                        @mouseleave="openMenu[item.title] = false"
+                        style="
+                          min-width: 780px;
+                          max-width: 925px;
+                          padding: 20px;
+                        "
+                      >
+                        <div class="row q-col-gutter-md">
+                          <!-- Kolom Automation Systems -->
+                          <div class="col-12 col-md-4">
+                            <div class="text-bold text-subtitle1 q-mb-sm">
+                              Automation Systems
+                            </div>
+                            <q-item
+                              v-for="child in automationSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="q-mb-sm"
+                              style=""
+                            >
+                              <q-item-section avatar>
+                                <q-img
+                                  :src="child.icon"
+                                  style="
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: contain;
+                                  "
+                                />
+                              </q-item-section>
+                              <q-item-section>
+                                <div class="text-bold">{{ child.title }}</div>
+                                <div class="text-caption text-grey-5">
+                                  {{ child.desc }}
+                                </div>
+                              </q-item-section>
+                            </q-item>
+                          </div>
+
+                          <!-- Kolom Automotive -->
+                          <div class="col-12 col-md-4">
+                            <div class="text-bold text-subtitle1 q-mb-sm">
+                              Automotive
+                            </div>
+                            <q-item
+                              v-for="child in automotive"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="q-mb-sm"
+                            >
+                              <q-item-section avatar>
+                                <q-img
+                                  :src="child.icon"
+                                  style="
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: contain;
+                                  "
+                                />
+                              </q-item-section>
+                              <q-item-section>
+                                <div class="text-bold">{{ child.title }}</div>
+                                <div class="text-caption text-grey-5">
+                                  {{ child.desc }}
+                                </div>
+                              </q-item-section>
+                            </q-item>
+                          </div>
+
+                          <!-- Kolom Smart Systems -->
+                          <div class="col-12 col-md-4">
+                            <div class="text-bold text-subtitle1 q-mb-sm">
+                              Smart Systems
+                            </div>
+                            <q-item
+                              v-for="child in smartSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="q-mb-sm"
+                            >
+                              <q-item-section avatar>
+                                <q-img
+                                  :src="child.icon"
+                                  style="
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: contain;
+                                  "
+                                />
+                              </q-item-section>
+                              <q-item-section>
+                                <div class="text-bold">{{ child.title }}</div>
+                                <div class="text-caption text-grey-5">
+                                  {{ child.desc }}
+                                </div>
+                              </q-item-section>
+                            </q-item>
+                          </div>
+                        </div>
+                      </q-list>
+                    </q-btn-dropdown>
+                  </div>
+
+                  <div
                     v-else
                     class="relative dropdown-container"
                     @mouseover="openMenu[item.title] = true"
@@ -62,6 +187,7 @@
                           clickable
                           v-close-popup
                           @click="navigateTo(child.link)"
+                          class="company-hover"
                         >
                           <q-item-section avatar>
                             <q-img
@@ -89,7 +215,6 @@
                       </q-list>
                     </q-btn-dropdown>
                   </div>
-
                 </template>
                 <!-- Tombol Contact Us -->
                 <!-- <q-btn
@@ -109,18 +234,82 @@
               >
                 <q-list>
                   <template v-for="item in items" :key="item.title">
-                    <q-item
-                      v-if="!item.children"
-                      clickable
-                      v-close-popup
-                      @click="navigateTo(item.link)"
-                      class="text-white myFont bg-black"
-                    >
-                      <q-item-section>{{ item.title }}</q-item-section>
-                    </q-item>
-
+                    <!-- PRODUCTS megamenu for mobile, with subdropdowns inside Products -->
                     <q-expansion-item
-                      v-else
+                      v-if="item.title === 'Products'"
+                      expand-separator
+                      class="bg-black text-white"
+                    >
+                      <template v-slot:header>
+                        <q-item-section>{{ item.title }}</q-item-section>
+                      </template>
+                      <q-list>
+                        <q-expansion-item
+                          expand-separator
+                          class="bg-grey-10 text-white"
+                        >
+                          <template v-slot:header>
+                            <q-item-section>Automation Systems</q-item-section>
+                          </template>
+                          <q-list>
+                            <q-item
+                              v-for="child in automationSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="text-white myFont bg-grey"
+                            >
+                              <q-item-section>{{ child.title }}</q-item-section>
+                            </q-item>
+                          </q-list>
+                        </q-expansion-item>
+                        <q-expansion-item
+                          expand-separator
+                          class="bg-grey-10 text-white"
+                        >
+                          <template v-slot:header>
+                            <q-item-section>Automotive</q-item-section>
+                          </template>
+                          <q-list>
+                            <q-item
+                              v-for="child in automotive"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="text-white myFont bg-grey"
+                            >
+                              <q-item-section>{{ child.title }}</q-item-section>
+                            </q-item>
+                          </q-list>
+                        </q-expansion-item>
+                        <q-expansion-item
+                          expand-separator
+                          class="bg-grey-10 text-white"
+                        >
+                          <template v-slot:header>
+                            <q-item-section>Smart Systems</q-item-section>
+                          </template>
+                          <q-list>
+                            <q-item
+                              v-for="child in smartSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="text-white myFont bg-grey"
+                            >
+                              <q-item-section>{{ child.title }}</q-item-section>
+                            </q-item>
+                          </q-list>
+                        </q-expansion-item>
+                      </q-list>
+                    </q-expansion-item>
+
+                    <!-- Other dropdowns (Company, etc) -->
+                    <q-expansion-item
+                      v-else-if="item.children"
                       expand-separator
                       class="bg-black text-white"
                     >
@@ -140,6 +329,17 @@
                         </q-item>
                       </q-list>
                     </q-expansion-item>
+
+                    <!-- Normal menu item (no children) -->
+                    <q-item
+                      v-else
+                      clickable
+                      v-close-popup
+                      @click="navigateTo(item.link)"
+                      class="text-white myFont bg-black"
+                    >
+                      <q-item-section>{{ item.title }}</q-item-section>
+                    </q-item>
                   </template>
                 </q-list>
               </q-btn-dropdown>
@@ -152,7 +352,7 @@
     <q-page-container class="merge-content">
       <router-view />
     </q-page-container>
-    <PraFooterComponent style="position: relative; width: 100%" />  
+    <PraFooterComponent style="position: relative; width: 100%" />
     <FooterComponent style="position: relative; width: 100%" />
   </q-layout>
 </template>
@@ -178,19 +378,62 @@ const items = ref([
     children: [
       { title: 'About Us', link: '/about' },
       { title: 'Career', link: '/career' },
-      { title: 'Contact Us', link: '/contacts' },
+      { title: 'Contact Us', link: '/ContactUs' },
       { title: 'Partner', link: '/partner' },
     ],
   },
   {
     title: 'Products',
     children: [
-      { title: 'Dashboard', link: '/ProductDashboardPage' },
-      { title: 'Dynomax', link: '/ProductDynoPage' },
+      {
+        title: 'Dashboard',
+        link: '/ProductDashboardPage',
+        desc: 'Platform monitoring dan analitik untuk bisnis Anda.',
+      },
+      {
+        title: 'Dynomax',
+        link: '/ProductDynoPage',
+        desc: 'Solusi otomasi dan optimasi proses industri.',
+      },
+      {
+        title: 'SmartFleet',
+        link: '/ProductSmartFleetPage',
+        desc: 'Manajemen armada cerdas berbasis IoT.',
+      },
+      {
+        title: 'IoT Gateway',
+        link: '/ProductIoTGatewayPage',
+        desc: 'Perangkat penghubung data sensor ke cloud.',
+      },
+      {
+        title: 'AgriSense',
+        link: '/ProductAgriSensePage',
+        desc: 'Sensor pertanian pintar untuk efisiensi lahan.',
+      },
+      {
+        title: 'EnergyMax',
+        link: '/ProductEnergyMaxPage',
+        desc: 'Sistem monitoring dan efisiensi energi.',
+      },
+      {
+        title: 'FleetVision',
+        link: '/ProductFleetVisionPage',
+        desc: 'Analitik visual untuk armada transportasi.',
+      },
+      {
+        title: 'Telematics',
+        link: '/ProductTelematicsPage',
+        desc: 'Pelacakan dan manajemen kendaraan real-time.',
+      },
+      {
+        title: 'Embedded System',
+        link: '/ProductEmbeddedSystemPage',
+        desc: 'Solusi perangkat lunak dan hardware tertanam.',
+      },
     ],
   },
   { title: 'Our Services', link: 'service' },
-  { title: 'News', link: '/news' },
+  { title: 'News', link: '/NewsPage' },
 ]);
 
 const navigateTo = (link?: string) => {
@@ -212,6 +455,71 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
+// megamenu
+const automationSystems = [
+  {
+    title: 'InnoDrop',
+    link: '/ProductInnoDropPage',
+    desc: 'Interactive customizable mining fuel pump',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
+  },
+  {
+    title: 'SIMS',
+    link: '/ProductSIMSPage',
+    desc: 'Smart Integrated Monitoring System',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
+  },
+  {
+    title: 'LookIn',
+    link: '/ProductLookInPage',
+    desc: 'Automated attendance based on face recognition',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/face-scanner.png',
+  },
+  {
+    title: 'CNC Laser',
+    link: '/ProductCNCLaserPage',
+    desc: 'To simplify PCB manufacturing with high precision.',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
+  },
+];
+
+const automotive = [
+  {
+    title: 'Dynomax',
+    link: '/ProductDynomaxPage',
+    desc: 'Dynamometer for indoor vehicle performance testing',
+    icon: 'assets/icon/ProductsIcon/Automotive/speedometer.png',
+  },
+  {
+    title: 'InnoDash',
+    link: '/ProductInnoDashPage',
+    desc: 'Smart dashboard for electric and conventional motorcycles',
+    icon: 'assets/icon/ProductsIcon/Automotive/vehicle.png',
+  },
+  {
+    title: 'InnoRace',
+    link: '/ProductInnoRacePage',
+    desc: 'Offering a unique miniature driving experience',
+    icon: 'assets/icon/ProductsIcon/Automotive/test-drive.png',
+  },
+  {
+    title: 'SEMC',
+    link: '/ProductSEMCPage',
+    desc: 'Intelligent system for precise BLDC and FOC motor control',
+    icon: 'assets/icon/ProductsIcon/Smart_Systems/disruptive-innovation.png',
+  },
+];
+
+const smartSystems = [
+  {
+    title: 'AgriSoil Systems',
+    link: '/ProductAgriSoilPage',
+    desc: 'Real-time digital platform for soil and environmental monitoring',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
+  },
+];
+
 </script>
 
 <style>
@@ -346,5 +654,46 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: blur(5px);
   transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+}
+.px-2 {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* Hover effect untuk megamenu Products dan dropdown Company */
+.q-list .q-item.q-mb-sm:hover,
+.q-list .q-item.q-mb-md:hover,
+.q-list .q-item.company-hover:hover {
+  background: linear-gradient(90deg, #f3cd96 0%, #d9ab6d 100%) !important;
+  color: #0c111d !important;
+
+  transition: background 0.2s, color 0.2s;
+}
+.q-list .q-item.q-mb-sm:hover .text-bold,
+.q-list .q-item.q-mb-md:hover .text-bold,
+.q-list .q-item.company-hover:hover .text-bold {
+  color: #0c111d !important;
+}
+.q-list .q-item.q-mb-sm:hover .text-caption,
+.q-list .q-item.q-mb-md:hover .text-caption,
+.q-list .q-item.company-hover:hover .text-caption {
+  color: #333 !important;
+}
+
+/* Hover effect untuk megamenu Products */
+.q-list .q-item.q-mb-sm:hover,
+.q-list .q-item.q-mb-md:hover {
+  background: linear-gradient(90deg, #f3cd96 0%, #d9ab6d 100%) !important;
+  color: #0c111d !important;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.q-list .q-item.q-mb-sm:hover .text-bold,
+.q-list .q-item.q-mb-md:hover .text-bold {
+  color: #0c111d !important;
+}
+.q-list .q-item.q-mb-sm:hover .text-caption,
+.q-list .q-item.q-mb-md:hover .text-caption {
+  color: #333 !important;
 }
 </style>

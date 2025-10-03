@@ -1,8 +1,10 @@
 <template>
-  <div class="bg-white full-width flex flex-center"
-       style="height: calc(92vh - 20px)">
+  <div
+    class="full-width flex flex-center about-background"
+    style="height: calc(92vh - 20px)"
+  >
     <div
-      class="text-center myFont q-px-md"
+      class="text-center myFont q-px-md text-white"
       style="max-width: 900px"
     >
       <!-- Headline -->
@@ -17,7 +19,7 @@
       <!-- Sub text -->
       <div
         :class="{
-          'text-h6': $q.screen.gt.sm,
+          'text-h6 text-grey-5': $q.screen.gt.sm,
           'text-subtitle2': !$q.screen.gt.sm,
         }"
         style="color: #1d2939"
@@ -31,3 +33,15 @@
 import { taglineAboutText } from 'src/pages/AboutPage';
 import { aboutShortDescriptionText } from 'src/pages/AboutPage';
 </script>
+
+<style scoped>
+.about-background {
+  background-image: url('/assets/ImageDekstop/about1.png');
+  background-size: cover; /* penuh layar */
+  background-position: center; /* posisi tengah */
+  background-repeat: no-repeat; /* tidak diulang */
+}
+.text-grey-5 {
+  color: #D0D5DD;
+}
+</style>

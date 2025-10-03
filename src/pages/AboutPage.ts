@@ -1,6 +1,6 @@
 export const taglineAboutText = 'Digitize, Automate, Innovate: <span class="gradient-text">Smartest</span> Manufacturing Solutions';
 export const aboutShortDescriptionText =
-  'Reflects our commitment at Innodrive.ai to transforming the driving experience through intelligent technology. Our AI powered driver assistance systems enhance  safety, comfort, and efficiency, offering real time support for a smoother, more secure journey.';
+  'Innodrive.ai empowers industries with <span class="gradient-text">AI, IoT,</span> and <span class="gradient-text">robotics </span>to achieve greater efficiency, precision, and intelligence in every process.';
 
 interface AboutItem {
   description: string;

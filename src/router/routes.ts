@@ -57,8 +57,30 @@ const routes: RouteRecordRaw[] = [
         path: '/service-telematics',
         component: () => import('src/components/ServiceTelematics.vue'),
       },
+      {
+        path: 'ContactUs',
+        name: 'ContactUs',
+        component: () => import('pages/ContactPage.vue'),
+      },
     ],
   },
+
+  // MainLayoutSecond.vue
+  {
+    path: '/second-layout',
+    component: () => import('layouts/MainLayoutSecond.vue'),
+    children: [
+      {
+        path: '/NewsPage',
+        name: 'NewsPage',
+        component: () => import('pages/NewsPage.vue'),
+      },
+
+
+    ],
+  },
+
+  // Always leave this as last one
 
   {
     path: '/:catchAll(.*)*',

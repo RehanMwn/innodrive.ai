@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 q-py-xl" style="background-color: #0c111d">
+  <div class="col-12 q-py-xl myFont ornament-bg" style="background-color: #0c111d">
     <div
       class="row justify-center myFont"
       :class="$q.screen.gt.sm ? 'text-h3' : 'text-h6'"
@@ -27,7 +27,7 @@
       style="position: relative; width: 100%; margin: 150px 0"
     >
       <q-img
-        src="assets/imageDekstop/car_circle.png"
+        src="assets/imageDekstop/loginno.png"
         style="
           width: 600px;
           border-radius: 20px;
@@ -96,7 +96,7 @@
 
     <div v-else class="mobile-view q-pa-md">
       <q-img
-        src="assets/imageDekstop/car_circle.png"
+        src="assets/imageDekstop/loginno.png"
         style="
           width: 250px;
           border-radius: 20px;
@@ -165,5 +165,26 @@ const toggleFlip = (index: number): void => {
 
 .feature-list {
   width: 70%;
+}
+/* ornament bawah kiri */
+.ornament-bg {
+  position: relative;
+  overflow: hidden; /* supaya ornamen nggak bikin scrollbar */
+}
+
+/* kiri bawah */
+.ornament-bg::after {
+  content: ""; /* perlu ada biar muncul */
+  position: absolute; /* biar bisa diatur posisi bebas */
+  bottom: -10px;      /* agak keluar 10px */
+  left: -160px;       /* setengah keluar kiri */
+  width: 400px;      /* bisa diatur sesuai ukuran */
+  height: 400px;  /* bisa diatur sesuai ukuran */
+  background: url("/assets/ImageDekstop/ornament.png") no-repeat left bottom;
+  background-size: contain; /* biar pas di kotak */
+  opacity: 0.9;       /* transparan dikurangi 10% */
+  transform: scaleX(-1); /* flip horizontal */
+  pointer-events: none; /* biar nggak ganggu klik */
+  z-index: 1;      /* biar di belakang konten */
 }
 </style>

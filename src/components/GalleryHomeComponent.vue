@@ -1,6 +1,6 @@
 <template>
   <div
-    class="col-12 q-pb-xl myFont gallery-wrap"
+    class="col-12 q-pb-xl myFont gallery-wrap ornament-bg"
     style="background: #0c111d; color: white"
   >
     <!-- Header -->
@@ -222,12 +222,28 @@ onBeforeUnmount(() => {
   font-weight: 700;
   color: #0b1724;
   margin-bottom: 8px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* maksimal 2 baris */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.6em;       /* jaga tinggi konsisten */
 }
+
 .card-subtitle {
   color: #6b7280;
   font-size: 0.9rem;
   line-height: 1.3;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* maksimal 3 baris */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 3.9em;       /* jaga tinggi konsisten */
 }
+
 
 /* footer area of card */
 .card-footer {
@@ -280,4 +296,63 @@ onBeforeUnmount(() => {
     padding-right: 16px !important;
   }
 }
+/* ornament background di pojok kiri bawah */
+.ornament-bg {
+  position: relative;
+  overflow: hidden; /* supaya ornamen nggak bikin scrollbar */
+}
+
+.ornament-bg::after {
+  content: "";
+  position: absolute;
+  top: -200px;
+  bottom: -10px;      /* agak keluar 10px biar transparan sesuai permintaan */
+  left: -160px;        /* setengah sisi kirinya keluar layar */
+  width: 400px;       /* bisa diatur sesuai ukuran */
+  height: 400px;
+  background: url("/assets/ImageDekstop/ornament.png") no-repeat left bottom;
+  background-size: contain;
+  opacity: 0,9;       /* transparan dikurangi 10% */
+  transform: scaleX(-1); /* flip horizontal */
+  pointer-events: none; /* biar nggak ganggu klik */
+  z-index: 1;
+}
+/* ornament background di pojok kiri & kanan bawah */
+.ornament-bg {
+  position: relative;
+  overflow: hidden; /* supaya ornamen nggak bikin scrollbar */
+}
+
+/* kiri bawah */
+.ornament-bg::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;      /* agak keluar 10px */
+  left: -160px;       /* setengah keluar kiri */
+  width: 400px;
+  height: 400px;
+  background: url("/assets/ImageDekstop/ornament.png") no-repeat left bottom;
+  background-size: contain;
+  opacity: 0.9;       /* transparan dikurangi 10% */
+  transform: scaleX(-1); /* flip horizontal */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* kanan bawah */
+.ornament-bg::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;      /* sama kayak yang kiri */
+  right: -100px;      /* setengah keluar kanan */
+  width: 400px;
+  height: 400px;
+  background: url("/assets/ImageDekstop/ornament.png") no-repeat right bottom;
+  background-size: contain;
+  opacity: 0.9;
+  /* tidak di-flip biar tetap natural */
+  pointer-events: none;
+  z-index: 1;
+}
+
 </style>

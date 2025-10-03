@@ -216,27 +216,27 @@ interface partEmbedded {
 export const partEmbedded: partEmbedded[] = [
   {
     id: '1',
-    title: 'AI-Driven Engine Control',
+    title: 'IoT-Enabled Control',
     description:
-      'Optimizes engine performance and efficiency with intelligent algorithms.',
+      'Real-time monitoring and automation powered by IoT connectivity.',
   },
   {
     id: '2',
-    title: 'Smart Digital Dashboard',
+    title: 'Seamless Integration',
     description:
-      'Enhances user experience with interactive, AI-powered vehicle displays.',
+      'Hardware and software systems designed to work together effortlessly',
   },
   {
     id: '3',
-    title: 'Advanced Navigation & Infotainment',
+    title: 'Data-Driven Efficiency',
     description:
-      'Provides seamless, intuitive navigation and entertainment features.',
+      'Smart analytics to optimize production, reduce downtime, and save costs.',
   },
   {
     id: '4',
-    title: 'Optimized ECU Systems',
+    title: 'Scalable Solutions',
     description:
-      'Improves fuel efficiency and vehicle responsiveness through adaptive control.',
+      'Flexible systems that grow with industrial needs, from small plants to large-scale operations.',
   },
 ];
 
