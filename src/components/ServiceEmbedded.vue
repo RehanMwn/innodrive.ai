@@ -1,5 +1,6 @@
 <template>
-  <div class="col-12 q-py-xl myFont size">
+  <q-page class="col-12 q-py-xl myFont size">
+    <PraFooterComponent />
     <!-- section 1 -->
     <div class="row items-start justify-center q-col-gutter-xl">
       <!-- Mobile Layout -->
@@ -273,7 +274,8 @@
         </q-card>
       </div>
     </div>
-  </div>
+    <!-- PraFooter -->
+  </q-page>
 </template>
 
 <script lang="ts">

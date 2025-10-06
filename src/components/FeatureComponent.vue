@@ -3,7 +3,7 @@
     <div
       class="image-container"
       :style="{
-        height: $q.screen.gt.sm ? '90vh' : '60vh',
+        height: $q.screen.gt.sm ? '91vh' : '60vh',
         backgroundImage: `url(${getImage(0)})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

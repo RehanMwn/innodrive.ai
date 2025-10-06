@@ -30,24 +30,24 @@
           <div class="row q-col-gutter-md">
             <div class="col-12 col-md-6">
               <div class="q-mb-xs text-white text-weight-medium">
-                First name *
+                First name <span style="color: #ff3b3b">*</span>
               </div>
               <q-input v-model="form.firstName" label="" outlined dense />
             </div>
             <div class="col-12 col-md-6">
               <div class="q-mb-xs text-white text-weight-medium">
-                Last name *
+                Last name <span style="color: #ff3b3b">*</span>
               </div>
               <q-input v-model="form.lastName" label="" outlined dense />
             </div>
             <div class="col-12 col-md-6">
               <div class="q-mb-xs text-white text-weight-medium">
-                Company name *
+                Company name <span style="color: #ff3b3b">*</span>
               </div>
               <q-input v-model="form.company" label="" outlined dense />
             </div>
             <div class="col-12 col-md-6">
-              <div class="q-mb-xs text-white text-weight-medium">Email *</div>
+              <div class="q-mb-xs text-white text-weight-medium">Email <span style="color: #ff3b3b">*</span></div>
               <q-input
                 v-model="form.email"
                 label=""
@@ -58,16 +58,16 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="q-mb-xs text-white text-weight-medium">
-                Phone number *
+                Phone number <span style="color: #ff3b3b">*</span>
               </div>
               <q-input v-model="form.phone" label="" outlined dense />
             </div>
             <div class="col-12 col-md-6">
-              <div class="q-mb-xs text-white text-weight-medium">Country</div>
+              <div class="q-mb-xs text-white text-weight-medium">Country <span style="color: #ff3b3b">*</span></div>
               <q-input v-model="form.country" label="" outlined dense />
             </div>
             <div class="col-12">
-              <div class="q-mb-xs text-white text-weight-medium">Message</div>
+              <div class="q-mb-xs text-white text-weight-medium">Message <span style="color: #ff3b3b">*</span></div>
               <q-input
                 v-model="form.message"
                 type="textarea"
@@ -155,31 +155,35 @@ const sendEmail = () => {
 .bg-contact {
   background-color: #0c111d;
   min-height: 100vh;
-  padding: 100px 174px;
+  padding: 100px 100px;
 }
 
 /* Biar input dark tapi tetap jelas */
-.q-field__native,
-.q-input,
-.q-textarea {
-  color: #fff !important;
+/* Semua input pakai background dark + text putih */
+.q-input .q-field__control,
+.q-textarea .q-field__control {
   background-color: #1d2939 !important;
-  border-radius: 8px !important;
-}
-
-.q-field__label {
-  color: #ffffff !important; /* label putih */
-  font-weight: 500;
-}
-
-.q-field__control {
-  border: 1px solid #fff !important;
-}
-/* Biar teks input rata tengah secara vertikal */
-.q-field__native {
+  border: 1px solid #98a2b3 !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
   display: flex !important;
   align-items: center !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+}
+
+/* Pastikan teks di input rata tengah secara vertikal */
+.q-input .q-field__native,
+.q-textarea .q-field__native {
+  padding: 10px 12px !important; /* top-bottom lebih lega */
+  font-size: 16px !important; /* lebih besar biar jelas */
+  line-height: 1.5 !important; /* pastikan tinggi baris proporsional */
+  color: #ffffff !important; /* text tetap putih */
+  display: flex;
+  align-items: center; /* vertikal center */
+}
+
+/* Label tetap putih */
+.q-field__label {
+  color: #ffffff !important;
+  font-weight: 500;
 }
 </style>

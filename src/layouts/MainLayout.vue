@@ -352,13 +352,13 @@
     <q-page-container class="merge-content">
       <router-view />
     </q-page-container>
-    <PraFooterComponent style="position: relative; width: 100%" />
+    <!-- <PraFooterComponent style="position: relative; width: 100%" /> -->
     <FooterComponent style="position: relative; width: 100%" />
   </q-layout>
 </template>
 
 <script setup lang="ts">
-import PraFooterComponent from '/src/components/PraFooterComponent.vue';
+// import PraFooterComponent from '/src/components/PraFooterComponent.vue';
 import FooterComponent from '/src/components/FooterComponent.vue';
 // import ServiceForm from '../components/ServiceForm.vue';
 import { useRouter } from 'vue-router';
@@ -568,8 +568,28 @@ const smartSystems = [
   background-clip: text;
   color: transparent;
 }
+/* gradient text blue dark version */
+/* .gradient-text-blue {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+} */
+
+/* gradient text blue france */
+.gradient-text-blue {
+  background: linear-gradient(90deg, #0072BB  0%, #2a5298 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .myFont {
   font-family: 'Poppins', sans-serif;
+}
+.custom-font {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .card-ourProduct {

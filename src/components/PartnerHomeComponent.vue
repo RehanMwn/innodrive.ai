@@ -1,22 +1,25 @@
 <template>
   <!-- Judul -->
-  <div class="col-12 q-py-xl myFont">
+  <div class="col-12 q-py-xl myFont ornament-bg">
     <div class="text-center q-mb-xl">
       <div class="text-h3 text-bold">
         Welcome to <span class="gradient-text">Innodrive.ai</span>
       </div>
       <div class="text-subtitle1 text-grey-8 q-mt-sm q-px-lg">
-        your partner in turning digital transformation into real business growth.
+        your partner in turning digital transformation into real business
+        growth.
       </div>
     </div>
 
     <!-- Konten + Gambar -->
-    <div class="row items-start justify-center q-col-gutter-xl responsive-layout">
+    <div
+      class="row items-start justify-center q-col-gutter-xl responsive-layout"
+    >
       <!-- Gambar -->
       <div class="col-12 col-md-5 flex flex-center image-block">
         <q-img
-          src="assets/imageDekstop/Frame113.png"
-          style="max-width: 90%; border-radius: 12px"
+          src="assets/imageDekstop/welcome.jpeg"
+          style="max-width: 75%; border-radius: 12px"
           fit="cover"
         />
       </div>
@@ -25,20 +28,24 @@
       <div class="col-12 col-md-6 text-block">
         <div class="text-body1 text-grey-9 q-px-lg custom-paragraph">
           <p>
-            <span class="text-orange text-weight-bold">PT Reka Inovasi Cerdas</span>
+            <span class="gradient-text text-weight-bold text-italic"
+              >PT Reka Inovasi Cerdas</span
+            >
             also known as
-            <span class="text-weight-bold text-primary">Innodrive.ai</span>,
-            is a technology company focused on digital transformation across various
-            industrial sectors, particularly in the digitalization of the manufacturing
-            and automotive industries.
+            <span class="text-weight-bold gradient-text-blue">Innodrive.ai</span
+            >, is a technology company focused on digital transformation across
+            various industrial sectors, particularly in the digitalization of
+            the manufacturing and automotive industries.
           </p>
 
           <p>
-            <span class="text-weight-bold text-orange">
-              We specialize in robotics, artificial intelligence, and IoT based automation systems.
+            <span class="text-weight-bold gradient-text text-italic">
+              We specialize in robotics, artificial intelligence, and IoT based
+              automation systems.
             </span>
-            Our integrated software and hardware solutions are designed to support more efficient,
-            precise, and intelligent industrial processes.
+            Our integrated software and hardware solutions are designed to
+            support more efficient, precise, and intelligent industrial
+            processes.
           </p>
         </div>
       </div>
@@ -47,8 +54,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({})
+import { defineComponent } from 'vue';
+export default defineComponent({});
 </script>
 
 <style scoped>
@@ -56,16 +63,20 @@ export default defineComponent({})
 .custom-paragraph p {
   text-align: justify;
   text-indent: 5ch;
-  font-size: 25px;   /* desktop */
+  font-size: 25px; /* desktop */
   line-height: 1.6;
   margin-bottom: 1em;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Tablet & mobile (<=1025px) */
 @media (max-width: 1025px) {
   .custom-paragraph p {
-    font-size: 17px;   /* lebih kecil */
+    font-size: 17px; /* lebih kecil */
     text-indent: 3ch;
+    font-weight: 400;
+    font-style: normal;
   }
 
   /* urutkan gambar dulu baru teks */
@@ -74,12 +85,12 @@ export default defineComponent({})
   }
 
   .image-block {
-    order: 1;  /* gambar di atas */
+    order: 1; /* gambar di atas */
     margin-bottom: 20px;
   }
 
   .text-block {
-    order: 2;  /* teks di bawah */
+    order: 2; /* teks di bawah */
   }
 }
 
@@ -97,5 +108,30 @@ export default defineComponent({})
     order: 1; /* teks di kiri */
   }
 }
+/* ornament background di pojok kiri bawah */
+.ornament-bg {
+  position: relative;
+  overflow: hidden; /* supaya ornamen nggak bikin scrollbar */
+}
 
+.ornament-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -210px; /* agak keluar 10px biar transparan sesuai permintaan */
+  left: -160px; /* setengah sisi kirinya keluar layar */
+  width: 400px; /* bisa diatur sesuai ukuran */
+  height: 400px;
+  background: url('/assets/ImageDekstop/ornament.png') no-repeat left bottom;
+  background-size: contain;
+  transform: scaleX(-1); /* flip horizontal */
+  pointer-events: none; /* biar nggak ganggu klik */
+  z-index: 1;
+  opacity: 0.9;
+  filter: brightness(0.3) grayscale(0.7) contrast(1.2);
+}
+/* ornament background di pojok kiri & kanan bawah */
+.ornament-bg {
+  position: relative;
+  overflow: hidden; /* supaya ornamen nggak bikin scrollbar */
+}
 </style>

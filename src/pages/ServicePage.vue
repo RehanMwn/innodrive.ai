@@ -5,6 +5,11 @@
 
     <!-- Products -->
     <ServicePorto />
+
+    <!-- PraFooter -->
+    <PraFooterComponent />
+
+
     <!-- <div class="row justify-center myFont q-py-xl">
       <div
         style="
@@ -41,11 +46,13 @@
         />
       </div>
     </div> -->
+    <!-- PraFooter -->
   </q-page>
 </template>
 
 <script setup lang="ts">
 import ServiceComponent from 'src/components/ServiceComponent.vue';
 import ServicePorto from 'src/components/ServicePorto.vue';
+import PraFooterComponent from 'src/components/PraFooterComponent.vue';
 // import { descriptionContactUsText } from 'src/pages/ProductPage';
 </script>
