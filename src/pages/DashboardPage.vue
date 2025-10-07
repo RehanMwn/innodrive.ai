@@ -29,7 +29,7 @@
       <CollaboratorsHomeComponent />
 
       <!-- PraFooter -->
-      <PraFooterComponent />
+      <!-- <PraFooterComponent /> -->
 
       <!-- Our Product -->
       <!-- <ProductHomeComponent /> -->
@@ -58,5 +58,5 @@ import PartnerHomeComponent from 'src/components/PartnerHomeComponent.vue';
 import CollaboratorsHomeComponent from 'src/components/CollaboratorsHomeComponent.vue';
 import AdrosComponent from 'src/components/AdrosComponent.vue';
 import AgrisoilComponent from 'src/components/AgrisoilComponent.vue';
-import PraFooterComponent from 'src/components/PraFooterComponent.vue';
+// import PraFooterComponent from 'src/components/PraFooterComponent.vue';
 </script>

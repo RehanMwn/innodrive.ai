@@ -79,10 +79,10 @@ const collaborators = [
   { src: 'assets/collaborators/smkn2sby.png', width: '120', height: '60' },
   { src: 'assets/collaborators/Undip - (Koleksilogo.com).png', width: '120', height: '60' },
   { src: 'assets/collaborators/logooo/uny.png', width: '120', height: '60' },
-  { src: 'assets/collaborators/kzr.png', width: '120', height: '60' },
-  { src: 'assets/collaborators/drg.png', width: '120', height: '60' },
-  { src: 'assets/collaborators/barca.jpg', width: '120', height: '60' },
-  
+  { src: 'assets/collaborators/KZR.png', width: '120', height: '60'},
+  { src: 'assets/collaborators/DRG.png', width: '120', height: '60' },
+  // { src: 'assets/collaborators/barca.jpg', width: '120', height: '60' },
+
 ];
 </script>
 

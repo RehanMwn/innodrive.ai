@@ -20,7 +20,7 @@
         <div class="col-12 q-mb-lg">
           <div class="mobile-wrapper flex flex-center">
             <q-img
-              src="assets/ImageDekstop/service1.png"
+              src="/public/assets/imageDekstop/service1.png"
               style="max-width: 80%; border-radius: 12px"
               fit="contain"
             />
@@ -44,7 +44,7 @@
             >
               <!-- Ikon bulat -->
               <q-img
-                src="assets/icon/ellipse5.png"
+                src="/public/assets/icon/Ellipse5.png"
                 style="
                   width: 14px;
                   height: 14px;
@@ -143,7 +143,7 @@
         <!-- Left Side: Image -->
         <div class="col-12 col-md-6 flex flex-center">
           <q-img
-            src="assets/ImageDekstop/service1.png"
+            src="/public/assets/imageDekstop/service1.png"
             style="max-width: 50%; border-radius: 12px"
             fit="contain"
           />
@@ -163,7 +163,7 @@
                 :key="i"
               >
                 <q-img
-                  src="assets/icon/ellipse5.png"
+                  src="/public/assets/icon/Ellipse5.png"
                   style="
                     width: 14px;
                     height: 14px;

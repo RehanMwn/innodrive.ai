@@ -63,7 +63,7 @@
         <!-- Left Side: Image -->
         <div class="col-12 col-md-6 flex flex-center">
           <q-img
-            src="assets/ImageDekstop/agrisoil.png"
+            src="assets/imageDekstop/agrisoil.png"
             style="max-width: 70%; border-radius: 12px"
             fit="contain"
           />

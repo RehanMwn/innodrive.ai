@@ -58,10 +58,13 @@ const routes: RouteRecordRaw[] = [
         component: () => import('src/components/ServiceTelematics.vue'),
       },
       {
-        path: 'ContactUs',
-        name: 'ContactUs',
-        component: () => import('pages/ContactPage.vue'),
+        path: '/product-Innodrop',
+        component: () => import('src/components/AutomationSystem/ProductInnodrop.vue'),
       },
+      {
+        path: '/product-SIMS',
+        component: () => import('src/components/AutomationSystem/ProductSims.vue'),
+      }
     ],
   },
 
@@ -75,8 +78,11 @@ const routes: RouteRecordRaw[] = [
         name: 'NewsPage',
         component: () => import('pages/NewsPage.vue'),
       },
-
-
+      {
+        path: '/ContactUs',
+        name: 'ContactUs',
+        component: () => import('pages/ContactPage.vue'),
+      },
     ],
   },
 

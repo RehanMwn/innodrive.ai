@@ -7,7 +7,7 @@
     <ServicePorto />
 
     <!-- PraFooter -->
-    <PraFooterComponent />
+    <!-- <PraFooterComponent /> -->
 
 
     <!-- <div class="row justify-center myFont q-py-xl">
@@ -53,6 +53,6 @@
 <script setup lang="ts">
 import ServiceComponent from 'src/components/ServiceComponent.vue';
 import ServicePorto from 'src/components/ServicePorto.vue';
-import PraFooterComponent from 'src/components/PraFooterComponent.vue';
+// import PraFooterComponent from 'src/components/PraFooterComponent.vue';
 // import { descriptionContactUsText } from 'src/pages/ProductPage';
 </script>

@@ -39,6 +39,131 @@
 
                   <!-- Dropdown untuk Products dengan hover -->
                   <div
+                    v-else-if="item.title === 'Products'"
+                    class="relative dropdown-container"
+                    @mouseover="openMenu[item.title] = true"
+                    @mouseleave="openMenu[item.title] = false"
+                  >
+                    <q-btn-dropdown
+                      flat
+                      dense
+                      class="text-white q-tab q-tab--full"
+                      dropdown-icon="keyboard_arrow_down"
+                      :label="item.title"
+                      v-model="openMenu[item.title]"
+                    >
+                      <q-list
+                        @mouseover="openMenu[item.title] = true"
+                        @mouseleave="openMenu[item.title] = false"
+                        style="
+                          min-width: 780px;
+                          max-width: 925px;
+                          padding: 20px;
+                        "
+                      >
+                        <div class="row q-col-gutter-md">
+                          <!-- Kolom Automation Systems -->
+                          <div class="col-12 col-md-4">
+                            <div class="text-bold text-subtitle1 q-mb-sm">
+                              Automation Systems
+                            </div>
+                            <q-item
+                              v-for="child in automationSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="q-mb-sm"
+                              style=""
+                            >
+                              <q-item-section avatar>
+                                <q-img
+                                  :src="child.icon"
+                                  style="
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: contain;
+                                  "
+                                />
+                              </q-item-section>
+                              <q-item-section>
+                                <div class="text-bold">{{ child.title }}</div>
+                                <div class="text-caption text-grey-5">
+                                  {{ child.desc }}
+                                </div>
+                              </q-item-section>
+                            </q-item>
+                          </div>
+
+                          <!-- Kolom Automotive -->
+                          <div class="col-12 col-md-4">
+                            <div class="text-bold text-subtitle1 q-mb-sm">
+                              Automotive
+                            </div>
+                            <q-item
+                              v-for="child in automotive"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="q-mb-sm"
+                            >
+                              <q-item-section avatar>
+                                <q-img
+                                  :src="child.icon"
+                                  style="
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: contain;
+                                  "
+                                />
+                              </q-item-section>
+                              <q-item-section>
+                                <div class="text-bold">{{ child.title }}</div>
+                                <div class="text-caption text-grey-5">
+                                  {{ child.desc }}
+                                </div>
+                              </q-item-section>
+                            </q-item>
+                          </div>
+
+                          <!-- Kolom Smart Systems -->
+                          <div class="col-12 col-md-4">
+                            <div class="text-bold text-subtitle1 q-mb-sm">
+                              Smart Systems
+                            </div>
+                            <q-item
+                              v-for="child in smartSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="q-mb-sm"
+                            >
+                              <q-item-section avatar>
+                                <q-img
+                                  :src="child.icon"
+                                  style="
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: contain;
+                                  "
+                                />
+                              </q-item-section>
+                              <q-item-section>
+                                <div class="text-bold">{{ child.title }}</div>
+                                <div class="text-caption text-grey-5">
+                                  {{ child.desc }}
+                                </div>
+                              </q-item-section>
+                            </q-item>
+                          </div>
+                        </div>
+                      </q-list>
+                    </q-btn-dropdown>
+                  </div>
+
+                  <div
                     v-else
                     class="relative dropdown-container"
                     @mouseover="openMenu[item.title] = true"
@@ -62,6 +187,7 @@
                           clickable
                           v-close-popup
                           @click="navigateTo(child.link)"
+                          class="company-hover"
                         >
                           <q-item-section avatar>
                             <q-img
@@ -70,6 +196,10 @@
                                   ? 'assets/icon/CompanyIcon/About_Us.png'
                                   : child.title === 'Contact Us'
                                   ? 'assets/icon/CompanyIcon/Contact_Us.png'
+                                  : child.title === 'Partner'
+                                  ? 'assets/icon/CompanyIcon/Partner.png'
+                                  : child.title === 'Career'
+                                  ? 'assets/icon/CompanyIcon/career.png'
                                   : `assets/icon/CompanyIcon/${child.title
                                       .replace(/\s+/g, '-')
                                       .toLowerCase()}.png`
@@ -89,7 +219,6 @@
                       </q-list>
                     </q-btn-dropdown>
                   </div>
-
                 </template>
                 <!-- Tombol Contact Us -->
                 <!-- <q-btn
@@ -109,18 +238,82 @@
               >
                 <q-list>
                   <template v-for="item in items" :key="item.title">
-                    <q-item
-                      v-if="!item.children"
-                      clickable
-                      v-close-popup
-                      @click="navigateTo(item.link)"
-                      class="text-white myFont bg-black"
-                    >
-                      <q-item-section>{{ item.title }}</q-item-section>
-                    </q-item>
-
+                    <!-- PRODUCTS megamenu for mobile, with subdropdowns inside Products -->
                     <q-expansion-item
-                      v-else
+                      v-if="item.title === 'Products'"
+                      expand-separator
+                      class="bg-black text-white"
+                    >
+                      <template v-slot:header>
+                        <q-item-section>{{ item.title }}</q-item-section>
+                      </template>
+                      <q-list>
+                        <q-expansion-item
+                          expand-separator
+                          class="bg-grey-10 text-white"
+                        >
+                          <template v-slot:header>
+                            <q-item-section>Automation Systems</q-item-section>
+                          </template>
+                          <q-list>
+                            <q-item
+                              v-for="child in automationSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="text-white myFont bg-grey"
+                            >
+                              <q-item-section>{{ child.title }}</q-item-section>
+                            </q-item>
+                          </q-list>
+                        </q-expansion-item>
+                        <q-expansion-item
+                          expand-separator
+                          class="bg-grey-10 text-white"
+                        >
+                          <template v-slot:header>
+                            <q-item-section>Automotive</q-item-section>
+                          </template>
+                          <q-list>
+                            <q-item
+                              v-for="child in automotive"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="text-white myFont bg-grey"
+                            >
+                              <q-item-section>{{ child.title }}</q-item-section>
+                            </q-item>
+                          </q-list>
+                        </q-expansion-item>
+                        <q-expansion-item
+                          expand-separator
+                          class="bg-grey-10 text-white"
+                        >
+                          <template v-slot:header>
+                            <q-item-section>Smart Systems</q-item-section>
+                          </template>
+                          <q-list>
+                            <q-item
+                              v-for="child in smartSystems"
+                              :key="child.title"
+                              clickable
+                              v-close-popup
+                              @click="navigateTo(child.link)"
+                              class="text-white myFont bg-grey"
+                            >
+                              <q-item-section>{{ child.title }}</q-item-section>
+                            </q-item>
+                          </q-list>
+                        </q-expansion-item>
+                      </q-list>
+                    </q-expansion-item>
+
+                    <!-- Other dropdowns (Company, etc) -->
+                    <q-expansion-item
+                      v-else-if="item.children"
                       expand-separator
                       class="bg-black text-white"
                     >
@@ -140,6 +333,17 @@
                         </q-item>
                       </q-list>
                     </q-expansion-item>
+
+                    <!-- Normal menu item (no children) -->
+                    <q-item
+                      v-else
+                      clickable
+                      v-close-popup
+                      @click="navigateTo(item.link)"
+                      class="text-white myFont bg-black"
+                    >
+                      <q-item-section>{{ item.title }}</q-item-section>
+                    </q-item>
                   </template>
                 </q-list>
               </q-btn-dropdown>
@@ -212,6 +416,70 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
+// megamenu
+const automationSystems = [
+  {
+    title: 'InnoDrop',
+    link: '/ProductInnoDropPage',
+    desc: 'Interactive customizable mining fuel pump',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
+  },
+  {
+    title: 'SIMS',
+    link: '/ProductSIMSPage',
+    desc: 'Smart Integrated Monitoring System',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
+  },
+  {
+    title: 'LookIn',
+    link: '/ProductLookInPage',
+    desc: 'Automated attendance based on face recognition',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/face-scanner.png',
+  },
+  {
+    title: 'CNC Laser',
+    link: '/ProductCNCLaserPage',
+    desc: 'To simplify PCB manufacturing with high precision.',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
+  },
+];
+
+const automotive = [
+  {
+    title: 'Dynomax',
+    link: '/ProductDynomaxPage',
+    desc: 'Dynamometer for indoor vehicle performance testing',
+    icon: 'assets/icon/ProductsIcon/Automotive/speedometer.png',
+  },
+  {
+    title: 'InnoDash',
+    link: '/ProductInnoDashPage',
+    desc: 'Smart dashboard for electric and conventional motorcycles',
+    icon: 'assets/icon/ProductsIcon/Automotive/vehicle.png',
+  },
+  {
+    title: 'InnoRace',
+    link: '/ProductInnoRacePage',
+    desc: 'Offering a unique miniature driving experience',
+    icon: 'assets/icon/ProductsIcon/Automotive/test-drive.png',
+  },
+  {
+    title: 'SEMC',
+    link: '/ProductSEMCPage',
+    desc: 'Intelligent system for precise BLDC and FOC motor control',
+    icon: 'assets/icon/ProductsIcon/Smart_Systems/disruptive-innovation.png',
+  },
+];
+
+const smartSystems = [
+  {
+    title: 'AgriSoil Systems',
+    link: '/ProductAgriSoilPage',
+    desc: 'Real-time digital platform for soil and environmental monitoring',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
+  },
+];
 </script>
 
 <style>

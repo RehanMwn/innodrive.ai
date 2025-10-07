@@ -36,7 +36,7 @@ import { aboutShortDescriptionText } from 'src/pages/AboutPage';
 
 <style scoped>
 .about-background {
-  background-image: url('/assets/ImageDekstop/about1.png');
+  background-image: url('public/assets/imageDekstop/about1.png');
   background-size: cover; /* penuh layar */
   background-position: center; /* posisi tengah */
   background-repeat: no-repeat; /* tidak diulang */

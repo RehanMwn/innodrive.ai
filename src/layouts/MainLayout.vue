@@ -196,6 +196,10 @@
                                   ? 'assets/icon/CompanyIcon/About_Us.png'
                                   : child.title === 'Contact Us'
                                   ? 'assets/icon/CompanyIcon/Contact_Us.png'
+                                  : child.title === 'Partner'
+                                  ? 'assets/icon/CompanyIcon/Partner.png'
+                                  : child.title === 'Career'
+                                  ? 'assets/icon/CompanyIcon/career.png'
                                   : `assets/icon/CompanyIcon/${child.title
                                       .replace(/\s+/g, '-')
                                       .toLowerCase()}.png`
@@ -352,13 +356,13 @@
     <q-page-container class="merge-content">
       <router-view />
     </q-page-container>
-    <!-- <PraFooterComponent style="position: relative; width: 100%" /> -->
+    <PraFooterComponent style="position: relative; width: 100%" />
     <FooterComponent style="position: relative; width: 100%" />
   </q-layout>
 </template>
 
 <script setup lang="ts">
-// import PraFooterComponent from '/src/components/PraFooterComponent.vue';
+import PraFooterComponent from '/src/components/PraFooterComponent.vue';
 import FooterComponent from '/src/components/FooterComponent.vue';
 // import ServiceForm from '../components/ServiceForm.vue';
 import { useRouter } from 'vue-router';
@@ -460,13 +464,13 @@ onUnmounted(() => {
 const automationSystems = [
   {
     title: 'InnoDrop',
-    link: '/ProductInnoDropPage',
+    link: '/product-Innodrop',
     desc: 'Interactive customizable mining fuel pump',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },
   {
     title: 'SIMS',
-    link: '/ProductSIMSPage',
+    link: '/Product-SIMS',
     desc: 'Smart Integrated Monitoring System',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },
@@ -519,7 +523,6 @@ const smartSystems = [
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },
 ];
-
 </script>
 
 <style>
@@ -578,7 +581,7 @@ const smartSystems = [
 
 /* gradient text blue france */
 .gradient-text-blue {
-  background: linear-gradient(90deg, #0072BB  0%, #2a5298 100%);
+  background: linear-gradient(90deg, #0072bb 0%, #2a5298 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -587,7 +590,7 @@ const smartSystems = [
   font-family: 'Poppins', sans-serif;
 }
 .custom-font {
-  font-family: "Fira Sans", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
   font-style: normal;
 }

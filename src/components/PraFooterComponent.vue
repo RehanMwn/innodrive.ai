@@ -26,6 +26,7 @@
               text-color="white"
               class="gradient-color q-px-xl q-py-sm text-bold"
               style="border-radius: 8px"
+              @click="$router.push('/ContactUs')"
             />
           </div>
         </div>
