@@ -126,16 +126,14 @@
         <div class="col-12 q-mb-lg">
           <div class="mobile-wrapper text-center">
             <div class="text-h4 text-bold gradient-text">
-              Industrial
-              <span class="text-h4 text-bold text-black"
-                >Automation Systems</span
-              >
+              Automotive
+              <span class="text-h4 text-bold text-black">Technology</span>
               <div
                 class="text-body1 text-grey-9 q-mt-md"
                 style="max-width: 700px; margin: 10px auto"
               >
-                We build smart automation solutions that improve efficiency,
-                accuracy, and reliability in industrial operations.
+                We develop digital automotive solutions that enhance
+                diagnostics, monitoring, and overall driving performance.
               </div>
             </div>
           </div>
@@ -285,22 +283,22 @@ export default defineComponent({
   setup() {
     const checklist = [
       {
-        title: 'IoT-Enabled Control',
+        title: 'Advanced Diagnostics',
         description:
           'Real-time monitoring and automation powered by IoT connectivity.',
       },
       {
-        title: 'Seamless Integration',
+        title: 'Performance Measurement',
         description:
           'Hardware and software systems designed to work together effortlessly.',
       },
       {
-        title: 'Data-Driven Efficiency',
+        title: 'Smart Integration',
         description:
           'Smart analytics to optimize production, reduce downtime, and save costs.',
       },
       {
-        title: 'Scalable Solutions',
+        title: 'Data-Driven Insights',
         description:
           'Flexible systems that grow with industrial needs, from small plants to large-scale operations.',
       },

@@ -58,13 +58,17 @@ const routes: RouteRecordRaw[] = [
         component: () => import('src/components/ServiceTelematics.vue'),
       },
       {
-        path: '/product-Innodrop',
-        component: () => import('src/components/AutomationSystem/ProductInnodrop.vue'),
+        path: '/GoogleMaps1',
+        name: 'GoogleMaps1',
+        component: () => import('pages/GoogleMaps1.vue'),
       },
       {
-        path: '/product-SIMS',
-        component: () => import('src/components/AutomationSystem/ProductSims.vue'),
-      }
+        path: '/GoogleMaps2',
+        name: 'GoogleMaps2',
+        component: () => import('pages/GoogleMaps2.vue'),
+      },
+
+      
     ],
   },
 
@@ -82,6 +86,22 @@ const routes: RouteRecordRaw[] = [
         path: '/ContactUs',
         name: 'ContactUs',
         component: () => import('pages/ContactPage.vue'),
+      },
+    ],
+  },
+
+  // MainLayoutThird.vue
+  {
+    path: '/third-layout',
+    component: () => import('layouts/PrafooterSolid.vue'),
+    children: [
+      {
+        path: '/product-Innodrop',
+        component: () => import('src/components/AutomationSystem/ProductInnodrop.vue'),
+      },
+      {
+        path: '/product-SIMS',
+        component: () => import('src/components/AutomationSystem/ProductSims.vue'),
       },
     ],
   },

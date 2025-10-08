@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 q-py-xl myFont bg-grey-1">
+  <div id="collaborator" class="col-12 q-py-xl myFont bg-grey-1">
     <!-- Title -->
     <div class="text-center q-mb-lg">
       <div class="text-h4 text-bold">

@@ -1,57 +1,25 @@
 <template>
-  <!-- MOBILE (lt.md) -->
   <div
-    v-if="$q.screen.lt.md"
-    class="container-custom col-12 col-md-8 text-white myFont q-pa-md"
-    style="background: linear-gradient(to top, #0C111D, #1D2939);"
-    :style="{
-      borderRadius: '20px',
-      width: '90%',
-      marginTop: '40px',
-      marginBottom: '70px',
-    }"
-  >
-    <div class="row justify-center text-center">
-      <div class="row full-width justify-center text-bold q-mt-md text-h6">
-        Shaping Industries with
-        <div class="q-ml-sm gradient-text">Our</div>
-        <div class="q-ml-sm">Services</div>
-      </div>
-    </div>
-    <div class="row justify-center q-mt-md q-px-sm">
-      <div class="row justify-center q-col-gutter-sm">
-        <div
-          class="col-auto q-pa-md myFont full-width row items-center text-left"
-          v-for="s in setsApartFeature"
-          :key="s.id"
-        >
-          <q-img :src="s.image" class="q-mr-sm" :style="{ width: '30px' }" />
-          <div class="text-caption2">{{ s.description }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DESKTOP (gt.md) -->
-  <div
-    v-else
-    class="container-desktop col-12 col-md-8 text-white myFont q-pa-md"
+    class="container-custom col-12 col-md-8 text-white myFont q-pa-md q"
     :style="{
       backgroundImage: 'url(/assets/imageDekstop/container-custom.png)',
       backgroundSize: 'contain',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      width: '80%',
-      marginTop: '-140px',
-      marginBottom: '250px',
+      width: $q.screen.gt.sm ? '80%' : '90%',
+      marginTop: $q.screen.gt.md ? '-140px' : '40px',
+      marginBottom: $q.screen.gt.md ? '250px' : '70px',
       marginLeft: 'auto',
       marginRight: 'auto',
-      transform: 'scale(1.5)',
-      transformOrigin: 'center center',
+      transform: 'scale(1.5)', // <== skala 1.5x
+      transformOrigin: 'center center',// <== biar pusat scaling di tengah
     }"
   >
     <div class="row justify-center text-center">
-      <div class="row full-width justify-center text-bold q-mt-md text-h5">
+      <div
+        class="row full-width justify-center text-bold q-mt-md"
+        :class="$q.screen.gt.md ? 'text-h5' : 'text-h6'"
+      >
         Shaping Industries with
         <div class="q-ml-sm gradient-text">Our</div>
         <div class="q-ml-sm">Services</div>
@@ -60,18 +28,29 @@
     <div class="row justify-center q-mt-md q-px-sm">
       <div class="row justify-center q-col-gutter-sm">
         <div
-          class="col-auto q-pa-md myFont text-center"
+          class="col-auto q-pa-md myFont"
           v-for="s in setsApartFeature"
           :key="s.id"
+          :class="
+            $q.screen.lt.md
+              ? ' full-width row items-center text-left'
+              : 'text-center'
+          "
         >
-          <q-img :src="s.image" class="q-mb-md" :style="{ width: '70px' }" />
-          <div class="text-h6">{{ s.description }}</div>
+          <q-img
+            :src="s.image"
+            class="q-mr-sm"
+            :class="$q.screen.lt.md ? '' : 'q-mb-md'"
+            :style="{ width: $q.screen.gt.sm ? '70px' : '30px' }"
+          />
+          <div :class="$q.screen.lt.md ? 'text-caption2' : 'text-h6'">
+            {{ s.description }}
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bagian konten yang sama -->
   <div class="col-12 q-px-md">
     <div
       class="row flex items-center justify-between q-mx-auto"
@@ -135,9 +114,52 @@
       </q-card-section>
     </q-card>
   </div>
+
+  <!-- <div
+    class="col-12 q-py-md myFont"
+    style="background-image: linear-gradient(#1d2939, #0c111d)"
+  >
+    <div class="row full-width justify-center items-center q-px-md"> -->
+  <!-- Gambar di sebelah kiri pada desktop, atas pada mobile -->
+  <!-- <div class="col-12 col-md-5 flex flex-center">
+        <q-img
+          src="assets/imageDekstop/serviceFooter.png"
+          fit="contain"
+          class="full-width q-mb-md q-mb-md-md-none"
+          style="max-width: 500px"
+        />
+      </div> -->
+
+  <!-- Teks di sebelah kanan pada desktop, bawah pada mobile -->
+  <!-- <div class="col-12 col-md-7 text-left text-white q-mt-md">
+        <div
+          class="text-md-h3 text-bold"
+          :class="$q.screen.lt.md ? 'text-h5' : 'text-h3'"
+        >
+          <span class="gradient-text">Join us</span>
+          <span> in shaping the future of intelligent mobility</span>
+        </div>
+        <div class="myFont q-mt-sm text-md-h6">
+          Let’s drive innovation together!
+        </div>
+        <div class="row justify-start">
+          <q-btn
+            class="gradient-color text-white q-mt-md"
+            :class="$q.screen.lt.md ? ' full-width ' : 'q-ml-none '"
+            glossy
+            label="Contact Us"
+            @click="dialogVisible = true"
+          />
+          <ServiceForm v-model="dialogVisible" />
+        </div>
+      </div> -->
+  <!-- </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
+// import { ref } from 'vue';
+// import ServiceForm from '../components/ServiceForm.vue';
 import {
   serviceMidText1,
   serviceMidText2,
@@ -145,25 +167,10 @@ import {
   setsApartFeature,
   servicePortoCard,
 } from '../pages/ServicePage';
+
+// const dialogVisible = ref(false);
 </script>
 
 <style>
-/* Mobile pakai class default */
-.container-custom {
-  z-index: 1;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-/* Desktop pakai centering murni */
-.container-desktop {
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 </style>
