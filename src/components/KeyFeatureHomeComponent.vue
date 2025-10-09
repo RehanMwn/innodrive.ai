@@ -180,7 +180,7 @@ const toggleFlip = (index: number): void => {
   left: -160px;       /* setengah keluar kiri */
   width: 400px;      /* bisa diatur sesuai ukuran */
   height: 400px;  /* bisa diatur sesuai ukuran */
-  background: url("/assets/ImageDekstop/ornament.png") no-repeat left bottom;
+  background: url("/public/assets/imageDekstop/ornament.png") no-repeat left bottom;
   background-size: contain; /* biar pas di kotak */
   opacity: 0.9;       /* transparan dikurangi 10% */
   transform: scaleX(-1); /* flip horizontal */

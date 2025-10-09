@@ -23,7 +23,7 @@
         <!-- Carousel for Mobile -->
         <div class="col-12 flex flex-center q-mb-lg">
           <q-img
-            src="assets/ImageDekstop/agrisoil.png"
+            src="/public/assets/imageDekstop/agrisoil.png"
             style="max-width: 90%; border-radius: 12px"
             fit="contain"
           />
@@ -38,7 +38,7 @@
               :key="i"
             >
               <q-img
-                src="assets/icon/checklist.png"
+                src="/public/assets/icon/checklist.pngpng"
                 style="width: 18px; height: 18px; margin-right: 8px"
               />
               <span class="checklist-text-nowrap">{{ item }}</span>
@@ -63,7 +63,7 @@
         <!-- Left Side: Image -->
         <div class="col-12 col-md-6 flex flex-center">
           <q-img
-            src="assets/imageDekstop/agrisoil.png"
+            src="/public/assets/imageDekstop/agrisoil.png"
             style="max-width: 70%; border-radius: 12px"
             fit="contain"
           />
@@ -92,7 +92,7 @@
                 :key="i"
               >
                 <q-img
-                  src="assets/icon/checklist.png"
+                  src="/public/assets/icon/checklist.png  "
                   style="width: 18px; height: 18px; margin-right: 8px"
                 />
                 <span class="checklist-text-nowrap">{{ item }}</span>

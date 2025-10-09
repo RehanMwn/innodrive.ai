@@ -21,7 +21,7 @@
         <!-- Carousel for Mobile -->
         <div class="col-12 flex flex-center q-mb-lg">
           <q-img
-            src="/assets/ImageDesktop/dynoComponent1.png"
+            src="/public/assets/imageDekstop/dynoComponent1.png"
             style="max-width: 90%; border-radius: 12px"
             fit="contain"
           />
@@ -36,7 +36,7 @@
               :key="i"
             >
               <q-img
-                src="/assets/icon/checklist.png"
+                src="/public/assets/icon/checklist.png"
                 style="width: 18px; height: 18px; margin-right: 8px"
               />
               <span class="checklist-text-nowrap">{{ item }}</span>
@@ -79,7 +79,7 @@
                 :key="i"
               >
                 <q-img
-                  src="/assets/icon/checklist.png"
+                  src="/public/assets/icon/checklist.png"
                   style="width: 18px; height: 18px; margin-right: 8px"
                 />
                 <span class="checklist-text-nowrap">{{ item }}</span>

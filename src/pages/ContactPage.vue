@@ -1,13 +1,11 @@
 <template>
   <q-page class="bg-contact q-pa-xl">
     <div class="row q-col-gutter-xl items-start">
-      <!-- Dekstop -->
       <template v-if="$q.screen.gt.sm">
-        <!-- LEFT SIDE -->
         <div class="col-12 col-md-6 text-white">
           <div class="text-h4 text-bold q-mb-md">
             Discover Intelligent Solutions from Innodrive.ai to
-            <span class="text-warning">Power</span> Your Industry Forward
+            <span class="gradient-text">Power</span> Your Industry Forward
           </div>
           <div class="text-subtitle1 q-mb-lg">Let us know how we can help:</div>
 
@@ -26,7 +24,6 @@
           </div>
         </div>
 
-        <!-- RIGHT SIDE (FORM) -->
         <div class="col-12 col-md-6 text-white">
           <q-form @submit.prevent="sendEmail" class="q-gutter-md">
             <div class="row q-col-gutter-md">
@@ -34,19 +31,19 @@
                 <div class="q-mb-xs text-white text-weight-medium">
                   First name <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.firstName" label="" outlined dense />
+                <q-input v-model="form.firstName" label="" outlined dense :rules="[val => !!val || 'Required']" />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
                   Last name <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.lastName" label="" outlined dense />
+                <q-input v-model="form.lastName" label="" outlined dense :rules="[val => !!val || 'Required']" />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
                   Company name <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.company" label="" outlined dense />
+                <q-input v-model="form.company" label="" outlined dense :rules="[val => !!val || 'Required']"/>
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
@@ -58,19 +55,20 @@
                   type="email"
                   outlined
                   dense
+                  :rules="[val => !!val || 'Required', val => /.+@.+\..+/.test(val) || 'Invalid email']"
                 />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
                   Phone number <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.phone" label="" outlined dense />
+                <q-input v-model="form.phone" label="" outlined dense :rules="[val => !!val || 'Required']" />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
-                  Country <span style="color: #ff3b3b">*</span>
+                  address <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.country" label="" outlined dense />
+                <q-input v-model="form.address" label="" outlined dense :rules="[val => !!val || 'Required']"/>
               </div>
               <div class="col-12">
                 <div class="q-mb-xs text-white text-weight-medium">
@@ -82,6 +80,7 @@
                   label=""
                   outlined
                   dense
+                  :rules="[val => !!val || 'Required']"
                 />
               </div>
               <div class="text-subtitle1 q-mr-md" style="text-align: justify">
@@ -94,12 +93,28 @@
                 below:
               </div>
               <q-checkbox
-                v-model="form.allowData"
-                label="I allow Innodrive.ai to process my data."
+                v-model="form.alllowData"
+                label="I agree to receive updates and communications from Innodrive.ai."
                 style="margin: -12px"
               />
+              <div class="text-subtitle1 q-mr-md" style="text-align: justify">
+                To deliver the content you requested, Innodrive.ai needs to
+                store and process your personal data. If you agree, please tick
+                the box below.
+              </div>
+              <q-checkbox
+                label="I allow Innodrive.ai to process my data."
+                v-model="form.allowData"
+                class="justify-start"
+                style="margin: -10px -12px"
+              />
+
               <div class="col-12">
-                <div class="text-negative text-caption" v-if="!form.allowData">
+                <div
+                  class="text-negative text-caption"
+                  style="margin: -10px 0px 20px"
+                  v-if="!form.allowData"
+                >
                   This field is required.
                 </div>
               </div>
@@ -109,44 +124,41 @@
               color="warning"
               type="submit"
               class="full-width q-mt-md"
-              :disable="!form.allowData"
+              :disable="!isFormValid"
             />
           </q-form>
         </div>
       </template>
-      <!-- Mobile -->
       <template v-else>
-        <div class="col-12 flex flex-center q-ml-sm">
-          <div class="q-px-md q-pt-md">
-            <!-- Title -->
+        <div class="col-12 flex flex-center">
+          <div class="q-px-md">
             <div
               class="row full-width justify-center text-bold"
-              style="margin-bottom: 60px; font-size: 2rem"
+              style="margin-bottom: 30px; font-size: 2rem"
             >
               <span class="gradient-text">Contact&nbsp;</span>
               <span class="text-white">Us</span>
             </div>
-            <!-- RIGHT SIDE (FORM) - Mobile -->
-            <div class="text-white">
+            <div class="text-white q-ml-sm">
               <q-form @submit.prevent="sendEmail" class="q-gutter-md">
                 <div class="row q-col-gutter-md">
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
                       First name <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.firstName" label="" outlined dense />
+                    <q-input v-model="form.firstName" label="" outlined dense :rules="[val => !!val || 'Required']"/>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
                       Last name <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.lastName" label="" outlined dense />
+                    <q-input v-model="form.lastName" label="" outlined dense :rules="[val => !!val || 'Required']"/>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
                       Company name <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.company" label="" outlined dense />
+                    <q-input v-model="form.company" label="" outlined dense :rules="[val => !!val || 'Required']"/>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
@@ -158,19 +170,20 @@
                       label=""
                       outlined
                       dense
+                      :rules="[val => !!val || 'Required', val => /.+@.+\..+/.test(val) || 'Invalid email']"
                     />
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
                       Phone number <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.phone" label="" outlined dense />
+                    <q-input v-model="form.phone" label="" outlined dense :rules="[val => !!val || 'Required']"/>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
-                      Country <span style="color: #ff3b3b">*</span>
+                      Alamat Lengkap <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.country" label="" outlined dense />
+                    <q-input v-model="form.address" label="" outlined dense :rules="[val => !!val || 'Required']"/>
                   </div>
                   <div class="col-12">
                     <div class="q-mb-xs text-white text-weight-medium">
@@ -182,6 +195,7 @@
                       label=""
                       outlined
                       dense
+                      :rules="[val => !!val || 'Required']"
                     />
                   </div>
                   <div
@@ -197,13 +211,11 @@
                     method of contact below:
                   </div>
                   <q-checkbox
-
                     label="I agree to receive updates and communications from Innodrive.ai."
                     v-model="form.alllowData"
                     style="margin: 10px -12px"
                   />
 
-                  <div class="col-12"></div>
                   <div style="text-align: justify; line-height: 2">
                     To deliver the content you requested, Innodrive.ai needs to
                     store and process your personal data. If you agree, please
@@ -215,7 +227,6 @@
                     class="justify-start"
                     style="margin: 10px -12px"
                   />
-
                   <div class="col-12">
                     <div
                       class="text-negative text-caption"
@@ -232,16 +243,15 @@
                   color="warning"
                   type="submit"
                   class="q-mt-md full-width"
-                  :disable="!form.allowData"
+                  :disable="!isFormValid"
                 />
               </q-form>
             </div>
 
-            <!-- LEFT SIDE - Mobile -->
             <div class="text-white q-pt-xl">
               <div class="text-h5 text-bold q-mb-md text-left">
                 Discover Intelligent Solutions from Innodrive.ai to
-                <span class="text-warning">Power</span> Your Industry Forward
+                <span class="gradient-text">Power</span> Your Industry Forward
               </div>
               <div class="text-subtitle1 q-mb-lg text-left">
                 Let us know how we can help:
@@ -269,7 +279,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue'; // Tambahkan 'computed'
 import emailjs from 'emailjs-com';
 
 const checklist = [
@@ -286,14 +296,35 @@ const form = ref({
   company: '',
   email: '',
   phone: '',
-  country: '',
+  address: '',
   message: '',
   allowData: false,
   alllowData: false,
 });
 
+// Properti computed baru untuk mengecek validitas form
+const isFormValid = computed(() => {
+  const allInputsFilled =
+    !!form.value.firstName &&
+    !!form.value.lastName &&
+    !!form.value.company &&
+    !!form.value.email &&
+    !!form.value.phone &&
+    !!form.value.address &&
+    !!form.value.message;
+
+  // Cek validasi email sederhana
+  const isEmailValid = /.+@.+\..+/.test(form.value.email);
+
+  // Cek apakah checkbox wajib (allowData) dicentang
+  const requiredCheckboxTicked = form.value.allowData;
+
+  // Gabungkan semua kondisi wajib
+  return allInputsFilled && isEmailValid && requiredCheckboxTicked;
+});
+
 const sendEmail = () => {
-  if (!form.value.allowData) return;
+  if (!isFormValid.value) return; // Menggunakan isFormValid untuk memastikan semua terisi
 
   emailjs
     .send(
@@ -306,7 +337,7 @@ const sendEmail = () => {
         company: form.value.company,
         email: form.value.email,
         phone: form.value.phone,
-        country: form.value.country,
+        address: form.value.address,
         message: form.value.message,
       },
       'user_xxxxxx'
@@ -358,8 +389,6 @@ const sendEmail = () => {
 .q-checkbox__inner {
   color: #ffffff !important; /* ubah warna default jadi putih */
 }
-
-
 
 @media (max-width: 600px) {
   .bg-contact {

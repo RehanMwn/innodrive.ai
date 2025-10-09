@@ -88,7 +88,7 @@
             </div>
           </div>
         </div>
-        <div class="row justify-center q-gutter-md">
+        <div class="row justify-center q-gutter-xs">
           <q-card
             v-for="p in servicePortoCard"
             :key="p.id"
@@ -126,14 +126,16 @@
         <div class="col-12 q-mb-lg">
           <div class="mobile-wrapper text-center">
             <div class="text-h4 text-bold gradient-text">
-              Automotive
-              <span class="text-h4 text-bold text-black">Technology</span>
+              Industrial
+              <span class="text-h4 text-bold text-black"
+                >Automation Systems</span
+              >
               <div
                 class="text-body1 text-grey-9 q-mt-md"
                 style="max-width: 700px; margin: 10px auto"
               >
-                We develop digital automotive solutions that enhance
-                diagnostics, monitoring, and overall driving performance.
+                We build smart automation solutions that improve efficiency,
+                accuracy, and reliability in industrial operations.
               </div>
             </div>
           </div>
@@ -283,22 +285,22 @@ export default defineComponent({
   setup() {
     const checklist = [
       {
-        title: 'Advanced Diagnostics',
+        title: 'IoT-Enabled Control',
         description:
           'Real-time monitoring and automation powered by IoT connectivity.',
       },
       {
-        title: 'Performance Measurement',
+        title: 'Seamless Integration',
         description:
           'Hardware and software systems designed to work together effortlessly.',
       },
       {
-        title: 'Smart Integration',
+        title: 'Data-Driven Efficiency',
         description:
           'Smart analytics to optimize production, reduce downtime, and save costs.',
       },
       {
-        title: 'Data-Driven Insights',
+        title: 'Scalable Solutions',
         description:
           'Flexible systems that grow with industrial needs, from small plants to large-scale operations.',
       },

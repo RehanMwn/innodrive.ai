@@ -381,9 +381,9 @@ const items = ref([
     title: 'Company',
     children: [
       { title: 'About Us', link: '/about' },
-      { title: 'Career', link: '/career' },
+      { title: 'Career', link: '/CareerPage' },
       { title: 'Contact Us', link: '/ContactUs' },
-      { title: 'Partner', link: '/partner' },
+      { title: 'Partner', link: '/PartnerPage' },
     ],
   },
   {

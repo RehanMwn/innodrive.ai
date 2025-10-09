@@ -381,9 +381,9 @@ const items = ref([
     title: 'Company',
     children: [
       { title: 'About Us', link: '/about' },
-      { title: 'Career', link: '/career' },
+      { title: 'Career', link: '/CareerPage' },
       { title: 'Contact Us', link: '/contacts' },
-      { title: 'Partner', link: '/partner' },
+      { title: 'Partner', link: '/PartnerPage' },
     ],
   },
   {
@@ -421,7 +421,7 @@ onUnmounted(() => {
 const automationSystems = [
   {
     title: 'InnoDrop',
-    link: '/ProductInnoDropPage',
+    link: '/product-Innodrop',
     desc: 'Interactive customizable mining fuel pump',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },

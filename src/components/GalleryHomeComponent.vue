@@ -14,7 +14,7 @@
       </div>
 
       <div
-        class="row q-mt-lg justify-center text-center"
+        class="row q-mt-lg justify-center text-center q-px-md"
         :class="$q.screen.gt.md ? 'text-h6' : 'text-subtitle'"
         style="max-width: 700px"
         v-html="galleryDescriptionText"
@@ -323,7 +323,7 @@ onBeforeUnmount(() => {
   overflow: hidden; /* supaya ornamen nggak bikin scrollbar */
 }
 
-/* kiri bawah */
+/* Kanan atas2 */
 .ornament-bg::after {
   content: "";
   position: absolute;
@@ -331,7 +331,7 @@ onBeforeUnmount(() => {
   left: -160px;       /* setengah keluar kiri */
   width: 400px;
   height: 400px;
-  background: url("/assets/ImageDekstop/ornament.png") no-repeat left bottom;
+  background: url("/public/assets/imageDekstop/ornament.png") no-repeat left bottom;
   background-size: contain;
   opacity: 0.9;       /* transparan dikurangi 10% */
   transform: scaleX(-1); /* flip horizontal */
@@ -339,7 +339,7 @@ onBeforeUnmount(() => {
   z-index: 1;
 }
 
-/* kanan bawah */
+/* kanan tengah */
 .ornament-bg::before {
   content: "";
   position: absolute;
@@ -347,7 +347,7 @@ onBeforeUnmount(() => {
   right: -100px;      /* setengah keluar kanan */
   width: 400px;
   height: 400px;
-  background: url("/assets/ImageDekstop/ornament.png") no-repeat right bottom;
+  background: url("/public/assets/imageDekstop/ornament.png") no-repeat right bottom;
   background-size: contain;
   opacity: 0.9;
   /* tidak di-flip biar tetap natural */

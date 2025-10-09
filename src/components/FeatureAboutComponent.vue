@@ -34,7 +34,7 @@ import { taglineAboutText } from 'src/pages/AboutPage';
 import { aboutShortDescriptionText } from 'src/pages/AboutPage';
 </script>
 
-<style scoped>
+<style>
 .about-background {
   background-image: url('public/assets/imageDekstop/about1.png');
   background-size: cover; /* penuh layar */

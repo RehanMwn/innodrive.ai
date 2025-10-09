@@ -43,7 +43,7 @@
               glossy
               label="Learn More"
               unelevated
-              @click="() => $router.push('/about')"
+              @click="scrollTo1welcome"
             />
           </div>
         </div>
@@ -56,6 +56,14 @@
 import { taglineText } from 'src/pages/DashboardPage';
 import { shortDescriptionText } from 'src/pages/DashboardPage';
 import { useQuasar } from 'quasar';
+
+function scrollTo1welcome() {
+  const section = document.getElementById('1-welcome');
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 const $q = useQuasar();
 
 const images = ['assets/imageDekstop/featureImage.png'];

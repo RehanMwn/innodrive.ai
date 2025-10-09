@@ -1,6 +1,6 @@
 <template>
   <!-- Judul -->
-  <div class="col-12 q-py-xl myFont ornament-bg">
+  <div id="1-welcome" class="col-12 q-py-xl myFont ornament-bg">
     <div class="text-center q-mb-xl">
       <div class="text-h3 text-bold">
         Welcome to <span class="gradient-text">Innodrive.ai</span>
@@ -121,7 +121,7 @@ export default defineComponent({});
   left: -160px; /* setengah sisi kirinya keluar layar */
   width: 400px; /* bisa diatur sesuai ukuran */
   height: 400px;
-  background: url('/assets/ImageDekstop/ornament.png') no-repeat left bottom;
+  background: url('/public/assets/imageDekstop/ornament.png') no-repeat left bottom;
   background-size: contain;
   transform: scaleX(-1); /* flip horizontal */
   pointer-events: none; /* biar nggak ganggu klik */

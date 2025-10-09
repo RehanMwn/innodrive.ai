@@ -88,7 +88,7 @@
             </div>
           </div>
         </div>
-        <div class="row justify-center q-gutter-md">
+        <div class="row justify-center q-gutter-xs">
           <q-card
             v-for="p in servicePortoCard"
             :key="p.id"

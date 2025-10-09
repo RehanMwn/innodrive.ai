@@ -67,8 +67,16 @@ const routes: RouteRecordRaw[] = [
         name: 'GoogleMaps2',
         component: () => import('pages/GoogleMaps2.vue'),
       },
-
-      
+      {
+        path: '/PartnerPage',
+        name: 'PartnerPage',
+        component: () => import('pages/PartnerPage.vue'),
+      },
+      {
+        path: '/CareerPage',
+        name: 'CareerPage',
+        component: () => import('pages/CareerPage.vue'),
+      },
     ],
   },
 
@@ -97,11 +105,13 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '/product-Innodrop',
-        component: () => import('src/components/AutomationSystem/ProductInnodrop.vue'),
+        component: () =>
+          import('src/components/AutomationSystem/ProductInnodrop.vue'),
       },
       {
         path: '/product-SIMS',
-        component: () => import('src/components/AutomationSystem/ProductSims.vue'),
+        component: () =>
+          import('src/components/AutomationSystem/ProductSims.vue'),
       },
     ],
   },
