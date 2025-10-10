@@ -36,6 +36,11 @@ export const footerItems1: FooterItem[] = [
     link: 'https://wa.me/message/5H2WQUJVTOU3F1',
   },
   {
+    title: 'office@innodrive.ai',
+    icon: 'assets/icon/FooterMail.png',
+    link: 'mailto:office@innodrive.ai',
+  },
+  {
     title: 'innodrive.ai@gmail.com',
     icon: 'assets/icon/FooterMail.png',
     link: 'mailto:innodrive.ai@gmail.com',

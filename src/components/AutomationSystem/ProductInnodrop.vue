@@ -226,9 +226,9 @@
           class="gradient-color text-white text-bold"
           :style="{ marginLeft: $q.screen.lt.md ? '0' : '120px' }"
           glossy
-          label="Learn More"
+          label="Pre Order Now"
           unelevated
-          @click="scrollToSection4"
+          @click="() => $router.push('/ContactUs')"
         />
       </div>
     </div>
@@ -410,12 +410,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-function scrollToSection4() {
-  const section = document.getElementById('section-4');
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-}
+// function scrollToSection4() {
+//   const section = document.getElementById('section-4');
+//   if (section) {
+//     section.scrollIntoView({ behavior: 'smooth' });
+//   }
+// }
 
 const reasonCard = [
   {

@@ -1,7 +1,9 @@
 <template>
   <q-page class="bg-contact q-pa-xl">
     <div class="row q-col-gutter-xl items-start">
+      <!-- Dekstop -->
       <template v-if="$q.screen.gt.sm">
+        <!-- Left Side-->
         <div class="col-12 col-md-6 text-white">
           <div class="text-h4 text-bold q-mb-md">
             Discover Intelligent Solutions from Innodrive.ai to
@@ -22,8 +24,19 @@
             />
             <div class="text-body1">{{ item }}</div>
           </div>
+          <div>
+            <q-btn
+              class="gradient-color text-white"
+              glossy
+              label="Consult Now"
+              :href="'https://wa.me/message/5H2WQUJVTOU3F1'"
+              target="_blank"
+            >
+              <q-icon name="fa-brands fa-whatsapp" class="q-ml-sm" />
+            </q-btn>
+          </div>
+          <!-- Right Side: Form-->
         </div>
-
         <div class="col-12 col-md-6 text-white">
           <q-form @submit.prevent="sendEmail" class="q-gutter-md">
             <div class="row q-col-gutter-md">
@@ -31,19 +44,38 @@
                 <div class="q-mb-xs text-white text-weight-medium">
                   First name <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.firstName" label="" outlined dense :rules="[val => !!val || 'Required']" />
+                <q-input
+                  v-model="form.firstName"
+                  label=""
+                  outlined
+                  dense
+
+                  :rules="[(val) => !!val || 'Required']"
+                />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
                   Last name <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.lastName" label="" outlined dense :rules="[val => !!val || 'Required']" />
+                <q-input
+                  v-model="form.lastName"
+                  label=""
+                  outlined
+                  dense
+                  :rules="[(val) => !!val || 'Required']"
+                />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
                   Company name <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.company" label="" outlined dense :rules="[val => !!val || 'Required']"/>
+                <q-input
+                  v-model="form.company"
+                  label=""
+                  outlined
+                  dense
+                  :rules="[(val) => !!val || 'Required']"
+                />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
@@ -55,20 +87,70 @@
                   type="email"
                   outlined
                   dense
-                  :rules="[val => !!val || 'Required', val => /.+@.+\..+/.test(val) || 'Invalid email']"
+                  :rules="[
+                    (val) => !!val || 'Required',
+                    (val) => /.+@.+\..+/.test(val) || 'Invalid email',
+                  ]"
                 />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
                   Phone number <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.phone" label="" outlined dense :rules="[val => !!val || 'Required']" />
+                <q-input
+                  v-model="form.phone"
+                  label=""
+                  outlined
+                  dense
+                  :rules="[(val) => !!val || 'Required']"
+                />
               </div>
               <div class="col-12 col-md-6">
                 <div class="q-mb-xs text-white text-weight-medium">
                   address <span style="color: #ff3b3b">*</span>
                 </div>
-                <q-input v-model="form.address" label="" outlined dense :rules="[val => !!val || 'Required']"/>
+                <q-input
+                  v-model="form.address"
+                  label=""
+                  outlined
+                  dense
+                  :rules="[(val) => !!val || 'Required']"
+                />
+              </div>
+
+              <div class="col-12">
+                <div class="q-mb-xs text-white text-weight-medium">
+                  Subject <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-select
+                  v-model="form.subject"
+                  :options="subjectOptions"
+                  option-value="value"
+                  option-label="label"
+                  outlined
+                  dense
+                  emit-value
+                  map-options
+                  class="q-field--dark"
+                  :rules="[(val) => !!val || 'Required']"
+                />
+              </div>
+
+              <div
+                class="col-12"
+                v-if="form.subject && form.subject !== 'other'"
+              >
+                <div class="q-mb-xs text-white text-weight-medium">
+                  {{ subSubjectTitle }} <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-select
+                  v-model="form.subSubject"
+                  :options="currentSubOptions"
+                  outlined
+                  dense
+                  class="q-field--dark"
+                  :rules="[(val) => !!val || 'Required']"
+                />
               </div>
               <div class="col-12">
                 <div class="q-mb-xs text-white text-weight-medium">
@@ -80,7 +162,7 @@
                   label=""
                   outlined
                   dense
-                  :rules="[val => !!val || 'Required']"
+                  :rules="[(val) => !!val || 'Required']"
                 />
               </div>
               <div class="text-subtitle1 q-mr-md" style="text-align: justify">
@@ -129,6 +211,7 @@
           </q-form>
         </div>
       </template>
+      <!-- Mobile -->
       <template v-else>
         <div class="col-12 flex flex-center">
           <div class="q-px-md">
@@ -146,19 +229,37 @@
                     <div class="q-mb-xs text-white text-weight-medium">
                       First name <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.firstName" label="" outlined dense :rules="[val => !!val || 'Required']"/>
+                    <q-input
+                      v-model="form.firstName"
+                      label=""
+                      outlined
+                      dense
+                      :rules="[(val) => !!val || 'Required']"
+                    />
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
                       Last name <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.lastName" label="" outlined dense :rules="[val => !!val || 'Required']"/>
+                    <q-input
+                      v-model="form.lastName"
+                      label=""
+                      outlined
+                      dense
+                      :rules="[(val) => !!val || 'Required']"
+                    />
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
                       Company name <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.company" label="" outlined dense :rules="[val => !!val || 'Required']"/>
+                    <q-input
+                      v-model="form.company"
+                      label=""
+                      outlined
+                      dense
+                      :rules="[(val) => !!val || 'Required']"
+                    />
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
@@ -170,20 +271,70 @@
                       label=""
                       outlined
                       dense
-                      :rules="[val => !!val || 'Required', val => /.+@.+\..+/.test(val) || 'Invalid email']"
+                      :rules="[
+                        (val) => !!val || 'Required',
+                        (val) => /.+@.+\..+/.test(val) || 'Invalid email',
+                      ]"
                     />
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
                       Phone number <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.phone" label="" outlined dense :rules="[val => !!val || 'Required']"/>
+                    <q-input
+                      v-model="form.phone"
+                      label=""
+                      outlined
+                      dense
+                      :rules="[(val) => !!val || 'Required']"
+                    />
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="q-mb-xs text-white text-weight-medium">
-                      Alamat Lengkap <span style="color: #ff3b3b">*</span>
+                      Address <span style="color: #ff3b3b">*</span>
                     </div>
-                    <q-input v-model="form.address" label="" outlined dense :rules="[val => !!val || 'Required']"/>
+                    <q-input
+                      v-model="form.address"
+                      label=""
+                      outlined
+                      dense
+                      :rules="[(val) => !!val || 'Required']"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <div class="q-mb-xs text-white text-weight-medium">
+                      Subject <span style="color: #ff3b3b">*</span>
+                    </div>
+                    <q-select
+                      v-model="form.subject"
+                      :options="subjectOptions"
+                      option-value="value"
+                      option-label="label"
+                      outlined
+                      dense
+                      emit-value
+                      map-options
+                      class="q-field--dark"
+                      :rules="[(val) => !!val || 'Required']"
+                    />
+                  </div>
+
+                  <div
+                    class="col-12"
+                    v-if="form.subject && form.subject !== 'other'"
+                  >
+                    <div class="q-mb-xs text-white text-weight-medium">
+                      {{ subSubjectTitle }}
+                      <span style="color: #ff3b3b">*</span>
+                    </div>
+                    <q-select
+                      v-model="form.subSubject"
+                      :options="currentSubOptions"
+                      outlined
+                      dense
+                      class="q-field--dark"
+                      :rules="[(val) => !!val || 'Required']"
+                    />
                   </div>
                   <div class="col-12">
                     <div class="q-mb-xs text-white text-weight-medium">
@@ -195,7 +346,7 @@
                       label=""
                       outlined
                       dense
-                      :rules="[val => !!val || 'Required']"
+                      :rules="[(val) => !!val || 'Required']"
                     />
                   </div>
                   <div
@@ -215,7 +366,6 @@
                     v-model="form.alllowData"
                     style="margin: 10px -12px"
                   />
-
                   <div style="text-align: justify; line-height: 2">
                     To deliver the content you requested, Innodrive.ai needs to
                     store and process your personal data. If you agree, please
@@ -237,17 +387,23 @@
                     </div>
                   </div>
                 </div>
-
                 <q-btn
                   label="Submit"
                   color="warning"
                   type="submit"
                   class="q-mt-md full-width"
                   :disable="!isFormValid"
-                />
+                /><q-btn
+                  class="gradient-color text-white full-width"
+                  glossy
+                  label="Consult Now"
+                  :href="'https://wa.me/message/5H2WQUJVTOU3F1'"
+                  target="_blank"
+                >
+                  <q-icon name="fa-brands fa-whatsapp" class="q-ml-sm" />
+                </q-btn>
               </q-form>
             </div>
-
             <div class="text-white q-pt-xl">
               <div class="text-h5 text-bold q-mb-md text-left">
                 Discover Intelligent Solutions from Innodrive.ai to
@@ -279,15 +435,58 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'; // Tambahkan 'computed'
+import { ref, computed, watch } from 'vue';
+import { useQuasar } from 'quasar';
 import emailjs from 'emailjs-com';
 
+const $q = useQuasar();
+
+// ===================================
+// OPSI SUB-DROPDOWN
+// ===================================
+
+// Order Product
+const productOptions = ['Adros', 'Innodrop', 'SIMS', 'Product Lainnya'];
+
+// Product Information
+const infoOptions = [
+  'Detail Adros',
+  'Detail Innodrop',
+  'Detail SIMS',
+  'Informasi Umum',
+];
+
+// Partnership Opportunity
+const partnershipOptions = [
+  'Distributor',
+  'Integrator Teknologi',
+  'Kerja Sama Riset',
+];
+
+// Support Request
+const supportOptions = ['Masalah Teknis', 'Pertanyaan Garansi', 'Laporan Bug'];
+
+// Apply for a Job
+const jobOptions = ['Engineering', 'Marketing', 'Lainnya'];
+
+// ===================================
+// DATA UTAMA
+// ===================================
 const checklist = [
   'Schedule a consultation to discuss your automation needs',
   'Explore Innodrive.ai product features and live demos',
   'Learn more about our industrial and automotive projects',
   'Join our network of innovators and industry partners',
   'Plan your digital transformation journey with us',
+];
+
+const subjectOptions = [
+  { label: 'Pre Order Product', value: 'order' },
+  { label: 'Product Information', value: 'product' },
+  { label: 'Partnership Opportunity', value: 'partnership' },
+  { label: 'Support Request', value: 'support' },
+  { label: 'Apply for a Job', value: 'job' },
+  { label: 'Other', value: 'other' },
 ];
 
 const form = ref({
@@ -297,34 +496,91 @@ const form = ref({
   email: '',
   phone: '',
   address: '',
+  subject: '',
+  subSubject: '',
   message: '',
   allowData: false,
   alllowData: false,
 });
 
-// Properti computed baru untuk mengecek validitas form
+// ===================================
+// LOGIKA KONDISIONAL
+// ===================================
+
+const currentSubOptions = computed(() => {
+  switch (form.value.subject) {
+    case 'order':
+      return productOptions;
+    case 'product':
+      return infoOptions;
+    case 'partnership':
+      return partnershipOptions;
+    case 'support':
+      return supportOptions;
+    case 'job':
+      return jobOptions;
+    default:
+      return [];
+  }
+});
+
+const subSubjectTitle = computed(() => {
+  switch (form.value.subject) {
+    case 'order':
+      return 'Select Product';
+    case 'product':
+      return 'Information Topic';
+    case 'partnership':
+      return 'Partnership Type';
+    case 'support':
+      return 'Support Type';
+    case 'job':
+      return 'Department/Field';
+    default:
+      return 'Detail';
+  }
+});
+
+watch(
+  () => form.value.subject,
+  () => {
+    form.value.subSubject = '';
+  }
+);
+
+// ===================================
+// VALIDASI & SUBMIT
+// ===================================
+
 const isFormValid = computed(() => {
-  const allInputsFilled =
+  let allInputsFilled =
     !!form.value.firstName &&
     !!form.value.lastName &&
     !!form.value.company &&
     !!form.value.email &&
     !!form.value.phone &&
     !!form.value.address &&
+    !!form.value.subject &&
     !!form.value.message;
 
-  // Cek validasi email sederhana
-  const isEmailValid = /.+@.+\..+/.test(form.value.email);
+  if (form.value.subject && form.value.subject !== 'other') {
+    allInputsFilled = allInputsFilled && !!form.value.subSubject;
+  }
 
-  // Cek apakah checkbox wajib (allowData) dicentang
+  const isEmailValid = /.+@.+\..+/.test(form.value.email);
   const requiredCheckboxTicked = form.value.allowData;
 
-  // Gabungkan semua kondisi wajib
   return allInputsFilled && isEmailValid && requiredCheckboxTicked;
 });
 
 const sendEmail = () => {
-  if (!isFormValid.value) return; // Menggunakan isFormValid untuk memastikan semua terisi
+  if (!isFormValid.value) {
+    $q.notify({
+      type: 'negative',
+      message: 'Please fill in all required fields correctly.',
+    });
+    return;
+  }
 
   emailjs
     .send(
@@ -338,18 +594,28 @@ const sendEmail = () => {
         email: form.value.email,
         phone: form.value.phone,
         address: form.value.address,
+        subject: form.value.subject,
+        subSubject:
+          form.value.subject === 'other' ? 'N/A' : form.value.subSubject,
         message: form.value.message,
       },
       'user_xxxxxx'
     )
     .then(() => {
-      alert('Message sent successfully!');
+      $q.notify({
+        type: 'positive',
+        message: 'Email sent successfully!',
+      });
     })
     .catch(() => {
-      alert('Failed to send message. Please try again.');
+      $q.notify({
+        type: 'negative',
+        message: 'Failed to send email. Please try again.',
+      });
     });
 };
 </script>
+
 
 <style>
 .bg-contact {
@@ -361,7 +627,8 @@ const sendEmail = () => {
 /* Biar input dark tapi tetap jelas */
 /* Semua input pakai background dark + text putih */
 .q-input .q-field__control,
-.q-textarea .q-field__control {
+.q-textarea .q-field__control,
+.q-select .q-field__control {
   background-color: #1d2939 !important;
   border: 1px solid #98a2b3 !important;
   border-radius: 10px !important;
