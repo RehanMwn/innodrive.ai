@@ -212,7 +212,7 @@
                               :alt="child.title + ' icon'"
                             />
                           </q-item-section>
-                          <q-item-section class="text-center">
+                          <q-item-section class=" text-left">
                             {{ child.title }}
                           </q-item-section>
                         </q-item>

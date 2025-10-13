@@ -1,0 +1,160 @@
+<!-- section 4-->
+    <!--
+      id="section-4"
+      style="
+        background: linear-gradient(to top, #0c111d, #1d2939);
+        min-height: 800px;
+      "
+      class="q-pa-xl"
+    >
+      Title
+      <div
+        class="row full-width justify-center text-bold"
+        style="margin-bottom: 60px; font-size: 3rem"
+      >
+        <span style="color: white">Pre Order&nbsp;</span>
+        <span class="gradient-text">InnoDrop</span>
+      </div>
+
+      <div class="row q-col-gutter-xl items-start justify-center">
+        RIGHT SIDE (FORM)
+        <div class="col-12 col-md-8 text-white">
+          <q-form
+            @submit.prevent="sendEmail"
+            class="q-gutter-lg"
+            style="font-size: 1.4rem"
+          >
+            <div class="row q-col-gutter-lg">
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  First name <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.firstName"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Last name <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.lastName"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Company name <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.company"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Email <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.email"
+                  type="email"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Phone number <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.phone"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Country <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.country"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Message <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.message"
+                  type="textarea"
+                  outlined
+                  input-style="font-size: 1.2rem; min-height: 150px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+            </div>
+
+            <q-checkbox
+              v-model="form.allowData"
+              label="I allow Innodrive.ai to process my data."
+              style="font-size: 1.2rem; transform: scale(1.3); margin: 20px 50px"
+            />
+            <div
+              class="text-negative"
+              style="font-size: 1.2rem"
+              v-if="!form.allowData"
+            >
+              This field is required.
+            </div>
+
+            <q-btn
+              label="Submit"
+              color="warning"
+              type="submit"
+              class="full-width q-mt-lg"
+              style="font-size: 1.5rem; height: 80px; border-radius: 16px"
+              :disable="!form.allowData"
+            />
+          </q-form>
+        </div>
+      </div>
+    </div> -->

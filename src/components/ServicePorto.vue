@@ -1,7 +1,7 @@
 <template>
   <!-- MOBILE (lt.md) -->
   <div
-    v-if="$q.screen.lt.md"
+    v-if="$q.screen.lt.sm"
     class="container-custom col-12 col-md-8 text-white myFont q-pa-md"
     style="background: linear-gradient(to top, #0C111D, #1D2939);"
     :style="{
@@ -41,7 +41,7 @@
       backgroundSize: 'contain',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      width: '80%',
+      width: '80% auto',
       marginTop: '-140px',
       marginBottom: '250px',
       marginLeft: 'auto',

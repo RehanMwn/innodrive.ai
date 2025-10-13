@@ -52,7 +52,7 @@
           <div class="column q-px-lg">
             <div class="row q-py-md text-subtitle2">Office</div>
             <div
-              class="row q-py-md text-body2"
+              class="row q-py-md text-body2 text-justify"
               v-for="i in footerItems3"
               :key="i.title"
             >

@@ -212,7 +212,7 @@
                               :alt="child.title + ' icon'"
                             />
                           </q-item-section>
-                          <q-item-section class="text-center">
+                          <q-item-section class="text-center text-left">
                             {{ child.title }}
                           </q-item-section>
                         </q-item>
@@ -382,7 +382,7 @@ const items = ref([
     children: [
       { title: 'About Us', link: '/about' },
       { title: 'Career', link: '/CareerPage' },
-      { title: 'Contact Us', link: '/contacts' },
+      { title: 'Contact Us', link: '/ContactUs' },
       { title: 'Partner', link: '/PartnerPage' },
     ],
   },

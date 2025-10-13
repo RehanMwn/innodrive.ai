@@ -1,390 +1,486 @@
 <template>
-  <q-page class="col-12 q-py-xl myFont size">
-    <PraFooterComponent />
+  <div>
     <!-- section 1 -->
-    <div class="row items-start justify-center q-col-gutter-xl">
-      <!-- Mobile Layout -->
-      <template v-if="$q.screen.lt.md">
-        <!-- judul -->
-        <div class="col-12 q-mb-lg">
-          <div class="mobile-wrapper text-center">
-            <div class="text-h5 text-bold gradient-text">
-              Industrial
-              <span class="text-h5 text-bold text-black"
-                >a</span
-              >
+    <div class="col-12">
+      <q-img
+        src="assets/imageDekstop/innodrop.png"
+        :style="{
+          height: $q.screen.gt.sm ? '100vh' : '60vh',
+        }"
+      >
+        <div
+          class="absolute-full flex justify-start items-center"
+          style="background: rgba(0, 0, 0, 0.1)"
+        >
+          <div
+            class="text-left myFont"
+            style="max-width: 800px; padding-left: 8vw"
+          >
+            <div
+              :class="{
+                'text-h2 text-bold q-pb-lg': $q.screen.gt.sm,
+                'text-h5 text-bold q-pb-lg': !$q.screen.gt.sm,
+              }"
+            >
+              Precise Fueling, Smarter Control
+            </div>
+            <div
+              :class="{
+                'text-h5 q-mt-lg': $q.screen.gt.sm,
+                'text-caption2': !$q.screen.gt.sm,
+              }"
+            >
+              InnoDrop ensures efficient fuel dispensing with real-time
+              monitoring, and seamless data reporting—built to optimize mining
+              operations with accuracy and reliability.
             </div>
           </div>
         </div>
-        <!-- Gambar Service Mobile -->
-        <div class="col-12 q-mb-lg">
-          <div class="mobile-wrapper flex flex-center">
+      </q-img>
+    </div>
+    <div></div>
+    <!-- section 2-->
+    <div class="col-12 q-py-xl myFont">
+      <div class="row items-start justify-center q-col-gutter-xl">
+        <!-- Mobile Layout: Responsive Reason Cards below image -->
+        <template v-if="$q.screen.lt.md">
+          <!-- Image for Mobile -->
+          <div class="col-12 flex flex-center q-mb-lg">
             <q-img
-              src="/public/assets/imageDekstop/service1.png"
-              style="max-width: 80%; border-radius: 12px"
+              src="/public/assets/imageDekstop/innodrop2.png"
+              style="max-width: 90%; border-radius: 12px"
               fit="contain"
             />
           </div>
-        </div>
-        <!-- Checklist Mobile -->
-        <div class="col-12">
-          <div class="col-12 q-mb-lg">
-            <div class="mobile-wrapper text-left">
-              <div class="text-h5 text-bold gradient-text">
-                Innovative
-                <span class="text-h5 text-bold text-black">Features</span>
-              </div>
-            </div>
-          </div>
-          <div class="mobile-wrapper text-left">
-            <div
-              class="row q-mb-md no-wrap"
-              v-for="(item, i) in checklist"
-              :key="i"
-            >
-              <!-- Ikon bulat -->
-              <q-img
-                src="/public/assets/icon/Ellipse5.png"
-                style="
-                  width: 14px;
-                  height: 14px;
-                  margin-right: 12px;
-                  margin-top: 6px;
-                "
-              />
-              <div>
-                <div class="text-body1">{{ item.title }}</div>
-                <div class="text-subtitle2 text-grey-7">
-                  {{ item.description }}
-                </div>
-              </div>
-            </div>
 
-            <!-- <div class="q-py-lg flex items-start">
-              <q-btn
-                class="gradient-color text-white text-bold"
-                glossy
-                label="Learn More"
-                unelevated
-                @click="() => $router.push('/about')"
-              />
-            </div> -->
-          </div>
-        </div>
-      </template>
-
-      <!-- Section 2 Mobile -->
-      <template v-if="$q.screen.lt.md">
-        <div class="col-12 q-mt-xl q-mb-lg">
-          <div class="mobile-wrapper">
-            <div class="text-h5 text-bold" style="color: #272d38">
-              {{ serviceMidText1 }}
-            </div>
-            <div class="q-mt-sm text-body1" style="color: #344054">
-              {{ serviceMidText2 }}
-            </div>
-            <div class="q-mt-sm text-body2" style="color: #475467">
-              {{ serviceMidText3 }}
-            </div>
-          </div>
-        </div>
-        <div class="row justify-center q-gutter-md">
-          <q-card
-            v-for="p in servicePortoCard"
-            :key="p.id"
-            class="col-12 q-pa-md q-ma-sm"
-            style="
-              border-radius: 20px;
-              background-color: #1d2939;
-              max-width: 90%;
-            "
-            dark
-          >
-            <q-card-section>
-              <div class="text-bold text-h6">
-                {{ p.title }}
-              </div>
-            </q-card-section>
-            <q-card-section class="row items-center">
-              <div class="text-subtitle1 col">{{ p.description }}</div>
-              <q-btn
-                round
-                size="md"
-                color="#B58F5B"
-                icon="arrow_forward"
-                @click="$router.push(p.route)"
-                style="border: 2px solid #b58f5b"
-              />
-            </q-card-section>
-          </q-card>
-        </div>
-      </template>
-
-      <!-- Desktop Layout -->
-      <template v-else>
-        <!-- title center -->
-        <div class="col-12 q-mb-lg">
-          <div class="mobile-wrapper text-center">
-            <div class="text-h4 text-bold gradient-text">
-              Industrial
-              <span class="text-h4 text-bold text-black"
-                >a</span
-              >
+          <!-- Reason Cards for Mobile -->
+          <div class="col-12 flex flex-center">
+            <div class="row q-gutter-lg justify-center" style="width: 100%">
               <div
-                class="text-body1 text-grey-9 q-mt-md"
-                style="max-width: 700px; margin: 10px auto"
+                class="col-12"
+                :style="{
+                  'max-width': '90%',
+                  margin: '0 -10px 10px 10px',
+                }"
+                v-for="i in reasonCard"
+                :key="i.title"
               >
-                We build smart automation solutions that improve efficiency,
-                accuracy, and reliability in industrial operations.
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Left Side: Image -->
-        <div class="col-12 col-md-6 flex flex-center">
-          <q-img
-            src="/public/assets/imageDekstop/service1.png"
-            style="max-width: 50%; border-radius: 12px"
-            fit="contain"
-          />
-        </div>
-
-        <!-- Right Side: Checklist -->
-        <div class="col-12 col-md-6 flex flex-center flex-md-none">
-          <div class="q-px-lg allin-content-center" style="max-width: 600px">
-            <div class="text-h4 text-bold q-mb-md">
-              Innovative <span class="text-black">Features</span>
-            </div>
-
-            <div class="q-mt-lg allin-checklist-text">
-              <div
-                class="row items-start q-mb-md no-wrap"
-                v-for="(item, i) in checklist"
-                :key="i"
-              >
-                <q-img
-                  src="/public/assets/icon/Ellipse5.png"
-                  style="
-                    width: 14px;
-                    height: 14px;
-                    margin-right: 12px;
-                    margin-top: 6px;
-                  "
-                />
-                <div>
-                  <div class="text-h6">{{ item.title }}</div>
-                  <div class="text-subtitle2 text-grey-7">
-                    {{ item.description }}
+                <q-card
+                  class="text-left q-py-md q-px-md"
+                  :style="{
+                    width: '100%',
+                    height: 'auto',
+                    'border-radius': '16px',
+                    margin: '0 auto 20px auto',
+                  }"
+                >
+                  <div
+                    class="row items-start no-wrap items-center"
+                    :style="{
+                      width: '100%',
+                      height: 'auto',
+                    }"
+                  >
+                    <q-img
+                      :src="i.icon"
+                      :style="{
+                        width: '50px',
+                        height: 'auto',
+                        'margin-right': '12px',
+                      }"
+                    />
+                    <div class="col">
+                      <div class="text-h6 text-bold">{{ i.title }}</div>
+                      <div class="text-subtitle2 text-weight-regular">
+                        {{ i.description }}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </q-card>
               </div>
             </div>
-            <!-- <div class="q-py-xl">
-              <q-btn
-                class="gradient-color text-white text-bold"
-                glossy
-                label="Learn More"
-                unelevated
-                @click="() => $router.push('/about')"
-              />
-            </div> -->
           </div>
-          <!-- section 2 -->
-        </div>
-      </template>
-    </div>
-    <!-- section 2 -->
-    <div
-      v-if="$q.screen.gt.md"
-      class="row items-start justify-center q-col-gutter-xl q-mt-xl"
-    >
-      <div class="col-12 q-px-md">
-        <div
-          class="row flex items-center justify-between q-mx-auto"
-          :class="$q.screen.lt.md ? 'q-gutter-xs' : 'q-gutter-md'"
-          :style="{ maxWidth: $q.screen.lt.md ? '90%' : '75%' }"
-        >
+        </template>
+
+        <!-- Desktop Layout -->
+        <template v-else>
+          <!-- Left Side: Image -->
           <div
-            class="col-12 col-md-6"
-            :class="$q.screen.lt.md ? 'text-center' : 'text-left'"
+            class="col-12 col-md-6 flex flex-center"
+            style="
+              margin-top: 100px;
+              margin-bottom: 40px;
+              min-height: 400px;
+              align-items: center;
+              justify-content: center;
+            "
           >
-            <div
-              class="text-bold text-h5"
-              style="color: #272d38"
-              :class="$q.screen.lt.md ? 'text-h5' : 'text-h3'"
-              v-html="serviceMidText1"
-            ></div>
-            <div
-              class="q-mt-sm text-h4 text-bold"
-              :style="{
-                maxWidth: $q.screen.lt.md ? '100%' : '80%',
-                textAlign: $q.screen.lt.md ? 'center' : 'left',
-                color: '#344054',
-              }"
-              v-html="serviceMidText2"
-            ></div>
-          </div>
-          <div
-            class="col-12 col-md items-center justify-center"
-            :class="$q.screen.lt.md ? ' text-center' : 'text-left'"
-          >
-            <div
-              style="
-                font-size: 18px;
-                color: #475467;
-                font-weight: 400;
-                font-style: normal;
-              "
-              v-html="serviceMidText3"
-            ></div>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-md">
-        <q-card
-          v-for="p in servicePortoCard"
-          :key="p.id"
-          class="col-12 col-md-5 q-pa-md q-ma-sm"
-          style="border-radius: 20px; background-color: #1d2939"
-          :style="{
-            maxWidth: $q.screen.lt.md ? '80%' : '400px',
-            margin: $q.screen.lt.md ? '20px' : '80px 20px',
-          }"
-          dark
-        >
-          <q-card-section>
-            <div
-              class="text-bold"
-              :class="$q.screen.lt.md ? 'text-h6' : 'text-h5'"
-            >
-              {{ p.title }}
-            </div>
-          </q-card-section>
-          <q-card-section class="row items-center">
-            <div class="text-subtitle1 col">{{ p.description }}</div>
-            <q-btn
-              round
-              size="lg"
-              color="#B58F5B"
-              icon="arrow_forward"
-              @click="$router.push(p.route)"
-              style="border: 2px solid #b58f5b"
+            <q-img
+              src="/public/assets/imageDekstop/innodrop2.png"
+              style="max-width: 80%; border-radius: 12px; margin-left: 30px"
+              fit="contain"
             />
-          </q-card-section>
-        </q-card>
+          </div>
+
+          <!-- Right Side: Reason Cards -->
+          <div
+            class="col-12 col-md-6 flex flex-center flex-md-none"
+            style="margin-top: 60px"
+          >
+            <div class="row q-gutter-lg justify-center">
+              <div
+                class="col-12 q-my-md"
+                :style="{
+                  'max-width': $q.screen.gt.sm ? '100%' : '85%',
+                  'margin-left': $q.screen.gt.sm ? '400px' : 'auto',
+                  'margin-right': $q.screen.gt.sm ? '0px' : 'auto',
+                }"
+                v-for="i in reasonCard"
+                :key="i.title"
+              >
+                <q-card
+                  class="text-left q-py-md q-px-md"
+                  :style="{
+                    width: $q.screen.gt.sm ? '600px' : '100%',
+                    'margin-left': '10px',
+                    height: 'auto',
+                    'border-radius': '16px',
+                  }"
+                >
+                  <div
+                    class="row items-start no-wrap items-center"
+                    :style="{
+                      width: '100%',
+                      height: 'auto',
+                    }"
+                  >
+                    <q-img
+                      :src="i.icon"
+                      :style="{
+                        width: $q.screen.gt.sm ? '80px' : '50px',
+                        height: 'auto',
+                        'margin-right': '12px',
+                      }"
+                    />
+                    <div class="col">
+                      <div class="text-h6 text-bold">{{ i.title }}</div>
+                      <div class="text-subtitle2 text-weight-regular">
+                        {{ i.description }}
+                      </div>
+                    </div>
+                  </div>
+                </q-card>
+              </div>
+            </div>
+          </div>
+        </template>
       </div>
     </div>
-    <!-- PraFooter -->
-  </q-page>
+    <!-- section 3-->
+<div class="col-12 q-py-xl myFont">
+  <div class="row items-start justify-center q-col-gutter-xl q-px-md">
+    <!-- Left Side -->
+    <div class="col-12 col-md-6" style="min-height: 400px">
+      <!-- Title -->
+      <div
+        :class="$q.screen.lt.md ? 'text-h5' : 'text-h3'"
+        class="text-weight-medium"
+        :style="{
+          color: '#272d38',
+          marginLeft: $q.screen.lt.md ? '0' : '120px',
+          textAlign: 'left'
+        }"
+      >
+        Example Product
+      </div>
+
+      <!-- Subtitle -->
+      <div
+        class="q-mt-sm text-bold"
+        :style="{
+          fontSize: $q.screen.lt.md ? '20px' : '28px',
+          maxWidth: $q.screen.lt.md ? '100%' : '80%',
+          textAlign: 'left',
+          color: '#344054',
+          marginLeft: $q.screen.lt.md ? '0' : '120px'
+        }"
+      >
+        From Manual to Smart — Transform Your Operations!
+      </div>
+
+      <!-- Description -->
+      <div
+        class="text-subtitle1 text-grey-8 q-mt-xl"
+        :style="{
+          fontSize: '18px',
+          marginLeft: $q.screen.lt.md ? '0' : '120px',
+          textAlign: 'left'
+        }"
+      >
+        Discover how our expertise can transform your operations and drive your business forward.
+      </div>
+
+      <!-- Button -->
+      <div class="q-py-lg flex items-start">
+        <q-btn
+          class="gradient-color text-white text-bold"
+          :style="{ marginLeft: $q.screen.lt.md ? '0' : '120px' }"
+          glossy
+          label="Pre Order Now"
+          unelevated
+          @click="() => $router.push('/ContactUs')"
+        />
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="col-12 col-md-6" style="min-height: 400px; ">
+      <q-img
+        src="/public/assets/imageDekstop/innodrop3.png"
+        style="max-width: 70%; border-radius: 12px; margin-left: 30px"
+        fit="contain"
+      />
+    </div>
+  </div>
+</div>
+
+    <!-- section 4-->
+    <div
+      id="section-4"
+      style="
+        background: linear-gradient(to top, #0c111d, #1d2939);
+        min-height: 800px;
+      "
+      class="q-pa-xl"
+    >
+      <!-- Title -->
+      <div
+        class="row full-width justify-center text-bold"
+        style="margin-bottom: 60px; font-size: 3rem"
+      >
+        <span style="color: white">Pre Order&nbsp;</span>
+        <span class="gradient-text">InnoDrop</span>
+      </div>
+
+      <div class="row q-col-gutter-xl items-start justify-center">
+        <!-- RIGHT SIDE (FORM) -->
+        <div class="col-12 col-md-8 text-white">
+          <q-form
+            @submit.prevent="sendEmail"
+            class="q-gutter-lg"
+            style="font-size: 1.4rem"
+          >
+            <div class="row q-col-gutter-lg">
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  First name <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.firstName"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Last name <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.lastName"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Company name <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.company"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Email <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.email"
+                  type="email"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Phone number <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.phone"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Country <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.country"
+                  outlined
+                  input-style="font-size: 1.2rem; height: 60px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+
+              <div class="col-12">
+                <div
+                  class="q-mb-sm text-white text-weight-medium"
+                  style="font-size: 1.4rem"
+                >
+                  Message <span style="color: #ff3b3b">*</span>
+                </div>
+                <q-input
+                  v-model="form.message"
+                  type="textarea"
+                  outlined
+                  input-style="font-size: 1.2rem; min-height: 150px;"
+                  style="font-size: 1.2rem"
+                />
+              </div>
+            </div>
+
+            <q-checkbox
+              v-model="form.allowData"
+              label="I allow Innodrive.ai to process my data."
+              style="font-size: 1.2rem; transform: scale(1.3); margin: 20px 50px"
+            />
+            <div
+              class="text-negative"
+              style="font-size: 1.2rem"
+              v-if="!form.allowData"
+            >
+              This field is required.
+            </div>
+
+            <q-btn
+              label="Submit"
+              color="warning"
+              type="submit"
+              class="full-width q-mt-lg"
+              style="font-size: 1.5rem; height: 80px; border-radius: 16px"
+              :disable="!form.allowData"
+            />
+          </q-form>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const checklist = [
-      {
-        title: 'IoT-Enabled Control',
-        description:
-          'Real-time monitoring and automation powered by IoT connectivity.',
-      },
-      {
-        title: 'Seamless Integration',
-        description:
-          'Hardware and software systems designed to work together effortlessly.',
-      },
-      {
-        title: 'Data-Driven Efficiency',
-        description:
-          'Smart analytics to optimize production, reduce downtime, and save costs.',
-      },
-      {
-        title: 'Scalable Solutions',
-        description:
-          'Flexible systems that grow with industrial needs, from small plants to large-scale operations.',
-      },
-    ];
+// function scrollToSection4() {
+//   const section = document.getElementById('section-4');
+//   if (section) {
+//     section.scrollIntoView({ behavior: 'smooth' });
+//   }
+// }
 
-    const currentSlide = ref('slide-0');
-    const autoplay = ref(true);
-    const images = ['assets/imageDekstop/dynoComponent1.png'];
-
-    // Define the missing properties here
-    const serviceMidText1 = 'Example Product';
-    const serviceMidText2 = 'From Manual to Smart — Transform Your Operations!';
-    const serviceMidText3 =
-      'Discover how our expertise can transform your operations and drive your business forward.';
-    const servicePortoCard = [
-      {
-        id: 1,
-        title: 'Smart Conveyor System',
-        description:
-          'Automated material handling with real-time monitoring and analytics.',
-        route: '/portfolio/conveyor-system',
-      },
-      {
-        id: 2,
-        title: 'Robotic Arm Integration',
-        description:
-          'Precision robotics for assembly lines and manufacturing automation.',
-        route: '/portfolio/robotic-arm',
-      },
-      {
-        id: 3,
-        title: 'Industrial IoT Platform',
-        description:
-          'Centralized control and data management for all your industrial devices.',
-        route: '/portfolio/iot-platform',
-      },
-      {
-        id: 4,
-        title: 'Automated Quality Control',
-        description:
-          'AI-powered inspection systems to ensure product quality and consistency.',
-        route: '/portfolio/quality-control',
-      },
-    ];
-
-    return {
-      checklist,
-      currentSlide,
-      autoplay,
-      images,
-      serviceMidText1,
-      serviceMidText2,
-      serviceMidText3,
-      servicePortoCard,
-    };
+const reasonCard = [
+  {
+    icon: 'assets/icon/WCIcon1.png',
+    title: 'Safety First',
+    description:
+      'Our advanced driver assistance systems help prevent accidents and keep you safe on the road.',
   },
-});
-</script>
+  {
+    icon: 'assets/icon/WCIcon1.png',
+    title: 'User Friendly Interface',
+    description:
+      'Simple and Intuitive design makes it easy for drivers of all levels to use our features effectively.',
+  },
+  {
+    icon: 'assets/icon/WCIcon1.png',
+    title: 'Continuous Improvement',
+    description:
+      'We continuously enhance our technology to provide you with the most advanced and reliable driving assistance on the market.',
+  },
+];
 
+const form = ref({
+  firstName: '',
+  lastName: '',
+  company: '',
+  email: '',
+  phone: '',
+  country: '',
+  message: '',
+  allowData: false,
+});
+
+function sendEmail() {
+  if (!form.value.allowData) return;
+  // TODO: Integrate with emailjs or backend
+  alert('Message sent successfully!');
+}
+</script>
 <style scoped>
-.allin-content-center {
-  width: 100%;
-}
-.allin-checklist-text {
-  text-align: left;
-}
-.checklist-row.no-wrap {
-  flex-wrap: nowrap !important;
+/* Biar input dark tapi tetap jelas */
+::v-deep .q-input .q-field__control,
+::v-deep .q-textarea .q-field__control {
+  background-color: #1d2939 !important;
+  border: 1px solid #98a2b3 !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
   display: flex !important;
-  align-items: flex-start !important;
+  align-items: center !important;
 }
-.checklist-text-nowrap {
-  white-space: nowrap !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inline-block;
-  vertical-align: middle;
+
+/* Pastikan teks di input rata tengah secara vertikal */
+.q-input .q-field__native,
+.q-textarea .q-field__native {
+  padding: 10px 12px !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
 }
-.mobile-wrapper {
-  max-width: 90%;
-  margin: 0 auto;
-}
-.rounded-borders {
-  border-radius: 12px;
-  overflow: hidden;
+
+/* Label tetap putih */
+.q-field__label {
+  color: #ffffff !important;
+  font-weight: 500;
 }
 </style>

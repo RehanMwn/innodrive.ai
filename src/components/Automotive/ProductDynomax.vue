@@ -80,7 +80,7 @@
         <div class="col-12 col-md-6 flex flex-center flex-md-none">
           <div class="q-px-lg allin-content-center" style="max-width: 600px">
             <div class="text-h5 text-bold">
-              Power, Torque, and Performance —
+              Powere, Torque, and Performance —
               <span class="gradient-text">All in One Test</span>
             </div>
 
@@ -148,24 +148,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
     const checklist = [
-      "Accurate measurement of power and torque",
-      "Engine efficiency and acceleration response analysis",
-      "Real-world driving simulation with variable loads",
-      "Real-time monitoring via desktop, web, and mobile apps",
+ 'Accurate measurement of power and torque',
+ 'Engine efficiency and acceleration response analysis',
+ 'Real-world driving simulation with variable loads',
+ 'Real-time monitoring via desktop, web, and mobile apps',
     ];
 
-    const currentSlide = ref("slide-0");
+    const currentSlide = ref('slide-0');
     const autoplay = ref(true);
     const images = [
-      "assets/imageDekstop/dashboardProduct1.png",
-      "assets/imageDekstop/dashboardProduct2.jpg",
-      "assets/imageDekstop/dynoComponent1.png",
-      "assets/imageDekstop/adros2.png",
+ 'assets/imageDekstop/dashboardProduct1.png',
+ 'assets/imageDekstop/dashboardProduct2.jpg',
+ 'assets/imageDekstop/dynoComponent1.png',
+ 'assets/imageDekstop/adros2.png',
     ];
 
     return { checklist, currentSlide, autoplay, images };

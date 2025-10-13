@@ -19,7 +19,7 @@
       <div class="col-12 col-md-5 flex flex-center image-block">
         <q-img
           src="assets/imageDekstop/welcome.jpeg"
-          style="max-width: 75%; border-radius: 12px"
+          style="max-width: 80%; border-radius: 12px"
           fit="cover"
         />
       </div>

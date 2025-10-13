@@ -143,7 +143,7 @@ const toggleFlip = (index: number): void => {
 
 <style scoped>
 .feature-wrapper {
-  width: 370px;
+  width: 400px;
   margin-bottom: 90px;
 }
 .feature-card {

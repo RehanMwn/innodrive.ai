@@ -70,13 +70,13 @@
                         <div class="card-subtitle">{{ img.subtitle }}</div>
                       </div>
 
-                      <div class="card-footer">
+                      <!-- <div class="card-footer">
                         <q-btn
                           flat
                           class="read-more-btn"
                           label="Read Article >"
                         />
-                      </div>
+                      </div> -->
                     </q-card-section>
                   </q-card>
                 </div>

@@ -2,7 +2,7 @@
   <div class="col-12 q-py-xl myFont">
     <div class="row items-start justify-center q-col-gutter-xl">
       <!-- Mobile Layout -->
-      <template v-if="$q.screen.lt.md">
+      <template v-if="$q.screen.lt.sm">
         <!-- Title & Description Center -->
         <div class="col-12 q-mb-lg">
           <div class="mobile-wrapper text-center">

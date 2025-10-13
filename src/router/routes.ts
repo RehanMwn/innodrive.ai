@@ -95,6 +95,11 @@ const routes: RouteRecordRaw[] = [
         name: 'ContactUs',
         component: () => import('pages/ContactPage.vue'),
       },
+      {
+        path: '/News1',
+        name: 'News1',
+        component: () => import('pages/News/News1Page.vue'),
+      },
     ],
   },
 

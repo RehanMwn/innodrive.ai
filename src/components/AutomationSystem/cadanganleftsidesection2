@@ -106,61 +106,38 @@
         <template v-else>
           <!-- Left Side -->
           <div
-            class="col-12 col-md-6 flex flex-center flex-md-none bg-red"
-            style="margin-top: 60px"
+            class="col-12 col-md-6 flex flex-center column"
+            style="margin-top: 60px; min-height: 547px; align-items: center;"
           >
             <div class="row q-gutter-lg justify-center">
               <div
-                style="margin-bottom: 20px; margin-left: -450px"
-                class="bg-red"
+                class="text-left"
+                style="margin-left: -350px !important"
               >
-                <div class="text-h6" style="color: #344054;">
+                <div class="text-h6" style="color: #344054">
                   {{ section2.smallTitle }}
                 </div>
-              </div>
-              <div
-                class="col-12 q-my-md"
-                :style="{
-                  'max-width': $q.screen.gt.sm ? '100%' : '85%',
-                  'margin-left': $q.screen.gt.sm ? '400px' : 'auto',
-                  'margin-right': $q.screen.gt.sm ? '0px' : 'auto',
-                }"
-                v-for="i in reasonCard"
-                :key="i.title"
-              >
-                <q-card
-                  class="text-left q-py-md q-px-md"
-                  :style="{
-                    width: $q.screen.gt.sm ? '600px' : '100%',
-                    'margin-left': '10px',
-                    height: 'auto',
-                    'border-radius': '16px',
-                  }"
-                >
-                  <div class="row items-start no-wrap items-center">
-                    <q-img
-                      :src="i.icon"
-                      :style="{
-                        width: $q.screen.gt.sm ? '80px' : '50px',
-                        height: 'auto',
-                        'margin-right': '12px',
-                      }"
-                    />
-                    <div class="col">
-                      <div class="text-h6 text-bold">{{ i.title }}</div>
-                      <div class="text-subtitle2 text-weight-regular">
-                        {{ i.description }}
-                      </div>
-                    </div>
-                  </div>
-                </q-card>
+                <div class="text-h5 text-bold text-dark">
+                  {{ section2.mainTitle }}
+                </div>
               </div>
             </div>
+
+            <q-img
+              :src="`/public/assets/imageDekstop/${section2.image}`"
+              class="q-mt-xl"
+              style="
+                max-width: 80%;
+                border-radius: 12px;
+                margin-left: 30px !important;
+              "
+              fit="contain"
+            />
           </div>
 
           <!-- Right Side -->
           <div
-            class="col-12 col-md-6 flex flex-center flex-md-none bg-yellow"
+            class="col-12 col-md-6 flex flex-center flex-md-none bg-yellow  "
             style="margin-top: 60px"
           >
             <div class="row q-gutter-lg justify-center">
@@ -273,7 +250,7 @@
           <div class="col-12 col-md-6" style="min-height: 400px">
             <q-img
               :src="`/public/assets/imageDekstop/${section3.image}`"
-              style="max-width: 70%; border-radius: 12px; margin: 0 auto"
+              style="max-width: 70%; border-radius: 12px; margin: 0 auto;"
               fit="contain"
             />
           </div>
@@ -416,3 +393,4 @@ const reasonCard = [
   font-weight: 500;
 }
 </style>
+a

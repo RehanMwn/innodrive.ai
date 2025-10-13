@@ -29,14 +29,14 @@ onMounted(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        mapSrc.value = `https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=${latitude},${longitude}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed`;
+        mapSrc.value = `https://maps.google.com/maps?width=100%&height=600&hl=en&q=${latitude},${longitude}&ie=UTF8&t=&z=14&iwloc=B&output=embed`;
       },
       () => {
-        mapSrc.value = `https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Surabaya&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed`; // Default to Surabaya if geolocation fails
+        mapSrc.value = 'https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Surabaya&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed'; // Default to Surabaya if geolocation fails
       }
     );
   } else {
-    mapSrc.value = `https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Surabaya&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed`; // Default to Surabaya if geolocation is not supported
+    mapSrc.value = 'https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Surabaya&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed'; // Default to Surabaya if geolocation is not supported
   }
 });
 </script>

@@ -6,7 +6,8 @@
     <!-- CareerCardComponent -->
      <CareerBenefitsComponent />
 
-
+     <!-- CareerPositionComponent -->
+      <CareerPositionComponent />
 
     <!-- PraFooter -->
     <!-- <PraFooterComponent /> -->
@@ -18,5 +19,6 @@
 
 import CareerWelcomeComponent from 'src/components/CareerWelcomeComponent.vue';
 import CareerBenefitsComponent from 'src/components/CareerBenefitsComponent.vue';
+import CareerPositionComponent from 'src/components/CareerPositionComponent.vue';
 // import PraFooterComponent from 'src/components/PraFooterComponent.vue';
 </script>

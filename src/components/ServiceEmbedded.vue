@@ -195,7 +195,7 @@
     </div>
     <!-- section 2 -->
     <div
-      v-if="$q.screen.gt.md"
+      v-if="$q.screen.gt.sm"
       class="row items-start justify-center q-col-gutter-xl q-mt-xl"
     >
       <div class="col-12 q-px-md">
