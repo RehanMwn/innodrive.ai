@@ -3,7 +3,8 @@
     <!-- section 1 -->
     <div class="col-12">
       <q-img
-        :src="`assets/imageDekstop/${section1.image}`"
+        :src="$q.screen.gt.sm ? `assets/imageDekstop/${section1.image}` : `/public/assets/imageMobile/${section1.imageMobile}`"
+        :srcset="$q.screen.gt.sm ? `assets/imageDekstop/${section1.image} 1200w` : `/public/assets/imageMobile/${section1.imageMobile} 600w`"
         :style="{
           height: $q.screen.gt.sm ? '100vh' : '60vh',
         }"
@@ -105,109 +106,81 @@
         <!-- Desktop Layout -->
         <template v-else>
           <!-- Left Side -->
-          <div
-            class="col-12 col-md-6 flex flex-center flex-md-none bg-red"
-            style="margin-top: 60px"
-          >
-            <div class="row q-gutter-lg justify-center">
-              <div
-                style="margin-bottom: 20px; margin-left: -450px"
-                class="bg-red"
-              >
-                <div class="text-h6" style="color: #344054;">
+          <div class="row justify-center q-col-gutter-md">
+            <div
+              :class="
+                $q.screen.lt.md
+                  ? 'col-12 flex flex-col items-center justify-center text-center'
+                  : 'col-12 col-md-5 flex flex-col items-start q-mt-lg'
+              "
+            >
+              <div :class="$q.screen.lt.md ? 'q-px-md' : 'q-mt-lg'">
+                <div
+                  class="text-bold q-mb-sm"
+                  style="color: #344054"
+                  :class="$q.screen.lt.md ? 'text-h4' : 'text-h5'"
+                >
                   {{ section2.smallTitle }}
                 </div>
-              </div>
-              <div
-                class="col-12 q-my-md"
-                :style="{
-                  'max-width': $q.screen.gt.sm ? '100%' : '85%',
-                  'margin-left': $q.screen.gt.sm ? '400px' : 'auto',
-                  'margin-right': $q.screen.gt.sm ? '0px' : 'auto',
-                }"
-                v-for="i in reasonCard"
-                :key="i.title"
-              >
-                <q-card
-                  class="text-left q-py-md q-px-md"
-                  :style="{
-                    width: $q.screen.gt.sm ? '600px' : '100%',
-                    'margin-left': '10px',
-                    height: 'auto',
-                    'border-radius': '16px',
-                  }"
-                >
-                  <div class="row items-start no-wrap items-center">
-                    <q-img
-                      :src="i.icon"
-                      :style="{
-                        width: $q.screen.gt.sm ? '80px' : '50px',
-                        height: 'auto',
-                        'margin-right': '12px',
-                      }"
-                    />
-                    <div class="col">
-                      <div class="text-h6 text-bold">{{ i.title }}</div>
-                      <div class="text-subtitle2 text-weight-regular">
-                        {{ i.description }}
-                      </div>
-                    </div>
-                  </div>
-                </q-card>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Side -->
-          <div
-            class="col-12 col-md-6 flex flex-center flex-md-none bg-yellow"
-            style="margin-top: 60px"
-          >
-            <div class="row q-gutter-lg justify-center">
-              <div
-                style="margin-bottom: 20px; margin-left: 200px"
-                class="bg-red"
-              >
-                <div style="color: #667085; max-width: 70%; font-size: medium">
-                  {{ section2.smallTitleright }}
+                <div class="text-h4 text-bold q-mb-lg">
+                  {{ section2.mainTitle }}
                 </div>
               </div>
-              <div
-                class="col-12 q-my-md"
-                :style="{
-                  'max-width': $q.screen.gt.sm ? '100%' : '85%',
-                  'margin-left': $q.screen.gt.sm ? '400px' : 'auto',
-                  'margin-right': $q.screen.gt.sm ? '0px' : 'auto',
-                }"
-                v-for="i in reasonCard"
-                :key="i.title"
-              >
-                <q-card
-                  class="text-left q-py-md q-px-md"
+              <q-img
+                :src="`assets/imageDekstop/${section2.image}`"
+
+                style="max-width: 100%; border-radius: 12px;"
+                fit="contain"
+              ></q-img>
+            </div>
+
+            <div
+              :class="
+                $q.screen.lt.md
+                  ? 'col-12 flex flex-column items-center text-center'
+                  : 'col-12 col-md-5 flex flex-center q-mt-lg q-ml-xl'
+              "
+            >
+              <div class="row q-gutter-md justify-center q-px-md">
+                <div class="text-h6 q-py-md q-px-lg q-ml-lg">
+                  {{ section2.smallTitleright }}
+                </div>
+                <div
+                  class="col-12"
                   :style="{
-                    width: $q.screen.gt.sm ? '600px' : '100%',
-                    'margin-left': '10px',
-                    height: 'auto',
-                    'border-radius': '16px',
+                    'max-width': '90%',
+                    margin: '0 -10px 10px 10px',
                   }"
+                  v-for="i in reasonCard"
+                  :key="i.title"
                 >
-                  <div class="row items-start no-wrap items-center">
-                    <q-img
-                      :src="i.icon"
-                      :style="{
-                        width: $q.screen.gt.sm ? '80px' : '50px',
-                        height: 'auto',
-                        'margin-right': '12px',
-                      }"
-                    />
-                    <div class="col">
-                      <div class="text-h6 text-bold">{{ i.title }}</div>
-                      <div class="text-subtitle2 text-weight-regular">
-                        {{ i.description }}
+                  <q-card
+                    class="text-left q-py-md q-px-md"
+                    :style="{
+                      width: '100%',
+                      height: 'auto',
+                      'border-radius': '16px',
+                      margin: '0 auto 20px auto',
+                    }"
+                  >
+                    <div class="row items-center no-wrap">
+                      <q-img
+                        src="assets/icon/WCIcon1.png"
+                        class="q-mr-md"
+                        :style="{
+                          width: $q.screen.gt.sm ? '80px' : '70px',
+                          margin: $q.screen.gt.sm ? '0 20px' : '0 10px',
+                        }"
+                      />
+                      <div class="col">
+                        <div class="text-h6 text-bold">{{ i.title }}</div>
+                        <div class="text-subtitle2 text-weight-regular">
+                          {{ i.description }}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </q-card>
+                  </q-card>
+                </div>
               </div>
             </div>
           </div>
@@ -222,7 +195,7 @@
           <!-- Left -->
           <div class="col-12 col-md-6" style="min-height: 400px">
             <div
-              :class="$q.screen.lt.md ? 'text-h5' : 'text-h3'"
+              :class="$q.screen.lt.md ? 'text-h5' : 'text-h5'"
               class="text-weight-medium"
               :style="{
                 color: '#272d38',
@@ -311,7 +284,7 @@
             <div class="col-12 q-mt-xl">
               <q-img
                 :src="`/public/assets/imageDekstop/${section3.image}`"
-                style="max-width: 90%; border-radius: 12px; margin-left: -10px"
+                style="max-width: 90%; border-radius: 12px; margin-left: 12px"
                 fit="contain"
               />
             </div>
@@ -345,6 +318,7 @@
 <script setup lang="ts">
 const section1 = {
   image: 'innodrop.png',
+  imageMobile: 'innodropm.png',
   title: 'Precise Fueling, Smarter Control',
   subtitle:
     'InnoDrop ensures efficient fuel dispensing with real-time monitoring, and seamless data reporting—built to optimize mining operations with accuracy and reliability.',

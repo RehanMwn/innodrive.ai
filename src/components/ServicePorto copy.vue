@@ -12,7 +12,7 @@
       marginLeft: 'auto',
       marginRight: 'auto',
       transform: 'scale(1.5)', // <== skala 1.5x
-      transformOrigin: 'center center',// <== biar pusat scaling di tengah
+      transformOrigin: 'center center', // <== biar pusat scaling di tengah
     }"
   >
     <div class="row justify-center text-center">
@@ -103,14 +103,28 @@
       </q-card-section>
       <q-card-section class="row items-center">
         <div class="text-subtitle1 col">{{ p.description }}</div>
-        <q-btn
-          round
-          size="lg"
-          color="#B58F5B"
-          icon="arrow_forward"
+        <div
+          class="arrow-circle"
+          :style="{
+            width: $q.screen.gt.sm ? '58px' : '40px',
+            height: $q.screen.gt.sm ? '58px' : '40px',
+            border: '2px solid #B58F5B',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.25s ease',
+            cursor: 'pointer',
+            marginBottom: '10px'
+          }"
           @click="$router.push(p.route)"
-          style="border: 2px solid #b58f5b"
-        />
+        >
+          <q-icon
+            name="arrow_forward"
+            :size="$q.screen.gt.sm ? '38px' : '32px'"
+            style="color: #B58F5B"
+          />
+        </div>
       </q-card-section>
     </q-card>
   </div>
@@ -171,6 +185,19 @@ import {
 // const dialogVisible = ref(false);
 </script>
 
-<style>
-
+<style scoped>
+.arrow-circle {
+  border: 2px solid #b58f5b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+.arrow-circle:hover {
+  background-color: #b58f5b;
+}
+.arrow-circle:hover .q-icon {
+  color: #0c111d !important;
+}
 </style>

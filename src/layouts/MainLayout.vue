@@ -464,7 +464,7 @@ onUnmounted(() => {
 const automationSystems = [
   {
     title: 'InnoDrop',
-    link: '/product-Innodrop',
+    link: '/Product-Innodrop',
     desc: 'Interactive customizable mining fuel pump',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },
@@ -476,13 +476,13 @@ const automationSystems = [
   },
   {
     title: 'LookIn',
-    link: '/ProductLookInPage',
+    link: '/Product-LookIn',
     desc: 'Automated attendance based on face recognition',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/face-scanner.png',
   },
   {
-    title: 'CNC Laser',
-    link: '/ProductCNCLaserPage',
+    title: 'IEMC',
+    link: '/Product-IEMC',
     desc: 'To simplify PCB manufacturing with high precision.',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
   },

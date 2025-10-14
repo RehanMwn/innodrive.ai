@@ -6,13 +6,19 @@
       <!-- Mobile Layout -->
       <template v-if="$q.screen.lt.md">
         <!-- judul -->
-        <div class="col-12 q-mb-lg">
+        <div class="col-12">
           <div class="mobile-wrapper text-center">
             <div class="text-h5 text-bold gradient-text">
-              Industrial
+              Automotive
               <span class="text-h5 text-bold text-black"
-                >Automation Systems</span
+                >Technology</span
               >
+              <div
+                class="text-body1 text-grey-9 q-mt-md"
+                style="max-width: 700px; margin: 10px auto"
+              >
+                We develop digital automotive solutions that enhance diagnostics, monitoring, and overall driving performance.
+              </div>
             </div>
           </div>
         </div>
@@ -20,7 +26,7 @@
         <div class="col-12 q-mb-lg">
           <div class="mobile-wrapper flex flex-center">
             <q-img
-              src="/public/assets/imageDekstop/service1.png"
+              src="/public/assets/imageDekstop/service2.png"
               style="max-width: 80%; border-radius: 12px"
               fit="contain"
             />
@@ -46,8 +52,8 @@
               <q-img
                 src="/public/assets/icon/Ellipse5.png"
                 style="
-                  width: 14px;
-                  height: 14px;
+                  width: 20px;
+                  height: 13px;
                   margin-right: 12px;
                   margin-top: 6px;
                 "
@@ -56,7 +62,7 @@
                 <div class="text-body1">{{ item.title }}</div>
                 <div class="text-subtitle2 text-grey-7">
                   {{ item.description }}
-                </div>
+
               </div>
             </div>
 
@@ -69,6 +75,7 @@
                 @click="() => $router.push('/about')"
               />
             </div> -->
+          </div>
           </div>
         </div>
       </template>
@@ -107,14 +114,27 @@
             </q-card-section>
             <q-card-section class="row items-center">
               <div class="text-subtitle1 col">{{ p.description }}</div>
-              <q-btn
-                round
-                size="md"
-                color="#B58F5B"
-                icon="arrow_forward"
+              <div
+                class="arrow-circle"
+                :style="{
+                  width: $q.screen.gt.sm ? '48px' : '40px',
+                  height: $q.screen.gt.sm ? '48px' : '40px',
+                  border: '2px solid #B58F5B',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.25s ease',
+                  cursor: 'pointer',
+                }"
                 @click="$router.push(p.route)"
-                style="border: 2px solid #b58f5b"
-              />
+              >
+                <q-icon
+                  name="arrow_forward"
+                  :size="$q.screen.gt.sm ? '28px' : '22px'"
+                  style="color: #B58F5B;"
+                />
+              </div>
             </q-card-section>
           </q-card>
         </div>
@@ -126,16 +146,15 @@
         <div class="col-12 q-mb-lg">
           <div class="mobile-wrapper text-center">
             <div class="text-h4 text-bold gradient-text">
-              Industrial
+              Automotive
               <span class="text-h4 text-bold text-black"
-                >Automation Systems</span
+                >Technology</span
               >
               <div
                 class="text-body1 text-grey-9 q-mt-md"
                 style="max-width: 700px; margin: 10px auto"
               >
-                We build smart automation solutions that improve efficiency,
-                accuracy, and reliability in industrial operations.
+                We develop digital automotive solutions that enhance diagnostics, monitoring, and overall driving performance.
               </div>
             </div>
           </div>
@@ -143,7 +162,7 @@
         <!-- Left Side: Image -->
         <div class="col-12 col-md-6 flex flex-center">
           <q-img
-            src="/public/assets/imageDekstop/service1.png"
+            src="/public/assets/imageDekstop/service2.png"
             style="max-width: 50%; border-radius: 12px"
             fit="contain"
           />
@@ -195,7 +214,7 @@
     </div>
     <!-- section 2 -->
     <div
-      v-if="$q.screen.gt.md"
+      v-if="$q.screen.gt.sm"
       class="row items-start justify-center q-col-gutter-xl q-mt-xl"
     >
       <div class="col-12 q-px-md">
@@ -240,7 +259,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-center q-gutter-md">
+      <div class="row justify-center q-gutter-md q-mt-md">
         <q-card
           v-for="p in servicePortoCard"
           :key="p.id"
@@ -248,7 +267,7 @@
           style="border-radius: 20px; background-color: #1d2939"
           :style="{
             maxWidth: $q.screen.lt.md ? '80%' : '400px',
-            margin: $q.screen.lt.md ? '20px' : '80px 20px',
+            margin: $q.screen.lt.md ? '20px' : '18px 20px',
           }"
           dark
         >
@@ -262,14 +281,27 @@
           </q-card-section>
           <q-card-section class="row items-center">
             <div class="text-subtitle1 col">{{ p.description }}</div>
-            <q-btn
-              round
-              size="lg"
-              color="#B58F5B"
-              icon="arrow_forward"
+            <div
+              class="arrow-circle"
+              :style="{
+                width: ($q.screen.gt.sm ? '58px' : '40px'),
+                height: ($q.screen.gt.sm ? '58px' : '40px'),
+                border: '2px solid #b58f5b',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.25s ease',
+                cursor: 'pointer',
+              }"
               @click="$router.push(p.route)"
-              style="border: 2px solid #b58f5b"
-            />
+            >
+              <q-icon
+                name="arrow_forward"
+                :size="$q.screen.gt.sm ? '28px' : '22px'"
+                  style="color: #B58F5B;"
+              />
+            </div>
           </q-card-section>
         </q-card>
       </div>
@@ -285,14 +317,14 @@ export default defineComponent({
   setup() {
     const checklist = [
       {
-        title: 'IoT-Enabled Control',
+        title: 'Advanced Diagnostics',
         description:
-          'Real-time monitoring and automation powered by IoT connectivity.',
+          'Intelligent tools to analyze vehicle health and performance in real time.',
       },
       {
-        title: 'Seamless Integration',
+        title: 'Smart Integration',
         description:
-          'Hardware and software systems designed to work together effortlessly.',
+          'Compatible with both conventional and electric vehicles for future-ready solutions.',
       },
       {
         title: 'Data-Driven Efficiency',
@@ -300,9 +332,9 @@ export default defineComponent({
           'Smart analytics to optimize production, reduce downtime, and save costs.',
       },
       {
-        title: 'Scalable Solutions',
+        title: 'Data-Driven Insights',
         description:
-          'Flexible systems that grow with industrial needs, from small plants to large-scale operations.',
+          'Cloud-connected platforms providing accurate analysis and remote monitoring.',
       },
     ];
 
@@ -312,37 +344,37 @@ export default defineComponent({
 
     // Define the missing properties here
     const serviceMidText1 = 'Example Product';
-    const serviceMidText2 = 'From Manual to Smart — Transform Your Operations!';
+    const serviceMidText2 = 'Smarter Tech, Smarter Drive!';
     const serviceMidText3 =
-      'Discover how our expertise can transform your operations and drive your business forward.';
+      'We combine diagnostic intelligence and advanced testing to redefine how vehicles perform and evolve.';
     const servicePortoCard = [
       {
         id: 1,
-        title: 'Smart Conveyor System',
+        title: 'Dynomax',
         description:
-          'Automated material handling with real-time monitoring and analytics.',
-        route: '/portfolio/conveyor-system',
+          'A dynamometer from Innodrive.ai for testing vehicle power, torque, efficiency, and acceleration under various loads.',
+        route: 'Product-Dynomax',
       },
       {
         id: 2,
-        title: 'Robotic Arm Integration',
+        title: 'InnoDash',
         description:
-          'Precision robotics for assembly lines and manufacturing automation.',
-        route: '/portfolio/robotic-arm',
+          'The device logs speed, fuel use, engine status, and driving patterns for performance and predictive maintenance.',
+        route: 'Product-InnoDash',
       },
       {
         id: 3,
-        title: 'Industrial IoT Platform',
+        title: 'InnoRacce',
         description:
-          'Centralized control and data management for all your industrial devices.',
-        route: '/portfolio/iot-platform',
+          'A miniature car system with real-time effects, low-latency control, accurate data, and live camera for an immersive experience.',
+        route: 'Product-LookIn',
       },
       {
         id: 4,
-        title: 'Automated Quality Control',
+        title: 'Innodrive Electric Motor Controller (IEMC)',
         description:
-          'AI-powered inspection systems to ensure product quality and consistency.',
-        route: '/portfolio/quality-control',
+          'An intelligent motor controller with CAN bus for precise, scalable, efficient control in vehicles, robotics, and automation.',
+        route: 'Product-IEMC',
       },
     ];
 
@@ -386,5 +418,19 @@ export default defineComponent({
 .rounded-borders {
   border-radius: 12px;
   overflow: hidden;
+}
+.arrow-circle {
+  border: 1.8px solid #B58F5B;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+.arrow-circle:hover {
+  background-color: #B58F5B;
+}
+.arrow-circle:hover .q-icon {
+  color: #0c111d !important;
 }
 </style>

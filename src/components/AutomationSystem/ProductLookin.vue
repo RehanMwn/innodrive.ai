@@ -40,7 +40,7 @@
 
     <!-- section 2 -->
     <div class="col-12 q-py-xl myFont">
-      <div class="row items-start justify-center q-col-gutter-xl ">
+      <div class="row items-start justify-center q-col-gutter-xl">
         <!-- Mobile Layout -->
         <template v-if="$q.screen.lt.sm">
           <div class="text-left q-ml-md">
@@ -129,7 +129,7 @@
               <q-img
                 :src="`assets/imageDekstop/${section2.image}`"
 
-                style="max-width: 80%; border-radius: 12px;"
+                style="max-width: 80%; border-radius: 12px; margin-left: 80px;"
                 fit="contain"
               ></q-img>
             </div>
@@ -138,7 +138,7 @@
               :class="
                 $q.screen.lt.md
                   ? 'col-12 flex flex-column items-center text-center'
-                  : 'col-12 col-md-5 flex flex-center q-mt-lg q-ml-xl'
+                  : 'col-12 col-md-5 flex flex-center q-mb-lg q-ml-xl'
               "
             >
               <div class="row q-gutter-md justify-center q-px-md">
@@ -246,7 +246,7 @@
           <div class="col-12 col-md-6" style="min-height: 400px">
             <q-img
               :src="`/public/assets/imageDekstop/${section3.image}`"
-              style="max-width: 70%; border-radius: 12px; margin: 0 80px"
+              style="max-width: 80%;  margin-left: -10px"
               fit="contain"
             />
           </div>
@@ -284,7 +284,7 @@
             <div class="col-12 q-mt-xl">
               <q-img
                 :src="`/public/assets/imageDekstop/${section3.image}`"
-                style="max-width: 90%;  margin-left: 12px"
+                style="max-width: 90%; border-radius: 12px; margin-left: 13px"
                 fit="contain"
               />
             </div>
@@ -317,27 +317,27 @@
 
 <script setup lang="ts">
 const section1 = {
-  image: 'sims1.png',
-  imageMobile: 'simsm.png',
-  title: 'Maximum Insight, Optimal Control',
+  image: 'lookin.png',
+  imageMobile: 'lookinm.png',
+  title: 'Smart Access, Seamless Security',
   subtitle:
-    'SIMSdelivers precise, real-time monitoring and control, empowering industries to operate with greater efficiency, safety, and reliability.',
+    'LookIn combines advanced facial recognition with flexible applications, from attendance systems to home security, ensuring reliable access control and real-time monitoring.',
 };
 
 const section2 = {
-  smallTitle: 'Lora Connect',
-  mainTitle: 'Long-Range Data, Instant Access',
-  image: 'sims2.png',
+  smallTitle: 'Force ID',
+  mainTitle: 'Instant Recognition, Anytime, Anywhere',
+  image: 'lookin2.png',
   smallTitleright:
-    'Transmit sensor data seamlessly up to 5 km, ensuring reliable connectivity and real-time insights without complex infrastructure.',
+    'LookIn ensures fast and reliable facial authentication for offices, institutions, and homes, delivering secure access and seamless user experience in real time.',
 };
 
 const section3 = {
-  image: 'sims3.png',
-  title: 'Thermo Track',
-  subtitle: 'Precision Temperature Control Made Simple',
+  image: 'lookin3.png',
+  title: 'ID Match',
+  subtitle: 'Fast, Accurate, and Always Ready',
   description:
-    'Ensure stable operations with accurate temperature monitoring, helping prevent overheating and maintain optimal performance.',
+    'With advanced recognition technology, LookIn provides precise identification and instant access control, keeping your operations efficient and secure.',
   buttonText: 'Pre Order Now',
   buttonLink: '/ContactUs',
 };
@@ -345,18 +345,18 @@ const section3 = {
 const reasonCard = [
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Wide Coverage',
-    description: 'Monitor extensive areas with robust long-range connectivity, ensuring comprehensive oversight.',
+    title: 'Flexible Applications',
+    description: 'Adaptable to various environments, from office attendance to home security, ensuring versatile use.',
   },
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Low Power Consumption',
-    description: 'Extended battery life for sensors and devices, reducing maintenance and operational costs.',
+    title: 'Smart & Secure Access',
+    description: 'Advanced facial recognition provides reliable and secure access control, enhancing safety and convenience.',
   },
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Seamless Cloud Integration',
-    description: 'Effortlessly connect and manage all your data in the cloud for real-time access and analysis.',
+    title: 'Centralized Monitoring',
+    description: 'Manage and monitor all access points from a single platform, offering comprehensive oversight and control.',
   },
 ];
 </script>

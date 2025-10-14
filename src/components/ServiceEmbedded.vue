@@ -6,13 +6,20 @@
       <!-- Mobile Layout -->
       <template v-if="$q.screen.lt.md">
         <!-- judul -->
-        <div class="col-12 q-mb-lg">
+        <div class="col-12">
           <div class="mobile-wrapper text-center">
             <div class="text-h5 text-bold gradient-text">
               Industrial
               <span class="text-h5 text-bold text-black"
                 >Automation Systems</span
               >
+              <div
+                class="text-body1 text-grey-9 q-mt-md"
+                style="max-width: 700px; margin: 10px auto"
+              >
+                We build smart automation solutions that improve efficiency,
+                accuracy, and reliability in industrial operations.
+              </div>
             </div>
           </div>
         </div>
@@ -46,8 +53,8 @@
               <q-img
                 src="/public/assets/icon/Ellipse5.png"
                 style="
-                  width: 14px;
-                  height: 14px;
+                  width: 20px;
+                  height: 13px;
                   margin-right: 12px;
                   margin-top: 6px;
                 "
@@ -56,7 +63,7 @@
                 <div class="text-body1">{{ item.title }}</div>
                 <div class="text-subtitle2 text-grey-7">
                   {{ item.description }}
-                </div>
+
               </div>
             </div>
 
@@ -69,6 +76,7 @@
                 @click="() => $router.push('/about')"
               />
             </div> -->
+          </div>
           </div>
         </div>
       </template>
@@ -107,14 +115,27 @@
             </q-card-section>
             <q-card-section class="row items-center">
               <div class="text-subtitle1 col">{{ p.description }}</div>
-              <q-btn
-                round
-                size="md"
-                color="#B58F5B"
-                icon="arrow_forward"
+              <div
+                class="arrow-circle"
+                :style="{
+                  width: $q.screen.gt.sm ? '48px' : '40px',
+                  height: $q.screen.gt.sm ? '48px' : '40px',
+                  border: '2px solid #B58F5B',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.25s ease',
+                  cursor: 'pointer',
+                }"
                 @click="$router.push(p.route)"
-                style="border: 2px solid #b58f5b"
-              />
+              >
+                <q-icon
+                  name="arrow_forward"
+                  :size="$q.screen.gt.sm ? '28px' : '22px'"
+                  style="color: #B58F5B;"
+                />
+              </div>
             </q-card-section>
           </q-card>
         </div>
@@ -240,7 +261,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-center q-gutter-md">
+      <div class="row justify-center q-gutter-md q-mt-md">
         <q-card
           v-for="p in servicePortoCard"
           :key="p.id"
@@ -248,7 +269,7 @@
           style="border-radius: 20px; background-color: #1d2939"
           :style="{
             maxWidth: $q.screen.lt.md ? '80%' : '400px',
-            margin: $q.screen.lt.md ? '20px' : '80px 20px',
+            margin: $q.screen.lt.md ? '20px' : '18px 20px',
           }"
           dark
         >
@@ -262,14 +283,27 @@
           </q-card-section>
           <q-card-section class="row items-center">
             <div class="text-subtitle1 col">{{ p.description }}</div>
-            <q-btn
-              round
-              size="lg"
-              color="#B58F5B"
-              icon="arrow_forward"
+            <div
+              class="arrow-circle"
+              :style="{
+                width: ($q.screen.gt.sm ? '58px' : '40px'),
+                height: ($q.screen.gt.sm ? '58px' : '40px'),
+                border: '2px solid #b58f5b',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.25s ease',
+                cursor: 'pointer',
+              }"
               @click="$router.push(p.route)"
-              style="border: 2px solid #b58f5b"
-            />
+            >
+              <q-icon
+                name="arrow_forward"
+                :size="$q.screen.gt.sm ? '28px' : '22px'"
+                  style="color: #B58F5B;"
+              />
+            </div>
           </q-card-section>
         </q-card>
       </div>
@@ -314,34 +348,34 @@ export default defineComponent({
     const serviceMidText1 = 'Example Product';
     const serviceMidText2 = 'From Manual to Smart — Transform Your Operations!';
     const serviceMidText3 =
-      'Discover how our expertise can transform your operations and drive your business forward.';
+      'Whether it\'s IoT-enabled control or seamless system integration, we make industrial automation smarter.';
     const servicePortoCard = [
       {
         id: 1,
-        title: 'Smart Conveyor System',
+        title: 'InnoDrop',
         description:
-          'Automated material handling with real-time monitoring and analytics.',
-        route: '/portfolio/conveyor-system',
+          'A fuel dispensing pump for mining vehicles, equipped with a modern display for efficient and user-friendly fueling.',
+        route: 'Product-InnoDrop',
       },
       {
         id: 2,
-        title: 'Robotic Arm Integration',
+        title: 'Smart Integrated Monitoring System (SIMS)',
         description:
-          'Precision robotics for assembly lines and manufacturing automation.',
-        route: '/portfolio/robotic-arm',
+          'An intelligent solution for real-time monitoring and control in industrial operations.',
+        route: 'Product-SIMS',
       },
       {
         id: 3,
-        title: 'Industrial IoT Platform',
+        title: 'LookIn',
         description:
-          'Centralized control and data management for all your industrial devices.',
-        route: '/portfolio/iot-platform',
+          'A universal, customizable face recognition prototype by Innodrive for diverse sectors.',
+        route: 'Product-LookIn',
       },
       {
         id: 4,
-        title: 'Automated Quality Control',
+        title: 'CNC Laser',
         description:
-          'AI-powered inspection systems to ensure product quality and consistency.',
+          'An Innodrive product that simplifies PCB manufacturing with high precision.',
         route: '/portfolio/quality-control',
       },
     ];
@@ -386,5 +420,19 @@ export default defineComponent({
 .rounded-borders {
   border-radius: 12px;
   overflow: hidden;
+}
+.arrow-circle {
+  border: 1.8px solid #B58F5B;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+.arrow-circle:hover {
+  background-color: #B58F5B;
+}
+.arrow-circle:hover .q-icon {
+  color: #0c111d !important;
 }
 </style>

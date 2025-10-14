@@ -6,8 +6,7 @@
         Available <span class="gradient-text">Positions</span>
       </div>
       <div class="text-subtitle1 text-white text-center q-mt-sm q-px-lg">
-        At Innodrive.ai, you’ll grow with a supportive team while creating
-        impactful innovations.
+        Discover roles where your skills can drive innovation and shape the future with Innodrive.ai.
       </div>
     </div>
 
@@ -22,9 +21,9 @@
           <div class="job-title">{{ job.title }}</div>
           <div class="job-detail">{{ job.detail }}</div>
         </div>
-        <!-- <div class="arrow-circle">
+        <div class="arrow-circle">
           <q-icon name="arrow_forward" size="22px" color="amber-7" />
-        </div> -->
+        </div>
       </div>
       <div class="q-mt-lg q-ml-md prafooter-btn-wrap" style="grid-column: span 2; text-align: center">
             <q-btn

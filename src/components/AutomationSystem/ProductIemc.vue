@@ -40,7 +40,7 @@
 
     <!-- section 2 -->
     <div class="col-12 q-py-xl myFont">
-      <div class="row items-start justify-center q-col-gutter-xl ">
+      <div class="row items-start justify-center q-col-gutter-xl">
         <!-- Mobile Layout -->
         <template v-if="$q.screen.lt.sm">
           <div class="text-left q-ml-md">
@@ -129,7 +129,7 @@
               <q-img
                 :src="`assets/imageDekstop/${section2.image}`"
 
-                style="max-width: 80%; border-radius: 12px;"
+                style="max-width: 84%; border-radius: 12px;"
                 fit="contain"
               ></q-img>
             </div>
@@ -246,7 +246,7 @@
           <div class="col-12 col-md-6" style="min-height: 400px">
             <q-img
               :src="`/public/assets/imageDekstop/${section3.image}`"
-              style="max-width: 70%; border-radius: 12px; margin: 0 80px"
+              style="max-width: 70%; border-radius: 12px; margin: -200px 80px 10px"
               fit="contain"
             />
           </div>
@@ -284,7 +284,7 @@
             <div class="col-12 q-mt-xl">
               <q-img
                 :src="`/public/assets/imageDekstop/${section3.image}`"
-                style="max-width: 90%;  margin-left: 12px"
+                style="max-width: 90%; border-radius: 12px; margin-left: 12px"
                 fit="contain"
               />
             </div>
@@ -317,27 +317,27 @@
 
 <script setup lang="ts">
 const section1 = {
-  image: 'sims1.png',
-  imageMobile: 'simsm.png',
-  title: 'Maximum Insight, Optimal Control',
+  image: 'iemc.png',
+  imageMobile: 'iemcm.png',
+  title: 'Maximum Control, Smarter Efficiency',
   subtitle:
-    'SIMSdelivers precise, real-time monitoring and control, empowering industries to operate with greater efficiency, safety, and reliability.',
+'Delivering precise motor regulation with seamless CAN bus integration, IEMC ensures optimized performance for electric vehicles, robotics, and industrial automation.',
 };
 
 const section2 = {
-  smallTitle: 'Lora Connect',
-  mainTitle: 'Long-Range Data, Instant Access',
-  image: 'sims2.png',
+  smallTitle: 'Performance Monitoring',
+  mainTitle: 'Real-Time Insights for Smarter Decisions',
+  image: 'iemc2.png',
   smallTitleright:
-    'Transmit sensor data seamlessly up to 5 km, ensuring reliable connectivity and real-time insights without complex infrastructure.',
+    'SEMC provides real-time performance data, helping you make smarter and faster decisions.',
 };
 
 const section3 = {
-  image: 'sims3.png',
-  title: 'Thermo Track',
-  subtitle: 'Precision Temperature Control Made Simple',
+  image: 'iemc3.png',
+  title: 'Smart Calibration',
+  subtitle: 'Easy Setup, Maximum Accuracy',
   description:
-    'Ensure stable operations with accurate temperature monitoring, helping prevent overheating and maintain optimal performance.',
+    'With intuitive calibration tools, SEMC allows users to quickly set up sensors and parameters, ensuring precise motor control without complex configurations.',
   buttonText: 'Pre Order Now',
   buttonLink: '/ContactUs',
 };
@@ -345,18 +345,21 @@ const section3 = {
 const reasonCard = [
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Wide Coverage',
-    description: 'Monitor extensive areas with robust long-range connectivity, ensuring comprehensive oversight.',
+    title: 'Safety First',
+    description:
+      'Our advanced driver assistance systems help prevent accidents and keep you safe on the road.',
   },
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Low Power Consumption',
-    description: 'Extended battery life for sensors and devices, reducing maintenance and operational costs.',
+    title: 'User Friendly Interface',
+    description:
+      'Simple and Intuitive design makes it easy for drivers of all levels to use our features effectively.',
   },
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Seamless Cloud Integration',
-    description: 'Effortlessly connect and manage all your data in the cloud for real-time access and analysis.',
+    title: 'Continuous Improvement',
+    description:
+      'We continuously enhance our technology to provide you with the most advanced and reliable driving assistance on the market.',
   },
 ];
 </script>

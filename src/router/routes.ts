@@ -118,6 +118,16 @@ const routes: RouteRecordRaw[] = [
         component: () =>
           import('src/components/AutomationSystem/ProductSims.vue'),
       },
+      {
+        path: '/product-LookIn',
+        component: () =>
+          import('src/components/AutomationSystem/ProductLookin.vue'),
+      },
+      {
+        path: '/Product-IEMC',
+        component: () =>
+          import('src/components/AutomationSystem/ProductIemc.vue'),
+      },
     ],
   },
 

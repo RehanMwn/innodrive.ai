@@ -427,19 +427,19 @@ const automationSystems = [
   },
   {
     title: 'SIMS',
-    link: '/ProductSIMSPage',
+    link: '/Product-SIMS',
     desc: 'Smart Integrated Monitoring System',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },
   {
     title: 'LookIn',
-    link: '/ProductLookInPage',
+    link: '/Product-LookIn',
     desc: 'Automated attendance based on face recognition',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/face-scanner.png',
   },
   {
-    title: 'CNC Laser',
-    link: '/ProductCNCLaserPage',
+    title: 'IEMC',
+    link: '/Product-IEMC',
     desc: 'To simplify PCB manufacturing with high precision.',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
   },
