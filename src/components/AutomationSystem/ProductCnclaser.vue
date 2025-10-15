@@ -129,7 +129,7 @@
               <q-img
                 :src="`assets/imageDekstop/${section2.image}`"
 
-                style="max-width: 84%; border-radius: 12px;"
+                style="max-width: 63%; border-radius: 12px; margin-left: 80px;"
                 fit="contain"
               ></q-img>
             </div>
@@ -138,11 +138,11 @@
               :class="
                 $q.screen.lt.md
                   ? 'col-12 flex flex-column items-center text-center'
-                  : 'col-12 col-md-5 flex flex-center q-mt-lg q-ml-xl'
+                  : 'col-12 col-md-5 flex flex-center q-mb-lg q-ml-xl'
               "
             >
               <div class="row q-gutter-md justify-center q-px-md">
-                <div class="text-h6 q-py-md q-px-lg q-ml-lg">
+                <div class="text-h6 q-py-md q-px-lg q-ml-lg q-mb-lg q-mt-lg">
                   {{ section2.smallTitleright }}
                 </div>
                 <div
@@ -246,7 +246,7 @@
           <div class="col-12 col-md-6" style="min-height: 400px">
             <q-img
               :src="`/public/assets/imageDekstop/${section3.image}`"
-              style="max-width: 70%; border-radius: 12px; margin: -200px 80px 10px"
+              style="max-width: 80%;  margin-left: -10px"
               fit="contain"
             />
           </div>
@@ -284,7 +284,7 @@
             <div class="col-12 q-mt-xl">
               <q-img
                 :src="`/public/assets/imageDekstop/${section3.image}`"
-                style="max-width: 90%; border-radius: 12px; margin-left: 12px"
+                style="max-width: 90%; border-radius: 12px; margin-left: 13px"
                 fit="contain"
               />
             </div>
@@ -317,23 +317,23 @@
 
 <script setup lang="ts">
 const section1 = {
-  image: 'iemc.png',
-  imageMobile: 'iemcm.png',
-  title: 'Maximum Control, Smarter Efficiency',
+  image: 'cnc.png',
+  imageMobile: 'cncm.png',
+  title: 'High Precicien, Perfect Results',
   subtitle:
-'Delivering precise motor regulation with seamless CAN bus integration, IEMC ensures optimized performance for electric vehicles, robotics, and industrial automation.',
+'CNC Laser streamlines PCB stencil production with unmatched accuracy, reducing errors and improving quality for both prototyping and mass manufacturing.',
 };
 
 const section2 = {
-  smallTitle: 'Performance Monitoring',
-  mainTitle: 'Real-Time Insights for Smarter Decisions',
-  image: 'iemc2.png',
+  smallTitle: 'Laser Cut',
+  mainTitle: 'Precision Stencils in Every Detail',
+  image: 'cnc2.png',
   smallTitleright:
-    'SEMC provides real-time performance data, helping you make smarter and faster decisions.',
+    'Delivering high-accuracy cuts for flawless solder paste stencils and optimized PCB assembly',
 };
 
 const section3 = {
-  image: 'iemc3.png',
+  image: 'cnc3.png',
   title: 'Smart Calibration',
   subtitle: 'Easy Setup, Maximum Accuracy',
   description:
@@ -345,21 +345,18 @@ const section3 = {
 const reasonCard = [
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Safety First',
-    description:
-      'Our advanced driver assistance systems help prevent accidents and keep you safe on the road.',
+    title: 'High-Precision Cutting',
+    description: 'Achieve intricate designs and accurate dimensions for PCB stencils, ensuring optimal solder paste application.',
   },
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'User Friendly Interface',
-    description:
-      'Simple and Intuitive design makes it easy for drivers of all levels to use our features effectively.',
+    title: 'Seamless Software Integration',
+    description: 'Effortlessly integrate with existing design software for a smooth workflow from CAD to cutting.',
   },
   {
     icon: 'assets/icon/WCIcon1.png',
-    title: 'Continuous Improvement',
-    description:
-      'We continuously enhance our technology to provide you with the most advanced and reliable driving assistance on the market.',
+    title: 'Prototype to Mass Production',
+    description: 'Scalable solutions that support both rapid prototyping and high-volume manufacturing with consistent quality.',
   },
 ];
 </script>

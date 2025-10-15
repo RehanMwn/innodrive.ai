@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.16.17",
+    "@strapi/plugin-email": "^4.25.23",
     "axios": "^1.8.1",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",

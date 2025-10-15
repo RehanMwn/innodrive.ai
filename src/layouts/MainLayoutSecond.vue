@@ -421,7 +421,7 @@ onUnmounted(() => {
 const automationSystems = [
   {
     title: 'InnoDrop',
-    link: '/product-Innodrop',
+    link: '/Product-Innodrop',
     desc: 'Interactive customizable mining fuel pump',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },
@@ -438,9 +438,9 @@ const automationSystems = [
     icon: 'assets/icon/ProductsIcon/Automation_Systems/face-scanner.png',
   },
   {
-    title: 'IEMC',
-    link: '/Product-IEMC',
-    desc: 'To simplify PCB manufacturing with high precision.',
+    title: 'CNC Laser',
+    link: '/Product-CNC-Laser',
+    desc: 'To simplify PCB manufacturing  with high precision.',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
   },
 ];
@@ -465,11 +465,17 @@ const automotive = [
     icon: 'assets/icon/ProductsIcon/Automotive/test-drive.png',
   },
   {
-    title: 'SEMC',
-    link: '/ProductSEMCPage',
-    desc: 'Intelligent system for precise BLDC and FOC motor control',
-    icon: 'assets/icon/ProductsIcon/Smart_Systems/disruptive-innovation.png',
+    title: 'IEMC',
+    link: '/Product-IEMC',
+    desc: 'To simplify PCB manufacturing with high precision.',
+    icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
   },
+  // {
+  //   title: 'SEMC',
+  //   link: '/ProductSEMCPage',
+  //   desc: 'Intelligent system for precise BLDC and FOC motor control',
+  //   icon: 'assets/icon/ProductsIcon/Smart_Systems/disruptive-innovation.png',
+  // },
 ];
 
 const smartSystems = [

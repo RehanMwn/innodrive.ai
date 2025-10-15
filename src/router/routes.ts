@@ -126,7 +126,12 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/Product-IEMC',
         component: () =>
-          import('src/components/AutomationSystem/ProductIemc.vue'),
+          import('src/components/Automotive/ProductIemc.vue'),
+      },
+      {
+        path: '/Product-CNC-Laser',
+        component: () =>
+          import('src/components/AutomationSystem/ProductCnclaser.vue'),
       },
     ],
   },

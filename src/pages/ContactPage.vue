@@ -24,16 +24,24 @@
             />
             <div class="text-body1">{{ item }}</div>
           </div>
-          <div>
-            <q-btn
-              class="gradient-color text-white"
-              glossy
-              label="Consult Now"
-              :href="'https://wa.me/message/5H2WQUJVTOU3F1'"
-              target="_blank"
-            >
-              <q-icon name="fa-brands fa-whatsapp" class="q-ml-sm" />
-            </q-btn>
+          <div style="margin-top: 100px">
+            <div class="text-h5 text-bold q-mb-md">
+              You have <span class="gradient-text">questions</span>? Or you like
+              want to <span class="gradient-text">consult</span> with the Admin?
+              Feel free to contact us via
+              <span class="gradient-text">WhatsApp</span>.
+            </div>
+            <div>
+              <q-btn
+                class="gradient-color text-white"
+                glossy
+                label="Consult Now"
+                :href="'https://wa.me/message/5H2WQUJVTOU3F1'"
+                target="_blank"
+              >
+                <q-icon name="fa-brands fa-whatsapp" class="q-ml-sm" />
+              </q-btn>
+            </div>
           </div>
           <!-- Right Side: Form-->
         </div>
@@ -49,7 +57,6 @@
                   label=""
                   outlined
                   dense
-
                   :rules="[(val) => !!val || 'Required']"
                 />
               </div>
@@ -393,7 +400,8 @@
                   type="submit"
                   class="q-mt-md full-width"
                   :disable="!isFormValid"
-                /><q-btn
+                />
+                <q-btn
                   class="gradient-color text-white full-width"
                   glossy
                   label="Consult Now"
@@ -446,28 +454,47 @@ const $q = useQuasar();
 // ===================================
 
 // Order Product
-const productOptions = ['Adros', 'Innodrop', 'SIMS', 'Product Lainnya'];
+const productOptions = [
+  'Innodrop',
+  'SIMS',
+  'LookIn',
+  'CNC Laser',
+  'Dynomax',
+  'InnoDash',
+  'InnoRace',
+  'IEMC',
+  'AgriSoil',
+];
 
 // Product Information
-const infoOptions = [
-  'Detail Adros',
-  'Detail Innodrop',
-  'Detail SIMS',
-  'Informasi Umum',
-];
+// const infoOptions = [
+//   'Detail Adros',
+//   'Detail Innodrop',
+//   'Detail SIMS',
+//   'Informasi Umum',
+// ];
 
-// Partnership Opportunity
+// Partnership Opportunity (translated)
 const partnershipOptions = [
   'Distributor',
-  'Integrator Teknologi',
-  'Kerja Sama Riset',
+  'Technology Integrator',
+  'Research Collaboration',
 ];
 
-// Support Request
-const supportOptions = ['Masalah Teknis', 'Pertanyaan Garansi', 'Laporan Bug'];
+// Support Request (translated)
+const supportOptions = ['Technical Issue', 'Warranty Inquiry', 'Bug Report'];
 
-// Apply for a Job
-const jobOptions = ['Engineering', 'Marketing', 'Lainnya'];
+// Apply for a Job (expanded)
+const jobOptions = [
+  'Embedded Engineer',
+  'Front End Developer',
+  'Robotic Engineer',
+  'Back End Developer',
+  'Business Development',
+  'Marketing',
+  'UI/UX Designer',
+  'Project Manager',
+];
 
 // ===================================
 // DATA UTAMA
@@ -482,7 +509,7 @@ const checklist = [
 
 const subjectOptions = [
   { label: 'Pre Order Product', value: 'order' },
-  { label: 'Product Information', value: 'product' },
+  // { label: 'Product Information', value: 'product' },
   { label: 'Partnership Opportunity', value: 'partnership' },
   { label: 'Support Request', value: 'support' },
   { label: 'Apply for a Job', value: 'job' },
@@ -511,8 +538,8 @@ const currentSubOptions = computed(() => {
   switch (form.value.subject) {
     case 'order':
       return productOptions;
-    case 'product':
-      return infoOptions;
+    // case 'product':
+    //   return infoOptions;
     case 'partnership':
       return partnershipOptions;
     case 'support':
@@ -616,7 +643,6 @@ const sendEmail = () => {
 };
 </script>
 
-
 <style>
 .bg-contact {
   background-color: #0c111d;
@@ -654,7 +680,7 @@ const sendEmail = () => {
   font-weight: 500;
 }
 .q-checkbox__inner {
-  color: #ffffff !important; /* ubah warna default jadi putih */
+  color: #d9ab6d !important; /* ubah warna default jadi putih */
 }
 
 @media (max-width: 600px) {
