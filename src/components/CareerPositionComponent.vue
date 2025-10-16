@@ -1,64 +1,145 @@
 <template>
-  <div class="about-section text-white ornament-bg">
+  <div id="section-2roles" class="about-section text-white ornament-bg">
     <!-- Title -->
     <div class="justify-center q-mt-lg q-mb-xl">
       <div class="text-h4 text-bold text-center">
         Available <span class="gradient-text">Positions</span>
       </div>
       <div class="text-subtitle1 text-white text-center q-mt-sm q-px-lg">
-        Discover roles where your skills can drive innovation and shape the future with Innodrive.ai.
+        Discover roles where your skills can drive innovation and shape the
+        future with Innodrive.ai.
       </div>
     </div>
 
     <!-- Content -->
     <div class="positions-grid q-mt-xl">
-      <div
-        v-for="(job, index) in jobs"
-        :key="index"
-        class="job-item"
-      >
+      <div v-for="(job, index) in jobs" :key="index" class="job-item">
         <div class="job-info">
-          <div class="job-title">{{ job.title }}</div>
-          <div class="job-detail">{{ job.detail }}</div>
-        </div>
-        <div class="arrow-circle">
-          <q-icon name="arrow_forward" size="22px" color="amber-7" />
-        </div>
-      </div>
-      <div class="q-mt-lg q-ml-md prafooter-btn-wrap" style="grid-column: span 2; text-align: center">
-            <q-btn
-              label="Contact Us"
-              text-color="white"
-              class="gradient-color q-px-xl q-py-sm text-bold"
-              style="border-radius: 8px"
-              @click="$router.push('/ContactUs')"
-            />
+          <div class="job-title">{{ job.title || 'Untitled' }}</div>
+
+          <div class="job-detail">
+            <template v-if="job.available">
+              {{ job.slot_left }} Slot Left • {{ job.type || 'Full-time' }}
+            </template>
+            <template v-else>
+              <span class="text-red text-weight-bold">Full</span> •
+              {{ job.type || 'Full-time' }}
+            </template>
           </div>
+        </div>
+
+        <!-- Tombol panah -->
+        <q-btn
+          class="arrow-circle"
+          flat
+          round
+          color="amber"
+          icon="arrow_forward"
+          @click="openDialog(job)"
+        />
+      </div>
     </div>
+
+    <!-- Dialog Detail Job -->
+    <DetailJobComponent
+      v-if="selectedJob"
+      :model-value="dialogVisible"
+      @update:modelValue="dialogVisible = $event"
+      :job="selectedJob"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    const jobs = ref([
-      { title: 'Embedded Engineer', detail: '3 Slot Left • Full-time' },
-      { title: 'Front End Developer', detail: '2 Slot Left • Full-time' },
-      { title: 'Robotic Engineer', detail: '3 Slot Left • Full-time' },
-      { title: 'Back End Developer', detail: '2 Slot Left • Full-time' },
-      { title: 'Bussiness Development', detail: '2 Slot Left • Full-time' },
-      { title: 'Marketing', detail: '1 Slot Left • Full-time' },
-      { title: 'UI/UX Designer', detail: '1 Slot Left • Part-time' },
-      { title: 'Project Manager', detail: '1 Slot Left • Full-time' }
-    ]);
+import { defineComponent, ref, onMounted } from 'vue';
+import { useQuasar } from 'quasar';
+import DetailJobComponent from './DetailJobComponent.vue';
 
-    return { jobs };
-  }
+interface JobRaw {
+  id: number;
+  title?: string;
+  name?: string;
+  job_title?: string;
+  type?: string;
+  slot_left?: number;
+  available?: boolean;
+  detailJob?: string | null;
+}
+
+interface Job {
+  title: string;
+  type: string;
+  slot_left: number;
+  available: boolean;
+  detailJob: string;
+}
+
+export default defineComponent({
+  name: 'CareerPositionComponent',
+  components: { DetailJobComponent },
+  setup() {
+    const jobs = ref<Job[]>([]);
+    const dialogVisible = ref(false);
+    const selectedJob = ref<Job | null>(null);
+    const $q = useQuasar();
+
+    const fetchJobs = async () => {
+      try {
+        const apiUrl =
+          import.meta.env.VITE_STRAPI_API_URL_LOCAL ||
+          import.meta.env.VITE_STRAPI_API_URL;
+
+        const res = await fetch(`${apiUrl}/api/job-positions?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${
+              import.meta.env.VITE_STRAPI_API_TOKEN || ''
+            }`,
+          },
+        });
+
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+        const { data } = await res.json();
+        console.log('🟢 Strapi job data:', data);
+
+        jobs.value = (data || []).map((item: JobRaw) => ({
+          title: item.title || item.name || item.job_title || 'Untitled',
+          type: item.type ?? 'Full-time',
+          slot_left: item.slot_left ?? 0,
+          available: item.available ?? false,
+          detailJob: item.detailJob ?? '',
+        }));
+      } catch (err) {
+        console.error('Failed to fetch job positions:', err);
+        $q.notify({
+          type: 'negative',
+          message:
+            'Failed to load job positions. Please check Strapi connection or API URL.',
+        });
+      }
+    };
+
+    const openDialog = (job: Job) => {
+      selectedJob.value = job;
+      dialogVisible.value = true;
+    };
+
+    onMounted(fetchJobs);
+
+    return { jobs, dialogVisible, selectedJob, openDialog };
+  },
 });
 </script>
 
+
 <style scoped>
+.gradient-text {
+  background: linear-gradient(90deg, #d9ab6d 0%, #f3cd96 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .about-section {
   background-color: #0c111d;
   min-height: 100vh;
@@ -73,7 +154,7 @@ export default defineComponent({
   -webkit-text-fill-color: transparent;
 }
 
-/* ===== POSITIONS GRID ===== */
+/*  POSITIONS GRID  */
 .positions-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -89,6 +170,11 @@ export default defineComponent({
   border-bottom: 1px solid rgba(152, 162, 179, 1);
   padding: 12px 0;
   transition: transform 0.2s ease;
+}
+@media (max-width: 700px) {
+  .job-item {
+    grid-column: span 2;
+  }
 }
 
 .job-item:hover {

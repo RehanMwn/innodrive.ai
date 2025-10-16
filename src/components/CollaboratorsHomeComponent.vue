@@ -36,7 +36,7 @@
       <div
         v-for="(logo, index) in collaborators"
         :key="index"
-        class="col-6 col-md-3 col-lg-2 flex flex-center"
+        class="col-6 col-md-3 col-lg-2 flex flex-center q-mt-xl"
         style="
           padding: 5px 10px;
 

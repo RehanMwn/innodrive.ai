@@ -24,24 +24,16 @@
             />
             <div class="text-body1">{{ item }}</div>
           </div>
-          <div style="margin-top: 100px">
-            <div class="text-h5 text-bold q-mb-md">
-              You have <span class="gradient-text">questions</span>? Or you like
-              want to <span class="gradient-text">consult</span> with the Admin?
-              Feel free to contact us via
-              <span class="gradient-text">WhatsApp</span>.
-            </div>
-            <div>
-              <q-btn
-                class="gradient-color text-white"
-                glossy
-                label="Consult Now"
-                :href="'https://wa.me/message/5H2WQUJVTOU3F1'"
-                target="_blank"
-              >
-                <q-icon name="fa-brands fa-whatsapp" class="q-ml-sm" />
-              </q-btn>
-            </div>
+          <div>
+            <q-btn
+              class="gradient-color text-white"
+              glossy
+              label="Consult Now"
+              :href="'https://wa.me/message/5H2WQUJVTOU3F1'"
+              target="_blank"
+            >
+              <q-icon name="fa-brands fa-whatsapp" class="q-ml-sm" />
+            </q-btn>
           </div>
           <!-- Right Side: Form-->
         </div>
@@ -57,6 +49,7 @@
                   label=""
                   outlined
                   dense
+
                   :rules="[(val) => !!val || 'Required']"
                 />
               </div>
@@ -400,8 +393,7 @@
                   type="submit"
                   class="q-mt-md full-width"
                   :disable="!isFormValid"
-                />
-                <q-btn
+                /><q-btn
                   class="gradient-color text-white full-width"
                   glossy
                   label="Consult Now"
@@ -443,48 +435,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
-import { useQuasar } from 'quasar';
-import emailjs from 'emailjs-com';
+import { ref, computed, watch } from 'vue'
+import { useQuasar } from 'quasar'
 
-const $q = useQuasar();
+const $q = useQuasar()
 
-// ===================================
-// OPSI SUB-DROPDOWN
-// ===================================
+// ======================
+// Checklist (Statik)
+// ======================
+const checklist = ref<string[]>([
+  'Custom AI & IoT Development',
+  'System Integration & Automation',
+  'Data-driven Industrial Solutions',
+  'End-to-End Technology Consulting'
+])
 
-// Order Product
-const productOptions = [
-  'Innodrop',
-  'SIMS',
-  'LookIn',
-  'CNC Laser',
-  'Dynomax',
-  'InnoDash',
-  'InnoRace',
-  'IEMC',
-  'AgriSoil',
-];
+// ======================
+// Pilihan Select
+// ======================
+const subjectOptions = [
+  { label: 'Pre Order Product', value: 'order' },
+  { label: 'Partnership Opportunity', value: 'partnership' },
+  { label: 'Support Request', value: 'support' },
+  { label: 'Apply for a Job', value: 'job' },
+  { label: 'Other', value: 'other' }
+]
 
-// Product Information
-// const infoOptions = [
-//   'Detail Adros',
-//   'Detail Innodrop',
-//   'Detail SIMS',
-//   'Informasi Umum',
-// ];
-
-// Partnership Opportunity (translated)
-const partnershipOptions = [
-  'Distributor',
-  'Technology Integrator',
-  'Research Collaboration',
-];
-
-// Support Request (translated)
-const supportOptions = ['Technical Issue', 'Warranty Inquiry', 'Bug Report'];
-
-// Apply for a Job (expanded)
+const productOptions = ['Innodrop', 'SIMS', 'LookIn', 'CNC Laser', 'Dynomax', 'InnoDash', 'InnoRace', 'IEMC', 'AgriSoil']
+const partnershipOptions = ['Distributor', 'Technology Integrator', 'Research Collaboration']
+const supportOptions = ['Technical Issue', 'Warranty Inquiry', 'Bug Report']
 const jobOptions = [
   'Embedded Engineer',
   'Front End Developer',
@@ -493,29 +472,12 @@ const jobOptions = [
   'Business Development',
   'Marketing',
   'UI/UX Designer',
-  'Project Manager',
-];
+  'Project Manager'
+]
 
-// ===================================
-// DATA UTAMA
-// ===================================
-const checklist = [
-  'Schedule a consultation to discuss your automation needs',
-  'Explore Innodrive.ai product features and live demos',
-  'Learn more about our industrial and automotive projects',
-  'Join our network of innovators and industry partners',
-  'Plan your digital transformation journey with us',
-];
-
-const subjectOptions = [
-  { label: 'Pre Order Product', value: 'order' },
-  // { label: 'Product Information', value: 'product' },
-  { label: 'Partnership Opportunity', value: 'partnership' },
-  { label: 'Support Request', value: 'support' },
-  { label: 'Apply for a Job', value: 'job' },
-  { label: 'Other', value: 'other' },
-];
-
+// ======================
+// Form State
+// ======================
 const form = ref({
   firstName: '',
   lastName: '',
@@ -526,61 +488,56 @@ const form = ref({
   subject: '',
   subSubject: '',
   message: '',
-  allowData: false,
-  alllowData: false,
-});
+  allowData: false, // wajib
+  alllowData: false // opsional
+})
 
-// ===================================
-// LOGIKA KONDISIONAL
-// ===================================
-
+// ======================
+// Computed Logic
+// ======================
 const currentSubOptions = computed(() => {
   switch (form.value.subject) {
     case 'order':
-      return productOptions;
-    // case 'product':
-    //   return infoOptions;
+      return productOptions
     case 'partnership':
-      return partnershipOptions;
+      return partnershipOptions
     case 'support':
-      return supportOptions;
+      return supportOptions
     case 'job':
-      return jobOptions;
+      return jobOptions
     default:
-      return [];
+      return []
   }
-});
+})
 
 const subSubjectTitle = computed(() => {
   switch (form.value.subject) {
     case 'order':
-      return 'Select Product';
-    case 'product':
-      return 'Information Topic';
+      return 'Select Product'
     case 'partnership':
-      return 'Partnership Type';
+      return 'Partnership Type'
     case 'support':
-      return 'Support Type';
+      return 'Support Type'
     case 'job':
-      return 'Department/Field';
+      return 'Department/Field'
     default:
-      return 'Detail';
+      return 'Detail'
   }
-});
+})
 
+// Reset subSubject setiap kali subject berubah
 watch(
   () => form.value.subject,
   () => {
-    form.value.subSubject = '';
+    form.value.subSubject = ''
   }
-);
+)
 
-// ===================================
-// VALIDASI & SUBMITt
-// ===================================
-
+// ======================
+// Validation & Submit
+// ======================
 const isFormValid = computed(() => {
-  let allInputsFilled =
+  const requiredFilled =
     !!form.value.firstName &&
     !!form.value.lastName &&
     !!form.value.company &&
@@ -588,60 +545,75 @@ const isFormValid = computed(() => {
     !!form.value.phone &&
     !!form.value.address &&
     !!form.value.subject &&
-    !!form.value.message;
+    !!form.value.message
 
-  if (form.value.subject && form.value.subject !== 'other') {
-    allInputsFilled = allInputsFilled && !!form.value.subSubject;
-  }
+  const subSubjectValid = form.value.subject === 'other' || !!form.value.subSubject
+  const isEmailValid = /.+@.+\..+/.test(form.value.email)
 
-  const isEmailValid = /.+@.+\..+/.test(form.value.email);
-  const requiredCheckboxTicked = form.value.allowData;
+  return requiredFilled && subSubjectValid && isEmailValid && form.value.allowData
+})
 
-  return allInputsFilled && isEmailValid && requiredCheckboxTicked;
-});
-
-const sendEmail = () => {
+// ======================
+// Kirim ke Strapi + Email
+// ======================
+const sendEmail = async () => {
   if (!isFormValid.value) {
     $q.notify({
       type: 'negative',
-      message: 'Please fill in all required fields correctly.',
-    });
-    return;
+      message: 'Please fill in all required fields correctly and agree to data policy.'
+    })
+    return
   }
 
-  emailjs
-    .send(
-      'service_xxxxxx',
-      'template_xxxxxx',
-      {
-        to_email: 'raihanarifin170382@gmail.com',
-        firstName: form.value.firstName,
-        lastName: form.value.lastName,
-        company: form.value.company,
-        email: form.value.email,
-        phone: form.value.phone,
-        address: form.value.address,
-        subject: form.value.subject,
-        subSubject:
-          form.value.subject === 'other' ? 'N/A' : form.value.subSubject,
-        message: form.value.message,
-      },
-      'user_xxxxxx'
-    )
-    .then(() => {
-      $q.notify({
-        type: 'positive',
-        message: 'Email sent successfully!',
-      });
+  try {
+    const res = await fetch(`${import.meta.env.VITE_STRAPI_API_URL_LOCAL}/api/contacts`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        data: {
+          ...form.value,
+          subSubject: form.value.subject === 'other' ? 'N/A' : form.value.subSubject
+        }
+      })
     })
-    .catch(() => {
-      $q.notify({
-        type: 'negative',
-        message: 'Failed to send email. Please try again.',
-      });
-    });
-};
+
+    if (!res.ok) {
+      const error = await res.json()
+      console.error('Error:', error)
+      throw new Error(error?.error?.message || 'Failed to send form')
+    }
+
+    $q.notify({
+      type: 'positive',
+      message: 'Form submitted successfully! Email has been sent.'
+    })
+
+    // Reset form
+    Object.assign(form.value, {
+      firstName: '',
+      lastName: '',
+      company: '',
+      email: '',
+      phone: '',
+      address: '',
+      subject: '',
+      subSubject: '',
+      message: '',
+      allowData: false,
+      alllowData: false
+    })
+  } catch (err) {
+    console.error('Submission error:', err)
+    $q.notify({
+      type: 'negative',
+      message: 'Failed to send form. Please try again later.'
+    })
+  }
+}
 </script>
+
+
+
 
 <style>
 .bg-contact {
@@ -680,7 +652,7 @@ const sendEmail = () => {
   font-weight: 500;
 }
 .q-checkbox__inner {
-  color: #d9ab6d !important; /* ubah warna default jadi putih */
+  color: #ffffff !important; /* ubah warna default jadi putih */
 }
 
 @media (max-width: 600px) {

@@ -70,7 +70,7 @@
         </div>
 
         <div class="col-12 col-md-2 q-pt-md">
-          <div class="column q-px-sm">
+          <div class="column q-px-lg">
             <div class="row q-py-md text-subtitle2">Contact Us</div>
             <div
               class="row q-py-md text-body2"

@@ -483,7 +483,7 @@ const automationSystems = [
   {
     title: 'CNC Laser',
     link: '/Product-CNC-Laser',
-    desc: 'To simplify PCB manufacturing  with high precision.',
+    desc: 'To simplify PCB manufacturing with high precision.',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
   },
 ];
@@ -491,40 +491,34 @@ const automationSystems = [
 const automotive = [
   {
     title: 'Dynomax',
-    link: '/ProductDynomaxPage',
+    link: '/Product-Dynomax',
     desc: 'Dynamometer for indoor vehicle performance testing',
     icon: 'assets/icon/ProductsIcon/Automotive/speedometer.png',
   },
   {
     title: 'InnoDash',
-    link: '/ProductInnoDashPage',
+    link: '/Product-InnoDash',
     desc: 'Smart dashboard for electric and conventional motorcycles',
     icon: 'assets/icon/ProductsIcon/Automotive/vehicle.png',
   },
   {
     title: 'InnoRace',
-    link: '/ProductInnoRacePage',
+    link: '/Product-InnoRace',
     desc: 'Offering a unique miniature driving experience',
     icon: 'assets/icon/ProductsIcon/Automotive/test-drive.png',
   },
   {
     title: 'IEMC',
     link: '/Product-IEMC',
-    desc: 'To simplify PCB manufacturing with high precision.',
-    icon: 'assets/icon/ProductsIcon/Automation_Systems/laser.png',
+    desc: 'Intelligent system for precise BLDC and FOC motor control',
+    icon: 'assets/icon/ProductsIcon/Smart_Systems/disruptive-innovation.png',
   },
-  // {
-  //   title: 'SEMC',
-  //   link: '/ProductSEMCPage',
-  //   desc: 'Intelligent system for precise BLDC and FOC motor control',
-  //   icon: 'assets/icon/ProductsIcon/Smart_Systems/disruptive-innovation.png',
-  // },
 ];
 
 const smartSystems = [
   {
     title: 'AgriSoil Systems',
-    link: '/ProductAgriSoilPage',
+    link: '/Product-AgriSoil-Systems',
     desc: 'Real-time digital platform for soil and environmental monitoring',
     icon: 'assets/icon/ProductsIcon/Automation_Systems/analytics.png',
   },

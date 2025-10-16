@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_positions",
+  "info": {
+    "singularName": "job-position",
+    "pluralName": "job-positions",
+    "displayName": "job-position"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "full time",
+        "part time",
+        "internship",
+        "full time & internship"
+      ]
+    },
+    "slot_left": {
+      "type": "integer",
+      "required": true
+    },
+    "available": {
+      "type": "boolean",
+      "required": true
+    },
+    "detailJob": {
+      "type": "richtext"
+    }
+  }
+}

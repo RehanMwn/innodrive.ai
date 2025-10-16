@@ -106,8 +106,8 @@
         <div
           class="arrow-circle"
           :style="{
-            width: $q.screen.gt.sm ? '58px' : '40px',
-            height: $q.screen.gt.sm ? '58px' : '40px',
+            width: $q.screen.gt.sm ? '48px' : '40px',
+            height: $q.screen.gt.sm ? '48px' : '40px',
             border: '2px solid #B58F5B',
             borderRadius: '50%',
             display: 'flex',
@@ -115,14 +115,13 @@
             justifyContent: 'center',
             transition: 'all 0.25s ease',
             cursor: 'pointer',
-            marginBottom: '10px'
           }"
           @click="$router.push(p.route)"
         >
           <q-icon
             name="arrow_forward"
-            :size="$q.screen.gt.sm ? '38px' : '32px'"
-            style="color: #B58F5B"
+            :size="$q.screen.gt.sm ? '28px' : '22px'"
+            color="#B58F5B"
           />
         </div>
       </q-card-section>

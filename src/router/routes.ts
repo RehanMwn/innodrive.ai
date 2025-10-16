@@ -125,13 +125,31 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: '/Product-IEMC',
-        component: () =>
-          import('src/components/Automotive/ProductIemc.vue'),
+        component: () => import('src/components/Automotive/ProductIemc.vue'),
       },
       {
         path: '/Product-CNC-Laser',
         component: () =>
           import('src/components/AutomationSystem/ProductCnclaser.vue'),
+      },
+      {
+        path: '/Product-Dynomax',
+        component: () => import('src/components/Automotive/ProductDynomax.vue'),
+      },
+      {
+        path: '/Product-InnoDash',
+        component: () =>
+          import('src/components/Automotive/ProductInnodash.vue'),
+      },
+      {
+        path: '/Product-InnoRace',
+        component: () =>
+          import('src/components/Automotive/ProductInnorace.vue'),
+      },
+      {
+        path: '/Product-AgriSoil-Systems',
+        component: () =>
+          import('src/components/SmartSystems/ProductAgrisoil.vue'),
       },
     ],
   },

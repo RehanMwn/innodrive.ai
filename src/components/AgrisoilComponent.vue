@@ -51,7 +51,7 @@
                 glossy
                 label="Learn More"
                 unelevated
-                @click="() => $router.push('/about')"
+                @click="() => $router.push('/Product-AgriSoil-Systems')"
               />
             </div>
           </div>
@@ -106,7 +106,7 @@
                 glossy
                 label="Learn More"
                 unelevated
-                @click="() => $router.push('/about')"
+                @click="() => $router.push('/Product-AgriSoil-Systems')"
               />
             </div>
           </div>

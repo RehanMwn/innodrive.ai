@@ -86,7 +86,6 @@
         </q-carousel-slide>
       </q-carousel>
     </div>
-
   </div>
 </template>
 
@@ -192,6 +191,7 @@ onBeforeUnmount(() => {
   flex-direction: column;
   height: 100%;
   min-height: 420px; /* ensure consistent card height between slides */
+  max-height: 560px; /* prevent cards from becoming too tall or squashed */
   width: 100%;
 }
 
@@ -214,6 +214,7 @@ onBeforeUnmount(() => {
   justify-content: space-between;
   flex: 1 1 auto;
   box-sizing: border-box;
+  overflow: auto; /* allow scrolling if content exceeds the max-height */
 }
 
 /* title & subtitle */
@@ -224,11 +225,12 @@ onBeforeUnmount(() => {
   margin-bottom: 8px;
 
   display: -webkit-box;
-  -webkit-line-clamp: 2;   /* maksimal 2 baris */
+  line-clamp: 2;
+  -webkit-line-clamp: 2; /* maksimal 2 baris */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 2.6em;       /* jaga tinggi konsisten */
+  min-height: 2.6em; /* jaga tinggi konsisten */
 }
 
 .card-subtitle {
@@ -237,13 +239,13 @@ onBeforeUnmount(() => {
   line-height: 1.3;
 
   display: -webkit-box;
-  -webkit-line-clamp: 3;   /* maksimal 3 baris */
+  line-clamp: 3;
+  -webkit-line-clamp: 3; /* maksimal 3 baris */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 3.9em;       /* jaga tinggi konsisten */
+  min-height: 3.9em; /* jaga tinggi konsisten */
 }
-
 
 /* footer area of card */
 .card-footer {
@@ -273,6 +275,7 @@ onBeforeUnmount(() => {
   }
   .gallery-card {
     min-height: 360px;
+    max-height: 520px;
   }
   .card-image {
     height: 200px;
@@ -285,6 +288,7 @@ onBeforeUnmount(() => {
   }
   .gallery-card {
     min-height: 320px;
+    max-height: 480px;
   }
   .card-image {
     height: 180px;
@@ -303,16 +307,16 @@ onBeforeUnmount(() => {
 }
 
 .ornament-bg::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -200px;
-  bottom: -10px;      /* agak keluar 10px biar transparan sesuai permintaan */
-  left: -160px;        /* setengah sisi kirinya keluar layar */
-  width: 400px;       /* bisa diatur sesuai ukuran */
+  bottom: -10px; /* agak keluar 10px biar transparan sesuai permintaan */
+  left: -160px; /* setengah sisi kirinya keluar layar */
+  width: 400px; /* bisa diatur sesuai ukuran */
   height: 400px;
-  background: url("/assets/ImageDekstop/ornament.png") no-repeat left bottom;
+  background: url('/assets/ImageDekstop/ornament.png') no-repeat left bottom;
   background-size: contain;
-  opacity: 0,9;       /* transparan dikurangi 10% */
+  opacity: 0, 9; /* transparan dikurangi 10% */
   transform: scaleX(-1); /* flip horizontal */
   pointer-events: none; /* biar nggak ganggu klik */
   z-index: 1;
@@ -325,15 +329,16 @@ onBeforeUnmount(() => {
 
 /* Kanan atas2 */
 .ornament-bg::after {
-  content: "";
+  content: '';
   position: absolute;
-  bottom: -10px;      /* agak keluar 10px */
-  left: -160px;       /* setengah keluar kiri */
+  bottom: -10px; /* agak keluar 10px */
+  left: -160px; /* setengah keluar kiri */
   width: 400px;
   height: 400px;
-  background: url("/public/assets/imageDekstop/ornament.png") no-repeat left bottom;
+  background: url('/public/assets/imageDekstop/ornament.png') no-repeat left
+    bottom;
   background-size: contain;
-  opacity: 0.9;       /* transparan dikurangi 10% */
+  opacity: 0.9; /* transparan dikurangi 10% */
   transform: scaleX(-1); /* flip horizontal */
   pointer-events: none;
   z-index: 1;
@@ -341,18 +346,18 @@ onBeforeUnmount(() => {
 
 /* kanan tengah */
 .ornament-bg::before {
-  content: "";
+  content: '';
   position: absolute;
-  bottom: -10px;      /* sama kayak yang kiri */
-  right: -100px;      /* setengah keluar kanan */
+  bottom: -10px; /* sama kayak yang kiri */
+  right: -100px; /* setengah keluar kanan */
   width: 400px;
   height: 400px;
-  background: url("/public/assets/imageDekstop/ornament.png") no-repeat right bottom;
+  background: url('/public/assets/imageDekstop/ornament.png') no-repeat right
+    bottom;
   background-size: contain;
   opacity: 0.9;
   /* tidak di-flip biar tetap natural */
   pointer-events: none;
   z-index: 1;
 }
-
 </style>

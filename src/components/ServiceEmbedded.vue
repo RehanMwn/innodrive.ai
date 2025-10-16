@@ -63,7 +63,7 @@
                 <div class="text-body1">{{ item.title }}</div>
                 <div class="text-subtitle2 text-grey-7">
                   {{ item.description }}
-
+                </div>
               </div>
             </div>
 
@@ -76,7 +76,6 @@
                 @click="() => $router.push('/about')"
               />
             </div> -->
-          </div>
           </div>
         </div>
       </template>
@@ -301,7 +300,7 @@
               <q-icon
                 name="arrow_forward"
                 :size="$q.screen.gt.sm ? '28px' : '22px'"
-                  style="color: #B58F5B;"
+                style="color: #B58F5B;"
               />
             </div>
           </q-card-section>
@@ -348,34 +347,34 @@ export default defineComponent({
     const serviceMidText1 = 'Example Product';
     const serviceMidText2 = 'From Manual to Smart — Transform Your Operations!';
     const serviceMidText3 =
-      'Whether it\'s IoT-enabled control or seamless system integration, we make industrial automation smarter.';
+      'Discover how our expertise can transform your operations and drive your business forward.';
     const servicePortoCard = [
       {
         id: 1,
-        title: 'InnoDrop',
+        title: 'Smart Conveyor System',
         description:
-          'A fuel dispensing pump for mining vehicles, equipped with a modern display for efficient and user-friendly fueling.',
-        route: 'Product-InnoDrop',
+          'Automated material handling with real-time monitoring and analytics.',
+        route: '/portfolio/conveyor-system',
       },
       {
         id: 2,
-        title: 'Smart Integrated Monitoring System (SIMS)',
+        title: 'Robotic Arm Integration',
         description:
-          'An intelligent solution for real-time monitoring and control in industrial operations.',
-        route: 'Product-SIMS',
+          'Precision robotics for assembly lines and manufacturing automation.',
+        route: '/portfolio/robotic-arm',
       },
       {
         id: 3,
-        title: 'LookIn',
+        title: 'Industrial IoT Platform',
         description:
-          'A universal, customizable face recognition prototype by Innodrive for diverse sectors.',
-        route: 'Product-LookIn',
+          'Centralized control and data management for all your industrial devices.',
+        route: '/portfolio/iot-platform',
       },
       {
         id: 4,
-        title: 'CNC Laser',
+        title: 'Automated Quality Control',
         description:
-          'An Innodrive product that simplifies PCB manufacturing with high precision.',
+          'AI-powered inspection systems to ensure product quality and consistency.',
         route: '/portfolio/quality-control',
       },
     ];

@@ -49,7 +49,7 @@
                 glossy
                 label="Learn More"
                 unelevated
-                @click="() => $router.push('/about')"
+                @click="() => $router.push('/Product-Dynomax')"
               />
             </div>
           </div>
@@ -93,7 +93,7 @@
                 glossy
                 label="Learn More"
                 unelevated
-                @click="() => $router.push('/adros')"
+                @click="() => $router.push('/Product-Dynomax')"
               />
             </div>
           </div>
