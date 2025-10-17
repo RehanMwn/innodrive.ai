@@ -28,6 +28,17 @@
         style="color: #1d2939"
         v-html="aboutShortDescriptionText"
       />
+      <!-- 2 buttons -->
+      <div class="q-mt-lg q-ml-md prafooter-btn-wrap">
+        <q-btn
+          label="Benefits"
+          text-color="white"
+          class="gradient-color q-px-xl q-py-sm text-bold q-mr-md"
+          style="border-radius: 8px"
+          @click="scrollToSection1cards()"
+        />
+
+      </div>
     </div>
   </div>
 </template>
@@ -35,6 +46,14 @@
 <script setup lang="ts">
 import { taglineAboutText } from 'src/pages/PartnerPage';
 import { aboutShortDescriptionText } from 'src/pages/PartnerPage';
+
+function scrollToSection1cards() {
+  const section = document.getElementById('section-1cards');
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 </script>
 
 <style scoped>

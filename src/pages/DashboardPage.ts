@@ -33,40 +33,40 @@ interface Item {
 //keyFeature
 export const keyFeatureCard: Item[] = [
   {
-    icon: 'assets/icon/KF-Icon1.png',
-    title: 'Realtime Navigation System',
+    icon: 'assets/icon/PartnerIcon/edge innovation.png',
+    title: 'Cutting-Edge Innovation',
     description:
-      'Get accurate and up to date directions with real time traffic updates, ensuring you always take the fastest route.',
+      'Delivering AI-powered, IoT-enabled, and automation-driven solutions tailored for modern industries.',
   },
   {
-    icon: 'assets/icon/KF-Icon2.png',
-    title: 'Lane Departure Warning',
+    icon: 'assets/icon/PartnerIcon/industry expertise.png',
+    title: 'Industry Expertise',
     description:
-      'Stay safely in your lane with alerts that notify you when you unintentionally drift out of your lane.',
+      'Combining deep knowledge in automotive, industrial automation, and smart systems to solve real-world challenges.',
   },
   {
-    icon: 'assets/icon/KF-Icon3.png',
-    title: 'Smart Parking Assistance',
+    icon: 'assets/icon/PartnerIcon/innovative-solutions.png',
+    title: 'Future-Ready Solutions',
     description:
-      'Easly find and navigate to available parking spot, and let our system assist with parking in tight spaces.',
+      'Designing scalable technologies that support digital transformation and long-term sustainability.',
   },
   {
-    icon: 'assets/icon/KF-Icon4.png',
-    title: 'Collision Avoidance system',
+    icon: 'assets/icon/PartnerIcon/seamless integration.png',
+    title: 'Seamless Integration',
     description:
-      'Advanced sensors and algorithms help prevent accidents by alerting you to potential hazards and assisting with braking.',
+      'Building solutions that optimize operations, reduce costs, and maximize productivity.',
   },
   {
-    icon: 'assets/icon/KF-Icon5.png',
-    title: 'Driver Fatigue Monitoring',
+    icon: 'assets/icon/PartnerIcon/assessment.png',
+    title: 'Performance & Efficiency',
     description:
-      'Stay safely in your lane with alerts that notify you when you unintentionally drift out of your lane.',
+      'Building solutions that optimize operations, reduce costs, and maximize productivity.',
   },
   {
-    icon: 'assets/icon/KF-Icon6.png',
-    title: 'Voice Activated Controls',
+    icon: 'assets/icon/PartnerIcon/agreement.png',
+    title: 'Trusted Parnetship',
     description:
-      ' Keep your hands on the wheeland eyes on the road with voice commands that allow you to control navigation, music, and more.',
+      ' Collaborating with clients to co-create smarter, reliable, and impactful innovations.',
   },
 ];
 // reasonHome

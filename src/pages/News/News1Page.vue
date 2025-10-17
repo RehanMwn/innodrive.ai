@@ -127,7 +127,7 @@ const relatedPosts = ref([
 }
 
 @media (max-width: 768px) {
-  
+
   .sidebar {
     padding-left: 0;
     margin-top: 40px;
