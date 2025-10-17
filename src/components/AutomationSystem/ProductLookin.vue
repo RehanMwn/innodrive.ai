@@ -43,7 +43,7 @@
       <div class="row items-start justify-center q-col-gutter-xl">
         <!-- Mobile Layout -->
         <template v-if="$q.screen.lt.sm">
-          <div class="text-left q-ml-md">
+          <div class="text-left q-ml-lg">
             <div class="text-h6" style="color: #344054">
               {{ section2.smallTitle }}
             </div>
@@ -129,7 +129,7 @@
               <q-img
                 :src="`assets/imageDekstop/${section2.image}`"
 
-                style="max-width: 80%; border-radius: 12px; margin-left: 80px;"
+                style="max-width: 65%; border-radius: 12px; margin-left: 150px;"
                 fit="contain"
               ></q-img>
             </div>
@@ -138,7 +138,7 @@
               :class="
                 $q.screen.lt.md
                   ? 'col-12 flex flex-column items-center text-center'
-                  : 'col-12 col-md-5 flex flex-center q-mb-lg q-ml-xl'
+                  : 'col-12 col-md-5 flex flex-center q-mt-lg q-ml-xl'
               "
             >
               <div class="row q-gutter-md justify-center q-px-md">
@@ -187,7 +187,6 @@
         </template>
       </div>
     </div>
-
     <!-- section 3 -->
     <template v-if="$q.screen.gt.sm">
       <div class="col-12 q-py-xl myFont bg-grey-1">

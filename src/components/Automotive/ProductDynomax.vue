@@ -136,20 +136,21 @@
               </div>
               <q-img
                 :src="`assets/imageDekstop/${section2.image}`"
-                style="max-width: 80%; border-radius: 12px; margin-left: 80px"
+
+                style="max-width: 70%; border-radius: 12px; margin-left: 80px;"
                 fit="contain"
               ></q-img>
             </div>
-            <!-- right -->
+
             <div
               :class="
                 $q.screen.lt.md
                   ? 'col-12 flex flex-column items-center text-center'
-                  : 'col-12 col-md-5 flex flex-center q-mb-lg q-ml-xl'
+                  : 'col-12 col-md-5 flex flex-center q-mb-lg q-mt-md q-ml-xl'
               "
             >
               <div class="row q-gutter-md justify-center q-px-md">
-                <div class="text-h6 q-py-md q-px-lg q-ml-lg">
+                <div class="text-h6 q-py-md q-px-lg q-ml-lg q-mb-lg q-mt-lg">
                   {{ section2.smallTitleright }}
                 </div>
                 <div

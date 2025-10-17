@@ -170,15 +170,18 @@ export interface AdminPermission extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
-    actionParameters: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<{}>;
-    conditions: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
+    // PERBAIKAN 1: Mengganti {} menjadi Record<string, unknown> (untuk nilai default objek)
+    actionParameters: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<Record<string, unknown>>;
+    // PERBAIKAN 2: Mengganti [] menjadi unknown[] (untuk nilai default array)
+    conditions: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<unknown[]>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::permission'> &
       Schema.Attribute.Private;
-    properties: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<{}>;
+    // PERBAIKAN 3: Mengganti {} menjadi Record<string, unknown>
+    properties: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<Record<string, unknown>>;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.Relation<'manyToOne', 'admin::role'>;
     subject: Schema.Attribute.String &
@@ -716,7 +719,7 @@ export interface ApiNewsPageNewsPage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['company', 'project', 'product']> &
+    category: Schema.Attribute.Enumeration<['Company', 'Project', 'Product']> &
       Schema.Attribute.Required;
     content: Schema.Attribute.RichText & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;

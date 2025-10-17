@@ -132,7 +132,7 @@
                 <q-icon
                   name="arrow_forward"
                   :size="$q.screen.gt.sm ? '28px' : '22px'"
-                  style="color: #B58F5B;"
+                  style="color: #b58f5b"
                 />
               </div>
             </q-card-section>
@@ -285,8 +285,8 @@
             <div
               class="arrow-circle"
               :style="{
-                width: ($q.screen.gt.sm ? '58px' : '40px'),
-                height: ($q.screen.gt.sm ? '58px' : '40px'),
+                width: $q.screen.gt.sm ? '58px' : '40px',
+                height: $q.screen.gt.sm ? '58px' : '40px',
                 border: '2px solid #b58f5b',
                 borderRadius: '50%',
                 display: 'flex',
@@ -300,7 +300,7 @@
               <q-icon
                 name="arrow_forward"
                 :size="$q.screen.gt.sm ? '28px' : '22px'"
-                style="color: #B58F5B;"
+                style="color: #b58f5b"
               />
             </div>
           </q-card-section>
@@ -351,31 +351,31 @@ export default defineComponent({
     const servicePortoCard = [
       {
         id: 1,
-        title: 'Smart Conveyor System',
+        title: 'InnoDrop',
         description:
-          'Automated material handling with real-time monitoring and analytics.',
-        route: '/portfolio/conveyor-system',
+          'A fuel dispensing pump for mining vehicles, equipped with a modern display for efficient and user-friendly fueling.',
+        route: '/Product-InnoDrop',
       },
       {
         id: 2,
-        title: 'Robotic Arm Integration',
+        title: 'Smart Integrated Monitoring System (SIMS)',
         description:
-          'Precision robotics for assembly lines and manufacturing automation.',
-        route: '/portfolio/robotic-arm',
+          'An intelligent solution for real-time monitoring and control in industrial operations.',
+        route: '/Product-SIMS',
       },
       {
         id: 3,
-        title: 'Industrial IoT Platform',
+        title: 'LookIn',
         description:
-          'Centralized control and data management for all your industrial devices.',
-        route: '/portfolio/iot-platform',
+          'A universal, customizable face recognition prototype by Innodrive for diverse sectors.',
+        route: '/Product-LookIn',
       },
       {
         id: 4,
-        title: 'Automated Quality Control',
+        title: 'CNC Laser',
         description:
-          'AI-powered inspection systems to ensure product quality and consistency.',
-        route: '/portfolio/quality-control',
+          'An Innodrive product that simplifies PCB manufacturing with high precision.',
+        route: '/Product-CNC-Laser',
       },
     ];
 
@@ -421,7 +421,7 @@ export default defineComponent({
   overflow: hidden;
 }
 .arrow-circle {
-  border: 1.8px solid #B58F5B;
+  border: 1.8px solid #b58f5b;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -429,7 +429,7 @@ export default defineComponent({
   transition: all 0.25s ease;
 }
 .arrow-circle:hover {
-  background-color: #B58F5B;
+  background-color: #b58f5b;
 }
 .arrow-circle:hover .q-icon {
   color: #0c111d !important;

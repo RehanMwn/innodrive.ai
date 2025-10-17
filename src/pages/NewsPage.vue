@@ -5,7 +5,10 @@
       <div class="sidebar-content">
         <h4 class="text-bold text-white q-mb-sm">Innodrive.ai</h4>
         <h5 class="text-bold gradient-text q-mb-lg">News & Updates</h5>
-        <p class="text-grey-5 q-mb-xl" style="max-width: 300px; line-height: 1.4">
+        <p
+          class="text-grey-5 q-mb-xl"
+          style="max-width: 300px; line-height: 1.4"
+        >
           Explore the future of industries with expert insights, case studies,
           and technology trends from
           <span class="gradient-text">Innodrive.ai</span>.
@@ -43,7 +46,11 @@
           input-class="text-white"
           @filter="filterSearch"
         />
-        <q-btn label="Search" no-caps class="q-ml-sm gradient-color text-black" />
+        <q-btn
+          label="Search"
+          no-caps
+          class="q-ml-sm gradient-color text-black"
+        />
       </div>
 
       <!-- News Grid -->
@@ -87,63 +94,76 @@
 
     <!-- 📰 News Detail Dialog -->
     <q-dialog v-model="dialogVisible">
-      <div
-        class="col-12 justify-center text-white myFont"
-        :style="{
-          'background-color': '#0c111d',
-          'max-width': $q.screen.gt.sm ? '70%' : '95%',
-          'border-radius': '10px',
-          border: '2px solid #d9ab6d',
-          overflow: 'hidden'
-        }"
-      >
-        <!-- Header -->
-        <div
-          class="text-center text-white q-mt-lg text-bold"
-          :class="$q.screen.gt.sm ? 'text-h3' : 'text-h4'"
-          :style="{ 'margin-bottom': $q.screen.gt.sm ? '30px' : '20px' }"
-        >
-          {{ selectedPost?.title }}
-        </div>
+  <div
+    class="col-12 text-white myFont"
+    :style="{
+      'background-color': '#0c111d',
+      'max-width': $q.screen.gt.sm ? '70%' : '95%',
+      'max-height': '90vh', /* BARU: Batas tinggi maksimum 90% dari viewport */
+      'border-radius': '10px',
+      border: '2px solid #d9ab6d',
+      overflowY: 'auto', /* BARU: Mengaktifkan scroll vertikal */
+    }"
+  >
+    <q-btn
+      icon="close"
+      flat
+      round
+      dense
+      v-close-popup
+      class="absolute-top-right q-ma-sm"
+      color="white"
+      z-index="10"
+    />
 
-        <!-- Image -->
+    <div class="q-pa-lg" style="max-width: 90%; margin: 20px auto">
+      <div
+        class="text-white text-bold text-center q-mb-md"
+        :class="$q.screen.gt.sm ? 'text-h4' : 'text-h4'"
+      >
+        {{ selectedPost?.title }}
+      </div>
+
+      <div class="text-grey text-center text-caption q-mb-md">
+        {{ selectedPost?.date }}
+      </div>
+
+      <!-- <div class="text-center q-mb-lg">
+        <q-badge
+          color="blue-12"
+          class="text-uppercase text-caption"
+        >
+          {{ selectedPost?.category }}
+        </q-badge>
+      </div> -->
+
+      <div class="q-mb-md">
         <q-img
           v-if="selectedPost?.image"
           :src="selectedPost.image"
-          style="max-height: 300px; border-radius: 6px; margin: 0 auto; width: 90%;"
+          class="dialog-image"
           spinner-color="amber"
+          style="border-radius: 12px"
         />
-
-        <!-- Content -->
-        <div
-          class="q-pa-lg text-grey-3"
-          style="max-width: 90%; margin: 0 auto; line-height: 1.6"
-        >
-          <div class="text-caption text-amber q-mb-sm">
-            Category: {{ selectedPost?.category }}
-          </div>
-
-          <vue-markdown-render
-            v-if="selectedPost?.content"
-            :source="selectedPost.content"
-            class="markdown-content"
-          />
-        </div>
-
-        <!-- Footer Button -->
-        <div class="row justify-center q-my-md">
-          <q-btn
-            flat
-            glossy
-            color="amber"
-            text-color="black"
-            label="Close"
-            class="q-mb-md"
-            @click="dialogVisible = false"
-          />
-        </div>
       </div>
-    </q-dialog>
+
+      <q-separator color="grey-8" spaced />
+
+      <div
+        class="text-grey-3 q-mt-lg"
+        style="line-height: 1.8; text-align: justify; text-indent: 2.5em"
+      >
+        <vue-markdown-render
+          v-if="selectedPost?.content"
+          :source="selectedPost.content"
+          class="markdown-content"
+        />
+      </div>
+    </div>
+
+
+  </div>
+</q-dialog>
   </q-page>
 </template>
 
@@ -164,6 +184,7 @@ interface StrapiPostRaw {
   id: number;
   title?: string;
   content?: string;
+  date?: string;
   category?: string;
   image?: StrapiImageAttribute[];
   // Tambahkan field lain jika ada, misalnya attributes: { ... } untuk Strapi v4
@@ -175,6 +196,7 @@ interface Post {
   title: string;
   content: string;
   desc: string;
+  date?: string;
   category: string;
   image: string; // URL lengkap
 }
@@ -215,10 +237,12 @@ const fetchNews = async () => {
       id: item.id,
       title: item.title || 'Untitled',
       content: item.content || '',
-      desc: item.content
-        ? item.content.slice(0, 120).replace(/<[^>]*>/g, '') + '...'
-        : '',
+      date: item.date || '', // ✅ ambil field date dari Strapi
       category: item.category || 'General',
+      desc:
+        item.content && item.content.length > 120
+          ? item.content.slice(0, 120).replace(/<[^>]*>/g, '') + '...'
+          : item.content || '',
       image:
         item.image && item.image.length > 0 && item.image[0].url
           ? `${apiUrl}${item.image[0].url}`
@@ -291,7 +315,8 @@ const filterSearch = (val: string, update: QuasarUpdateFn) => {
 const searchSuggestions = ref<string[]>([]);
 
 // DIALOG FUNCTIONS
-const openDialog = (post: Post) => { // Menggunakan interface Post
+const openDialog = (post: Post) => {
+  // Menggunakan interface Post
   selectedPost.value = post;
   dialogVisible.value = true;
 };
@@ -422,5 +447,39 @@ onMounted(fetchNews);
     padding-right: 16px;
   }
 }
+.dialog-image {
+  max-height: 400px; /* Ukuran gambar sedang */
+  width: 60%;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 22px;
 
+  /* REVISI UTAMA UNTUK CENTERING */
+  display: block; /* Penting agar margin: auto bekerja */
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Style untuk konten Markdown */
+.markdown-content {
+  text-align: justify;
+  font-size: 16px;
+}
+
+/* Mengatur indentasi 5 spasi di awal paragraf */
+/* Ini menggunakan CSS untuk memformat tampilan konten Markdown */
+.markdown-content p:first-child {
+  /* Menggunakan text-indent untuk indentasi baris pertama */
+  text-indent: 5em;
+  /* 1em setara dengan lebar huruf 'M'. 5em memberikan indentasi yang signifikan */
+}
+/* Menghapus indentasi untuk elemen list, quote, dll. */
+.markdown-content :not(p):first-child {
+  text-indent: 0 !important;
+}
+
+/* Style tambahan untuk memastikan judul tidak terlalu lebar */
+.dialog-title {
+  word-wrap: break-word;
+  white-space: normal;
+}
 </style>

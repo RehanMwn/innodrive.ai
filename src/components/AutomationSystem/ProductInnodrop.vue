@@ -43,7 +43,7 @@
       <div class="row items-start justify-center q-col-gutter-xl">
         <!-- Mobile Layout -->
         <template v-if="$q.screen.lt.sm">
-          <div class="text-left">
+          <div class="text-left q-mr-lg">
             <div class="text-h6" style="color: #344054">
               {{ section2.smallTitle }}
             </div>

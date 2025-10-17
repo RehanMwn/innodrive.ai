@@ -19,9 +19,9 @@
       "type": "enumeration",
       "required": true,
       "enum": [
-        "company",
-        "project",
-        "product"
+        "Company",
+        "Project",
+        "Product"
       ]
     },
     "date": {
